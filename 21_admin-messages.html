@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOBLIUM - メッセージ管理</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#f0faf7',100:'#d1f5ec',200:'#a3ead8',300:'#6ed9bf',400:'#3ec4a3',500:'#1eb38a',600:'#16A177',700:'#127e5e',800:'#0e5f47',900:'#094030' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-gray-900 shadow-sm">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <div class="flex items-center gap-3">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-600">
+          <span class="text-sm font-bold text-white">J</span>
+        </div>
+        <span class="text-xl font-bold text-white">JOBLIUM</span>
+        <span class="rounded-md bg-red-600 px-2 py-0.5 text-xs font-bold text-white">ADMIN</span>
+      </div>
+      <nav class="hidden items-center gap-1 md:flex">
+        <a href="17_admin-dashboard.html" class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">ダッシュボード</a>
+        <a href="18_admin-users.html"     class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">ユーザー管理</a>
+        <a href="19_admin-offices.html"   class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">事業所管理</a>
+        <a href="21_admin-messages.html"  class="rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold text-white">メッセージ管理</a>
+        <a href="20_admin-master.html"    class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">マスタ管理</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-white/70">admin@joblium.com</span>
+        <span class="rounded-full bg-red-600 px-2.5 py-0.5 text-xs font-bold text-white">管理者</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="mx-auto max-w-7xl px-4 py-8">
+
+    <!-- タイトル＋サマリ -->
+    <div class="mb-6 flex items-start justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-gray-900">メッセージ管理</h1>
+        <p class="text-sm text-gray-500 mt-0.5">利用者・事業者間のメッセージを検索し、違反が確認された場合に警告を送信します</p>
+      </div>
+    </div>
+
+    <!-- サマリカード -->
+    <div class="grid grid-cols-4 gap-4 mb-7">
+      <div class="rounded-2xl bg-white p-4 shadow-sm border border-gray-200 text-center">
+        <div class="text-2xl font-extrabold text-gray-900">12,480</div>
+        <div class="text-xs text-gray-500 mt-1">総メッセージ数</div>
+        <div class="text-xs text-primary-600 mt-1 font-medium">+148 今月</div>
+      </div>
+      <div class="rounded-2xl bg-white p-4 shadow-sm border border-gray-200 text-center">
+        <div class="text-2xl font-extrabold text-red-600">7</div>
+        <div class="text-xs text-gray-500 mt-1">報告済みメッセージ</div>
+        <div class="text-xs text-red-500 mt-1 font-medium">要対応</div>
+      </div>
+      <div class="rounded-2xl bg-white p-4 shadow-sm border border-gray-200 text-center">
+        <div class="text-2xl font-extrabold text-yellow-600">23</div>
+        <div class="text-xs text-gray-500 mt-1">警告送信済み</div>
+        <div class="text-xs text-yellow-600 mt-1 font-medium">累計</div>
+      </div>
+      <div class="rounded-2xl bg-white p-4 shadow-sm border border-gray-200 text-center">
+        <div class="text-2xl font-extrabold text-gray-900">3</div>
+        <div class="text-xs text-gray-500 mt-1">アカウント停止中</div>
+        <div class="text-xs text-gray-400 mt-1 font-medium">対応済み</div>
+      </div>
+    </div>
+
+    <!-- 検索フォーム -->
+    <div class="rounded-2xl bg-white border border-gray-200 shadow-sm p-5 mb-6">
+      <h2 class="text-sm font-bold text-gray-700 mb-4 flex items-center gap-2">
+        <svg class="h-4 w-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        メッセージ検索
+      </h2>
+      <div class="grid grid-cols-2 gap-4 mb-4">
+        <div>
+          <label class="block text-xs font-semibold text-gray-500 mb-1.5">利用者名</label>
+          <input id="q-user" type="text" placeholder="例：山田 太郎"
+            class="w-full rounded-xl border border-gray-200 px-3 py-2.5 text-sm focus:outline-none focus:border-primary-400 focus:ring-1 focus:ring-primary-100"
+            onkeydown="if(event.key==='Enter') runSearch()">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-500 mb-1.5">事業者名</label>
+          <input id="q-office" type="text" placeholder="例：サンシャイン"
+            class="w-full rounded-xl border border-gray-200 px-3 py-2.5 text-sm focus:outline-none focus:border-primary-400 focus:ring-1 focus:ring-primary-100"
+            onkeydown="if(event.key==='Enter') runSearch()">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-500 mb-1.5">ステータス</label>
+          <select id="q-status" class="w-full rounded-xl border border-gray-200 px-3 py-2.5 text-sm bg-white focus:outline-none focus:border-primary-400">
+            <option value="all">すべて</option>
+            <option value="normal">正常</option>
+            <option value="reported">報告済み</option>
+            <option value="warned">警告送信済み</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-500 mb-1.5">期間</label>
+          <div class="flex items-center gap-2">
+            <input id="q-from" type="date" value="2026-04-01"
+              class="flex-1 rounded-xl border border-gray-200 px-3 py-2.5 text-sm focus:outline-none focus:border-primary-400">
+            <span class="text-gray-400 text-sm">〜</span>
+            <input id="q-to" type="date" value="2026-04-09"
+              class="flex-1 rounded-xl border border-gray-200 px-3 py-2.5 text-sm focus:outline-none focus:border-primary-400">
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center gap-3">
+        <button onclick="runSearch()"
+          class="flex items-center gap-2 rounded-xl bg-primary-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-700 transition-colors shadow-sm">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          検索する
+        </button>
+        <button onclick="resetSearch()"
+          class="rounded-xl border border-gray-200 px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors">
+          リセット
+        </button>
+        <span id="result-count" class="text-xs text-gray-400 ml-2"></span>
+      </div>
+    </div>
+
+    <!-- 検索結果テーブル -->
+    <div class="rounded-2xl bg-white border border-gray-200 shadow-sm overflow-hidden">
+      <div class="px-5 py-3.5 border-b border-gray-100 bg-gray-50 flex items-center justify-between">
+        <h2 class="text-sm font-bold text-gray-700">検索結果</h2>
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-gray-400">報告済みを優先表示</span>
+          <div class="relative inline-block">
+            <input type="checkbox" checked id="sort-reported" class="sr-only peer" onchange="renderResults()">
+            <label for="sort-reported" class="flex h-5 w-9 cursor-pointer items-center rounded-full bg-gray-200 peer-checked:bg-primary-500 transition-colors">
+              <span class="ml-0.5 h-4 w-4 rounded-full bg-white shadow transition-transform peer-checked:translate-x-4 block"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- テーブルヘッダ -->
+      <table class="w-full text-sm" id="result-table">
+        <thead>
+          <tr class="border-b border-gray-100 bg-gray-50/50">
+            <th class="text-left px-5 py-3 text-xs font-semibold text-gray-400 w-32">日時</th>
+            <th class="text-left px-5 py-3 text-xs font-semibold text-gray-400 w-28">利用者</th>
+            <th class="text-left px-5 py-3 text-xs font-semibold text-gray-400 w-44">事業者</th>
+            <th class="text-left px-5 py-3 text-xs font-semibold text-gray-400">メッセージ内容</th>
+            <th class="text-center px-5 py-3 text-xs font-semibold text-gray-400 w-24">ステータス</th>
+            <th class="text-center px-5 py-3 text-xs font-semibold text-gray-400 w-44">操作</th>
+          </tr>
+        </thead>
+        <tbody id="result-tbody" class="divide-y divide-gray-50">
+          <!-- JSで挿入 -->
+        </tbody>
+      </table>
+
+      <!-- 空状態 -->
+      <div id="result-empty" style="display:none" class="py-16 text-center">
+        <div class="text-4xl mb-3">🔍</div>
+        <p class="text-sm text-gray-400">条件に一致するメッセージが見つかりませんでした</p>
+      </div>
+    </div>
+
+  </div><!-- /max-w-7xl -->
+
+
+  <!-- 会話スレッドモーダル -->
+  <div id="thread-modal" style="display:none" class="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/50" onclick="closeThreadModal()"></div>
+    <div class="relative w-full max-w-2xl rounded-2xl bg-white shadow-2xl flex flex-col overflow-hidden" style="max-height:90vh">
+
+      <!-- スレッドヘッダ -->
+      <div class="flex items-center justify-between px-5 py-4 bg-gray-900 flex-shrink-0">
+        <div class="flex items-center gap-3">
+          <div id="th-avatar" class="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-gray-400 to-gray-600 text-sm font-bold text-white flex-shrink-0"></div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span id="th-user" class="text-sm font-bold text-white"></span>
+              <svg class="h-3.5 w-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              <span id="th-office" class="text-sm text-gray-300"></span>
+            </div>
+            <div class="flex items-center gap-2 mt-0.5">
+              <span id="th-status-badge"></span>
+              <span id="th-date" class="text-xs text-gray-400"></span>
+            </div>
+          </div>
+        </div>
+        <button onclick="closeThreadModal()" class="text-gray-400 hover:text-white transition-colors">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- メッセージバブルエリア -->
+      <div id="th-bubbles" class="flex-1 overflow-y-auto px-5 py-5 space-y-4 bg-gray-50" style="min-height:280px">
+        <!-- JSで挿入 -->
+      </div>
+
+      <!-- 警告送信パネル -->
+      <div class="flex-shrink-0 border-t-2 border-red-100 bg-white">
+        <!-- 警告パネルトグルヘッダ -->
+        <button onclick="toggleWarnPanel()" id="warn-panel-toggle"
+          class="w-full flex items-center justify-between px-5 py-3 hover:bg-red-50 transition-colors">
+          <span class="flex items-center gap-2 text-xs font-bold text-red-600">
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            警告文を送信する
+          </span>
+          <svg id="warn-panel-chevron" class="h-4 w-4 text-red-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+
+        <!-- 警告フォーム（折りたたみ） -->
+        <div id="warn-panel-form" style="display:none" class="px-5 pb-4 space-y-3 border-t border-red-50">
+          <div class="grid grid-cols-2 gap-3 pt-3">
+            <div>
+              <label class="block text-xs font-semibold text-gray-500 mb-1.5">違反種別</label>
+              <select id="th-warn-type" onchange="applyThreadWarnTemplate()"
+                class="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm bg-white focus:outline-none focus:border-red-300">
+                <option value="">選択してください</option>
+                <option value="inappropriate">不適切な内容・誹謗中傷</option>
+                <option value="spam">スパム・広告行為</option>
+                <option value="harassment">ハラスメント・脅迫</option>
+                <option value="privacy">個人情報の漏洩・要求</option>
+                <option value="fraud">詐欺・虚偽情報</option>
+                <option value="other">その他</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-gray-500 mb-1.5">送信先</label>
+              <select id="th-warn-target" class="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm bg-white focus:outline-none focus:border-red-300">
+                <option value="user">利用者のみ</option>
+                <option value="office">事業者のみ</option>
+                <option value="both">両方</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-500 mb-1.5">警告文</label>
+            <textarea id="th-warn-text" rows="3"
+              class="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm resize-none focus:outline-none focus:border-red-300 focus:ring-1 focus:ring-red-100"
+              placeholder="違反種別を選択するとテンプレートが挿入されます"></textarea>
+          </div>
+          <div class="flex items-center gap-2">
+            <label class="flex items-center gap-1.5 cursor-pointer text-xs text-gray-600">
+              <input type="checkbox" id="th-action-restrict" class="accent-red-500 rounded">
+              メッセージ機能を一時制限（7日間）
+            </label>
+            <label class="flex items-center gap-1.5 cursor-pointer text-xs text-gray-600 ml-3">
+              <input type="checkbox" id="th-action-suspend" class="accent-red-500 rounded">
+              アカウントを停止
+            </label>
+          </div>
+          <div class="flex gap-2 pt-1">
+            <button onclick="toggleWarnPanel()" class="flex-shrink-0 rounded-xl border border-gray-200 px-4 py-2 text-xs font-medium text-gray-600 hover:bg-gray-50">キャンセル</button>
+            <button onclick="sendThreadWarning()"
+              class="flex-1 rounded-xl bg-red-500 py-2 text-xs font-bold text-white hover:bg-red-600 transition-colors flex items-center justify-center gap-1.5">
+              <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+              この会話に警告文を送信する
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 警告送信モーダル -->
+  <div id="warn-modal" style="display:none" class="fixed inset-0 z-50 flex items-center justify-center">
+    <div class="absolute inset-0 bg-black/40" onclick="closeWarnModal()"></div>
+    <div class="relative w-full max-w-lg mx-4 rounded-2xl bg-white shadow-2xl overflow-hidden">
+
+      <!-- モーダルヘッダ -->
+      <div class="flex items-center justify-between px-6 py-4 bg-red-50 border-b border-red-100">
+        <div class="flex items-center gap-2">
+          <svg class="h-5 w-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+          <h2 class="text-sm font-bold text-red-700">警告メッセージを送信</h2>
+        </div>
+        <button onclick="closeWarnModal()" class="text-gray-400 hover:text-gray-600">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="px-6 py-5 space-y-4">
+
+        <!-- 対象メッセージのプレビュー -->
+        <div class="rounded-xl bg-gray-50 border border-gray-200 p-3">
+          <p class="text-xs font-semibold text-gray-500 mb-1">対象メッセージ</p>
+          <p id="modal-msg-preview" class="text-sm text-gray-700 leading-relaxed"></p>
+          <div class="flex gap-3 mt-2 text-xs text-gray-400">
+            <span id="modal-msg-user"></span>
+            <span>→</span>
+            <span id="modal-msg-office"></span>
+            <span id="modal-msg-date"></span>
+          </div>
+        </div>
+
+        <!-- 警告送信先 -->
+        <div>
+          <label class="block text-xs font-semibold text-gray-500 mb-2">警告の送信先</label>
+          <div class="flex gap-3">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="warn-target" value="user" checked class="accent-red-500">
+              <span class="text-sm text-gray-700">利用者のみ</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="warn-target" value="office" class="accent-red-500">
+              <span class="text-sm text-gray-700">事業者のみ</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="warn-target" value="both" class="accent-red-500">
+              <span class="text-sm text-gray-700">両方</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- 違反種別 -->
+        <div>
+          <label class="block text-xs font-semibold text-gray-500 mb-1.5">違反種別</label>
+          <select id="warn-type" onchange="applyWarnTemplate()"
+            class="w-full rounded-xl border border-gray-200 px-3 py-2.5 text-sm bg-white focus:outline-none focus:border-red-300">
+            <option value="">選択してください</option>
+            <option value="inappropriate">不適切な内容・誹謗中傷</option>
+            <option value="spam">スパム・広告行為</option>
+            <option value="harassment">ハラスメント・脅迫</option>
+            <option value="privacy">個人情報の漏洩・要求</option>
+            <option value="fraud">詐欺・虚偽情報</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+
+        <!-- 警告文 -->
+        <div>
+          <label class="block text-xs font-semibold text-gray-500 mb-1.5">警告文</label>
+          <textarea id="warn-text" rows="5"
+            class="w-full rounded-xl border border-gray-200 px-3 py-2.5 text-sm resize-none focus:outline-none focus:border-red-300 focus:ring-1 focus:ring-red-100"
+            placeholder="違反種別を選択するとテンプレートが挿入されます"></textarea>
+        </div>
+
+        <!-- 追加措置 -->
+        <div>
+          <label class="block text-xs font-semibold text-gray-500 mb-2">追加措置</label>
+          <div class="space-y-2">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="action-restrict" class="accent-red-500 rounded">
+              <span class="text-sm text-gray-700">メッセージ機能を一時制限する（7日間）</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="action-suspend" class="accent-red-500 rounded">
+              <span class="text-sm text-gray-700">アカウントを停止する</span>
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- モーダルフッタ -->
+      <div class="flex gap-3 px-6 py-4 bg-gray-50 border-t border-gray-100">
+        <button onclick="closeWarnModal()" class="flex-1 rounded-xl border-2 border-gray-200 py-2.5 text-sm font-semibold text-gray-600 hover:bg-white transition-colors">キャンセル</button>
+        <button onclick="sendWarning()" class="flex-1 rounded-xl bg-red-500 py-2.5 text-sm font-bold text-white hover:bg-red-600 transition-colors flex items-center justify-center gap-2">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+          警告を送信する
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    /* ─── サンプルデータ ─── */
+    const MSG_DATA = [
+      { id:'m01', date:'2026-04-09 10:32', user:'山田 太郎',   office:'サンシャイン就労A型センター', text:'はじめまして。見学の申し込みについて確認させてください。よろしくお願いします。', status:'normal' },
+      { id:'m02', date:'2026-04-09 09:48', user:'鈴木 花子',   office:'サンシャイン就労A型センター', text:'就労継続支援A型の工賃について詳しく教えていただけますか？月額の平均を知りたいです。', status:'normal' },
+      { id:'m03', date:'2026-04-08 17:15', user:'佐藤 次郎',   office:'サンシャイン就労A型センター', text:'先日お申し込みした見学の件、4月9日14時でよろしくお願いします。', status:'normal' },
+      { id:'m04', date:'2026-04-08 14:20', user:'田中 美咲',   office:'サンシャイン就労A型センター', text:'精神障がいを持っているのですが対応していただけますか？', status:'normal' },
+      { id:'m05', date:'2026-04-07 22:05', user:'高橋 一郎',   office:'グリーンファーム就労支援',     text:'なぜ採用してもらえなかったのか説明しろ。お前らの対応は最悪だ。誠意を見せろ。', status:'reported' },
+      { id:'m06', date:'2026-04-07 19:44', user:'中村 健太',   office:'グリーンファーム就労支援',     text:'農作業の体験はどのくらいの頻度で行われていますか？準備するものはありますか？', status:'normal' },
+      { id:'m07', date:'2026-04-07 15:30', user:'小林 さくら', office:'グリーンファーム就労支援',     text:'見学をお願いしたいのですが、来週はご都合いただけますか？', status:'normal' },
+      { id:'m08', date:'2026-04-06 11:12', user:'渡辺 隆',     office:'ハーモニー就労移行センター',   text:'個人的に連絡を取り合いたいので個人の連絡先を教えてください。LINEのIDを教えてほしいです。', status:'reported' },
+      { id:'m09', date:'2026-04-05 16:55', user:'伊藤 麻衣',   office:'サンシャイン就労A型センター', text:'体験入所の日程を変更することはできますか？急な予定が入ってしまいました。', status:'warned' },
+      { id:'m10', date:'2026-04-04 10:00', user:'加藤 誠',     office:'グリーンファーム就労支援',     text:'この施設の評判が悪いと聞きましたが実際のところどうですか。隠していることはありませんか。', status:'reported' },
+      { id:'m11', date:'2026-04-03 14:30', user:'松本 直樹',   office:'ハーモニー就労移行センター',   text:'支援内容についていくつか質問があります。就職支援の実績を教えてください。', status:'normal' },
+      { id:'m12', date:'2026-04-02 09:20', user:'木村 恵子',   office:'サンシャイン就労A型センター', text:'利用中に問題があった場合の相談先を教えてください。スタッフ以外に相談できますか？', status:'normal' },
+    ]
+
+    const WARN_TEMPLATES = {
+      inappropriate: `JOBLIUM運営事務局よりご連絡いたします。\n\nご利用いただいているメッセージ機能において、他の利用者への不適切な発言・誹謗中傷と判断される内容が確認されました。\n\n当サービスの利用規約では、他者を傷つける表現や誹謗中傷を禁じています。同様の行為が続く場合、アカウントの利用制限や停止の措置を取る場合があります。\n\n今後は適切な表現でのご利用をお願いいたします。`,
+      spam:          `JOBLIUM運営事務局よりご連絡いたします。\n\nメッセージ機能を利用したスパム・広告行為が確認されました。当サービスのメッセージ機能は事業所とのコミュニケーションを目的としており、商業的な広告や勧誘行為は禁止されています。\n\n直ちに当該行為を停止してください。違反が続く場合はアカウントを停止いたします。`,
+      harassment:    `JOBLIUM運営事務局よりご連絡いたします。\n\n送信されたメッセージ内容にハラスメント・脅迫に該当する表現が含まれていることが確認されました。このような行為は利用規約に違反するだけでなく、場合によっては法的責任を問われる可能性があります。\n\n直ちに当該行為を停止し、相手方への誠実な対応をお願いいたします。`,
+      privacy:       `JOBLIUM運営事務局よりご連絡いたします。\n\n個人情報（電話番号・メールアドレス・SNSアカウント等）の要求または漏洩につながる行為が確認されました。当サービス外での個人的な連絡のやり取りは安全上のリスクがあり、利用規約でも禁じています。\n\nサービス内のメッセージ機能のみでのコミュニケーションをお願いいたします。`,
+      fraud:         `JOBLIUM運営事務局よりご連絡いたします。\n\n虚偽の情報や詐欺的な内容を含むメッセージが確認されました。このような行為は利用規約違反であり、法的措置の対象となる場合があります。\n\n直ちに当該行為を停止してください。`,
+      other:         `JOBLIUM運営事務局よりご連絡いたします。\n\nご利用のメッセージ機能において、当サービスの利用規約に反する行為が確認されました。\n\n具体的な内容については個別にご連絡いたします。今後は利用規約を遵守したご利用をお願いいたします。`,
+    }
+
+    /* ─── 会話スレッドデータ ─── */
+    const THREAD_DATA = {
+      m01: [
+        { from:'user',   text:'はじめまして。見学の申し込みについて確認させてください。よろしくお願いします。', time:'2026-04-09 10:32' },
+        { from:'office', text:'お問い合わせありがとうございます。見学はいつでも受け付けております。ご希望の日程をお聞かせください。', time:'2026-04-09 11:00' },
+      ],
+      m02: [
+        { from:'user',   text:'就労継続支援A型の工賃について詳しく教えていただけますか？月額の平均を知りたいです。', time:'2026-04-09 09:48' },
+        { from:'office', text:'ご質問ありがとうございます。当施設の平均工賃は月額約85,000円となっております。作業内容によって異なります。', time:'2026-04-09 10:15' },
+        { from:'user',   text:'ありがとうございます。体験入所も可能でしょうか？', time:'2026-04-09 10:30' },
+      ],
+      m03: [
+        { from:'user',   text:'先日お申し込みした見学の件、4月9日14時でよろしくお願いします。', time:'2026-04-08 17:15' },
+        { from:'office', text:'承知いたしました。4月9日（水）14時にお待ちしております。正面玄関よりお入りください。', time:'2026-04-08 17:45' },
+      ],
+      m04: [
+        { from:'user',   text:'精神障がいを持っているのですが対応していただけますか？', time:'2026-04-08 14:20' },
+        { from:'office', text:'はい、精神障がいをお持ちの方も多くご利用いただいています。専門スタッフが個別サポートいたしますのでご安心ください。', time:'2026-04-08 15:00' },
+      ],
+      m05: [
+        { from:'user',   text:'先週の選考結果について教えてください。', time:'2026-04-07 20:10' },
+        { from:'office', text:'選考の結果ですが、今回は誠に残念ながら採用が難しい状況となりました。ご応募いただきありがとうございました。', time:'2026-04-07 21:00' },
+        { from:'user',   text:'なぜ採用してもらえなかったのか説明しろ。お前らの対応は最悪だ。誠意を見せろ。', time:'2026-04-07 22:05', flagged:true },
+      ],
+      m06: [
+        { from:'user',   text:'農作業の体験はどのくらいの頻度で行われていますか？準備するものはありますか？', time:'2026-04-07 19:44' },
+        { from:'office', text:'農業活動は週3回行っています。動きやすい服装と長靴があれば大丈夫です。初回は体験のみでもOKです。', time:'2026-04-07 20:30' },
+      ],
+      m07: [
+        { from:'user',   text:'見学をお願いしたいのですが、来週はご都合いただけますか？', time:'2026-04-07 15:30' },
+        { from:'office', text:'来週でしたら4月12日（火）か14日（木）の午前中がご案内可能です。いかがでしょうか？', time:'2026-04-07 16:00' },
+        { from:'user',   text:'4月12日でお願いします。何時がご都合よろしいですか？', time:'2026-04-07 16:20' },
+        { from:'office', text:'10時はいかがでしょうか。よろしければご確認ください。', time:'2026-04-07 16:45' },
+      ],
+      m08: [
+        { from:'user',   text:'見学の件でご連絡しました。詳しい支援内容を教えていただけますか？', time:'2026-04-06 10:30' },
+        { from:'office', text:'ご連絡ありがとうございます。就労移行支援として、職業訓練・企業見学・面接練習などを行っています。', time:'2026-04-06 11:00' },
+        { from:'user',   text:'個人的に連絡を取り合いたいので個人の連絡先を教えてください。LINEのIDを教えてほしいです。', time:'2026-04-06 11:12', flagged:true },
+      ],
+      m09: [
+        { from:'user',   text:'体験入所の日程を変更することはできますか？急な予定が入ってしまいました。', time:'2026-04-05 16:55' },
+        { from:'office', text:'もちろん変更可能です。ご希望の日程をお知らせください。', time:'2026-04-05 17:20' },
+        { from:'user',   text:'4月15日はいかがでしょうか。', time:'2026-04-05 17:35' },
+        { from:'admin',  text:'【JOBLIUM運営より警告】このメッセージスレッドにおいて利用規約違反が確認されました。今後は適切な表現でのご利用をお願いいたします。', time:'2026-04-05 18:00' },
+      ],
+      m10: [
+        { from:'user',   text:'この施設の評判が悪いと聞きましたが実際のところどうですか。隠していることはありませんか。', time:'2026-04-04 10:00', flagged:true },
+        { from:'office', text:'当施設への関心をありがとうございます。透明性を大切にしておりますので、ご不明な点はお気軽にお聞きください。', time:'2026-04-04 10:30' },
+      ],
+      m11: [
+        { from:'user',   text:'支援内容についていくつか質問があります。就職支援の実績を教えてください。', time:'2026-04-03 14:30' },
+        { from:'office', text:'昨年度の就職実績は利用者の68%が一般就労に成功しています。個別支援計画を基に丁寧にサポートします。', time:'2026-04-03 15:00' },
+      ],
+      m12: [
+        { from:'user',   text:'利用中に問題があった場合の相談先を教えてください。スタッフ以外に相談できますか？', time:'2026-04-02 09:20' },
+        { from:'office', text:'第三者相談窓口として、相談支援専門員や市区町村の障がい福祉課もご利用いただけます。お気軽にご相談ください。', time:'2026-04-02 10:00' },
+      ],
+    }
+
+    let filteredData = [...MSG_DATA]
+    let currentMsgId = null
+    let currentThreadMsgId = null
+
+    /* ─── ステータスラベル ─── */
+    function statusBadge(status) {
+      const map = {
+        normal:   '<span class="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-semibold text-gray-500">正常</span>',
+        reported: '<span class="rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-semibold text-red-600">報告済み</span>',
+        warned:   '<span class="rounded-full bg-yellow-100 px-2.5 py-0.5 text-xs font-semibold text-yellow-700">警告済み</span>',
+      }
+      return map[status] || ''
+    }
+
+    /* ─── 検索実行 ─── */
+    function runSearch() {
+      const qUser   = document.getElementById('q-user').value.trim().toLowerCase()
+      const qOffice = document.getElementById('q-office').value.trim().toLowerCase()
+      const qStatus = document.getElementById('q-status').value
+
+      filteredData = MSG_DATA.filter(m => {
+        if (qUser   && !m.user.toLowerCase().includes(qUser))     return false
+        if (qOffice && !m.office.toLowerCase().includes(qOffice)) return false
+        if (qStatus !== 'all' && m.status !== qStatus)            return false
+        return true
+      })
+
+      renderResults()
+      document.getElementById('result-count').textContent =
+        `${filteredData.length} 件見つかりました`
+    }
+
+    /* ─── 結果を描画 ─── */
+    function renderResults() {
+      const prioritize = document.getElementById('sort-reported')?.checked
+      let data = [...filteredData]
+      if (prioritize) {
+        const order = { reported:0, warned:1, normal:2 }
+        data.sort((a,b) => (order[a.status] ?? 9) - (order[b.status] ?? 9))
+      }
+
+      const tbody = document.getElementById('result-tbody')
+      const empty = document.getElementById('result-empty')
+
+      if (data.length === 0) {
+        tbody.innerHTML = ''
+        empty.style.display = ''
+        return
+      }
+      empty.style.display = 'none'
+
+      tbody.innerHTML = data.map(m => `
+        <tr class="hover:bg-gray-50 transition-colors ${m.status === 'reported' ? 'bg-red-50/40' : ''}">
+          <td class="px-5 py-3.5 text-xs text-gray-400 whitespace-nowrap">${m.date}</td>
+          <td class="px-5 py-3.5">
+            <div class="flex items-center gap-2">
+              <div class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-gray-400 to-gray-600 text-xs font-bold text-white">${m.user.charAt(0)}</div>
+              <span class="text-sm font-medium text-gray-800 whitespace-nowrap">${m.user}</span>
+            </div>
+          </td>
+          <td class="px-5 py-3.5 text-xs text-gray-500 whitespace-nowrap">${m.office}</td>
+          <td class="px-5 py-3.5">
+            <p class="text-sm text-gray-700 truncate max-w-xs">${m.text}</p>
+          </td>
+          <td class="px-5 py-3.5 text-center">${statusBadge(m.status)}</td>
+          <td class="px-5 py-3.5 text-center">
+            <div class="flex items-center justify-center gap-2">
+              <button onclick="openThreadModal('${m.id}')"
+                class="inline-flex items-center gap-1.5 rounded-xl border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold text-gray-600 hover:bg-gray-50 transition-colors">
+                <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                会話
+              </button>
+              <button onclick="openWarnModal('${m.id}')"
+                class="inline-flex items-center gap-1.5 rounded-xl ${m.status === 'warned' ? 'border border-gray-200 text-gray-400 cursor-default' : 'bg-red-500 text-white hover:bg-red-600'} px-3 py-1.5 text-xs font-semibold transition-colors"
+                ${m.status === 'warned' ? 'disabled' : ''}>
+                <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                ${m.status === 'warned' ? '済み' : '警告'}
+              </button>
+            </div>
+          </td>
+        </tr>
+      `).join('')
+    }
+
+    /* ─── 会話スレッドモーダル ─── */
+    function openThreadModal(msgId) {
+      const m = MSG_DATA.find(x => x.id === msgId)
+      if (!m) return
+      currentThreadMsgId = msgId
+
+      // ヘッダ更新
+      document.getElementById('th-avatar').textContent  = m.user.charAt(0)
+      document.getElementById('th-user').textContent    = m.user
+      document.getElementById('th-office').textContent  = m.office
+      document.getElementById('th-date').textContent    = m.date
+      document.getElementById('th-status-badge').innerHTML = statusBadge(m.status)
+
+      // バブル描画
+      const threads = THREAD_DATA[msgId] || [{ from:'user', text: m.text, time: m.date }]
+      const bubblesEl = document.getElementById('th-bubbles')
+      bubblesEl.innerHTML = threads.map(msg => {
+        if (msg.from === 'admin') {
+          return `<div class="flex justify-center">
+            <div class="max-w-md rounded-2xl bg-red-500 px-4 py-3 text-xs text-white leading-relaxed shadow-sm">
+              <div class="flex items-center gap-1.5 mb-1.5 font-bold">
+                <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                運営からの警告
+              </div>
+              ${msg.text}
+              <p class="text-red-200 text-right mt-1" style="font-size:10px">${msg.time}</p>
+            </div>
+          </div>`
+        }
+        const isOffice = msg.from === 'office'
+        const flagClass = msg.flagged ? 'ring-2 ring-red-400' : ''
+        return `<div class="flex ${isOffice ? 'justify-end' : 'justify-start'} gap-2.5">
+          ${!isOffice ? `<div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-gray-400 to-gray-600 text-xs font-bold text-white mt-0.5">${m.user.charAt(0)}</div>` : ''}
+          <div class="max-w-sm">
+            ${msg.flagged ? '<p class="text-xs text-red-500 font-semibold mb-1 flex items-center gap-1"><svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/></svg>報告されたメッセージ</p>' : ''}
+            <div class="rounded-2xl ${isOffice ? 'bg-primary-600 text-white rounded-tr-sm' : `bg-white border ${msg.flagged ? 'border-red-300 bg-red-50' : 'border-gray-200'} text-gray-800 rounded-tl-sm`} ${flagClass} px-4 py-2.5 text-sm leading-relaxed shadow-sm">${msg.text}</div>
+            <p class="text-xs text-gray-400 mt-1 ${isOffice ? 'text-right' : ''}">${msg.time}</p>
+          </div>
+        </div>`
+      }).join('')
+
+      // 警告パネルを閉じた状態にリセット
+      document.getElementById('warn-panel-form').style.display = 'none'
+      document.getElementById('warn-panel-chevron').style.transform = ''
+      document.getElementById('th-warn-type').value = ''
+      document.getElementById('th-warn-text').value = ''
+
+      document.getElementById('thread-modal').style.display = 'flex'
+      setTimeout(() => { bubblesEl.scrollTop = bubblesEl.scrollHeight }, 50)
+    }
+
+    function closeThreadModal() {
+      document.getElementById('thread-modal').style.display = 'none'
+      currentThreadMsgId = null
+    }
+
+    function toggleWarnPanel() {
+      const form    = document.getElementById('warn-panel-form')
+      const chevron = document.getElementById('warn-panel-chevron')
+      const isOpen  = form.style.display !== 'none'
+      form.style.display    = isOpen ? 'none' : ''
+      chevron.style.transform = isOpen ? '' : 'rotate(180deg)'
+    }
+
+    function applyThreadWarnTemplate() {
+      const type = document.getElementById('th-warn-type').value
+      if (type && WARN_TEMPLATES[type]) {
+        document.getElementById('th-warn-text').value = WARN_TEMPLATES[type]
+      }
+    }
+
+    function sendThreadWarning() {
+      const warnText = document.getElementById('th-warn-text').value.trim()
+      if (!warnText) { alert('警告文を入力してください'); return }
+      if (!currentThreadMsgId) return
+
+      // スレッドに警告バブルを追加
+      const now = new Date()
+      const timeStr = `${now.getFullYear()}年${now.getMonth()+1}月${now.getDate()}日 ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}`
+      const bubblesEl = document.getElementById('th-bubbles')
+      const adminBubble = document.createElement('div')
+      adminBubble.className = 'flex justify-center'
+      adminBubble.innerHTML = `<div class="max-w-md rounded-2xl bg-red-500 px-4 py-3 text-xs text-white leading-relaxed shadow-sm">
+        <div class="flex items-center gap-1.5 mb-1.5 font-bold">
+          <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+          運営からの警告
+        </div>
+        ${warnText.replace(/\n/g, '<br>')}
+        <p class="text-red-200 text-right mt-1" style="font-size:10px">${timeStr}</p>
+      </div>`
+      bubblesEl.appendChild(adminBubble)
+      bubblesEl.scrollTop = bubblesEl.scrollHeight
+
+      // ステータス更新
+      const m = MSG_DATA.find(x => x.id === currentThreadMsgId)
+      if (m) m.status = 'warned'
+      renderResults()
+
+      // パネルを閉じる
+      toggleWarnPanel()
+      document.getElementById('th-warn-type').value = ''
+      document.getElementById('th-warn-text').value = ''
+
+      showToast('警告メッセージを送信しました')
+    }
+
+    /* ─── リセット ─── */
+    function resetSearch() {
+      document.getElementById('q-user').value   = ''
+      document.getElementById('q-office').value = ''
+      document.getElementById('q-status').value = 'all'
+      document.getElementById('result-count').textContent = ''
+      filteredData = [...MSG_DATA]
+      renderResults()
+    }
+
+    /* ─── 警告モーダルを開く ─── */
+    function openWarnModal(msgId) {
+      const m = MSG_DATA.find(x => x.id === msgId)
+      if (!m || m.status === 'warned') return
+      currentMsgId = msgId
+
+      document.getElementById('modal-msg-preview').textContent = m.text
+      document.getElementById('modal-msg-user').textContent    = m.user
+      document.getElementById('modal-msg-office').textContent  = m.office
+      document.getElementById('modal-msg-date').textContent    = m.date
+      document.getElementById('warn-type').value  = ''
+      document.getElementById('warn-text').value  = ''
+      document.getElementById('action-restrict').checked = false
+      document.getElementById('action-suspend').checked  = false
+      document.querySelectorAll('input[name="warn-target"]')[0].checked = true
+
+      document.getElementById('warn-modal').style.display = 'flex'
+    }
+
+    function closeWarnModal() {
+      document.getElementById('warn-modal').style.display = 'none'
+      currentMsgId = null
+    }
+
+    /* ─── 違反種別テンプレート挿入 ─── */
+    function applyWarnTemplate() {
+      const type = document.getElementById('warn-type').value
+      if (type && WARN_TEMPLATES[type]) {
+        document.getElementById('warn-text').value = WARN_TEMPLATES[type]
+      }
+    }
+
+    /* ─── 警告送信 ─── */
+    function sendWarning() {
+      if (!currentMsgId) return
+      const warnText = document.getElementById('warn-text').value.trim()
+      if (!warnText) {
+        alert('警告文を入力してください')
+        return
+      }
+
+      // ステータス更新
+      const m = MSG_DATA.find(x => x.id === currentMsgId)
+      if (m) m.status = 'warned'
+
+      closeWarnModal()
+      renderResults()
+
+      // 完了トースト
+      showToast('警告メッセージを送信しました')
+    }
+
+    /* ─── トースト通知 ─── */
+    function showToast(msg) {
+      const toast = document.createElement('div')
+      toast.className = 'fixed bottom-6 right-6 z-50 flex items-center gap-3 rounded-2xl bg-gray-900 px-5 py-3.5 text-sm font-semibold text-white shadow-xl'
+      toast.innerHTML = `<svg class="h-4 w-4 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>${msg}`
+      document.body.appendChild(toast)
+      setTimeout(() => toast.remove(), 3000)
+    }
+
+    /* ─── 初期表示 ─── */
+    renderResults()
+  </script>
+
+</body>
+</html>

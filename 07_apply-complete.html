@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOBLIUM - 応募完了</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#f0faf7',100:'#d1f5ec',200:'#a3ead8',300:'#6ed9bf',400:'#3ec4a3',500:'#1eb38a',600:'#16A177',700:'#127e5e',800:'#0e5f47',900:'#094030' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+  <!-- Header -->
+  <header class="bg-primary-600 shadow-sm">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <a href="01_top.html" class="flex items-center gap-2">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-white">
+          <span class="text-sm font-bold text-primary-600">J</span>
+        </div>
+        <span class="text-xl font-bold text-white">JOBLIUM</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="flex min-h-[calc(100vh-64px)] items-center justify-center px-4 py-12">
+    <div class="w-full max-w-lg text-center">
+
+      <!-- Success Animation -->
+      <div class="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-primary-100 border-4 border-primary-200">
+        <svg class="h-12 w-12 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+
+      <h1 class="text-3xl font-extrabold text-gray-900 mb-2">応募が完了しました！</h1>
+      <p class="text-gray-500 text-base mb-8">事業所とのメッセージが開設されました</p>
+
+      <!-- Detail Card -->
+      <div class="rounded-3xl bg-white p-7 shadow-sm border border-gray-100 text-left mb-6">
+        <h2 class="text-sm font-bold text-gray-700 mb-4 text-center">応募内容</h2>
+        <dl class="space-y-3">
+          <div class="flex justify-between">
+            <dt class="text-xs text-gray-500">応募先</dt>
+            <dd class="text-sm font-semibold text-gray-900">サンシャイン就労A型センター</dd>
+          </div>
+          <div class="flex justify-between">
+            <dt class="text-xs text-gray-500">応募日時</dt>
+            <dd class="text-sm text-gray-700">2026年3月19日 16:30</dd>
+          </div>
+          <div class="flex justify-between">
+            <dt class="text-xs text-gray-500">希望見学日</dt>
+            <dd class="text-sm text-gray-700">2026年4月10日</dd>
+          </div>
+          <div class="flex justify-between">
+            <dt class="text-xs text-gray-500">連絡先</dt>
+            <dd class="text-sm text-gray-700">seeker@test.com</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- DM opened notice -->
+      <div class="rounded-2xl bg-primary-50 border border-primary-200 p-5 mb-8 text-left">
+        <p class="text-xs font-bold text-primary-800 mb-3">💬 メッセージが自動で送信されました</p>
+        <div class="rounded-xl bg-white border border-primary-100 px-4 py-3 text-sm text-gray-700 mb-3">
+          はじめまして。応募いたしました。希望見学日は2026年4月10日を希望しています。どうぞよろしくお願いいたします。
+        </div>
+        <h3 class="text-xs font-bold text-primary-800 mb-2">📋 今後の流れ</h3>
+        <ol class="space-y-2">
+          <li class="flex items-start gap-2 text-xs text-primary-700">
+            <span class="flex-shrink-0 flex h-4 w-4 items-center justify-center rounded-full bg-primary-600 text-white font-bold mt-0.5">1</span>
+            事業所からメッセージで返信が届きます
+          </li>
+          <li class="flex items-start gap-2 text-xs text-primary-700">
+            <span class="flex-shrink-0 flex h-4 w-4 items-center justify-center rounded-full bg-primary-600 text-white font-bold mt-0.5">2</span>
+            メッセージで見学・面談の日程を調整します
+          </li>
+          <li class="flex items-start gap-2 text-xs text-primary-700">
+            <span class="flex-shrink-0 flex h-4 w-4 items-center justify-center rounded-full bg-primary-600 text-white font-bold mt-0.5">3</span>
+            事業所を訪問し、体験利用・面談を行います
+          </li>
+        </ol>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href="12_message-detail.html" class="flex-1 rounded-xl bg-primary-600 py-3 text-sm font-bold text-white hover:bg-primary-700 transition-colors text-center shadow-sm">
+          💬 メッセージを確認する
+        </a>
+        <a href="04_facilities.html" class="flex-1 rounded-xl border-2 border-gray-200 py-3 text-sm font-bold text-gray-600 hover:bg-gray-50 transition-colors text-center">
+          他の事業所を探す
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

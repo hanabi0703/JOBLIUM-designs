@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOBLIUM - 管理者ダッシュボード</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#f0faf7',100:'#d1f5ec',200:'#a3ead8',300:'#6ed9bf',400:'#3ec4a3',500:'#1eb38a',600:'#16A177',700:'#127e5e',800:'#0e5f47',900:'#094030' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-gray-900 shadow-sm">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <div class="flex items-center gap-3">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-600">
+          <span class="text-sm font-bold text-white">J</span>
+        </div>
+        <span class="text-xl font-bold text-white">JOBLIUM</span>
+        <span class="rounded-md bg-red-600 px-2 py-0.5 text-xs font-bold text-white">ADMIN</span>
+      </div>
+      <nav class="hidden items-center gap-1 md:flex">
+        <a href="17_admin-dashboard.html" class="rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold text-white">ダッシュボード</a>
+        <a href="18_admin-users.html"     class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">ユーザー管理</a>
+        <a href="19_admin-offices.html"   class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">事業所管理</a>
+        <a href="21_admin-messages.html"  class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">メッセージ管理</a>
+        <a href="20_admin-master.html"    class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">マスタ管理</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-white/70">admin@joblium.com</span>
+        <span class="rounded-full bg-red-600 px-2.5 py-0.5 text-xs font-bold text-white">管理者</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="mx-auto max-w-7xl px-4 py-8">
+
+    <!-- Title -->
+    <div class="mb-8">
+      <h1 class="text-2xl font-bold text-gray-900">管理者ダッシュボード</h1>
+      <p class="text-sm text-gray-500 mt-0.5">システム全体の状況を確認できます</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 gap-4 sm:grid-cols-4 mb-8">
+      <div class="rounded-2xl bg-white p-5 shadow-sm border border-gray-200 text-center">
+        <div class="text-3xl font-extrabold text-gray-900">1,248</div>
+        <div class="text-xs text-gray-500 mt-1">登録ユーザー数</div>
+        <div class="text-xs text-primary-600 mt-1 font-medium">+12 今月</div>
+      </div>
+      <div class="rounded-2xl bg-white p-5 shadow-sm border border-gray-200 text-center">
+        <div class="text-3xl font-extrabold text-gray-900">342</div>
+        <div class="text-xs text-gray-500 mt-1">登録事業所数</div>
+        <div class="text-xs text-primary-600 mt-1 font-medium">+5 今月</div>
+      </div>
+      <div class="rounded-2xl bg-white p-5 shadow-sm border border-gray-200 text-center">
+        <div class="text-3xl font-extrabold text-yellow-600">8</div>
+        <div class="text-xs text-gray-500 mt-1">審査待ち事業所</div>
+        <div class="text-xs text-yellow-600 mt-1 font-medium">要対応</div>
+      </div>
+      <div class="rounded-2xl bg-white p-5 shadow-sm border border-gray-200 text-center">
+        <div class="text-3xl font-extrabold text-gray-900">2,891</div>
+        <div class="text-xs text-gray-500 mt-1">口コミ件数</div>
+        <div class="text-xs text-primary-600 mt-1 font-medium">+38 今月</div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+
+      <!-- 左カラム -->
+      <div class="lg:col-span-2 space-y-6">
+
+        <!-- 審査待ち事業所 -->
+        <div class="rounded-2xl bg-white shadow-sm border border-gray-200">
+          <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+            <h2 class="font-bold text-gray-900">⏳ 審査待ち事業所</h2>
+            <a href="19_admin-offices.html" class="text-xs text-primary-600 hover:underline">すべて見る →</a>
+          </div>
+          <div class="divide-y divide-gray-100">
+            <div class="flex items-center justify-between px-6 py-4">
+              <div>
+                <p class="text-sm font-semibold text-gray-900">ハーモニー就労移行センター</p>
+                <p class="text-xs text-gray-400">大阪府 大阪市 / 就労移行支援 / 申請：2026年3月26日</p>
+              </div>
+              <div class="flex gap-2">
+                <button class="rounded-lg bg-primary-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-primary-700">承認</button>
+                <button class="rounded-lg bg-red-500 px-3 py-1.5 text-xs font-semibold text-white hover:bg-red-600">却下</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between px-6 py-4">
+              <div>
+                <p class="text-sm font-semibold text-gray-900">さくら就労支援センター</p>
+                <p class="text-xs text-gray-400">神奈川県 横浜市 / 就労継続支援B型 / 申請：2026年3月25日</p>
+              </div>
+              <div class="flex gap-2">
+                <button class="rounded-lg bg-primary-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-primary-700">承認</button>
+                <button class="rounded-lg bg-red-500 px-3 py-1.5 text-xs font-semibold text-white hover:bg-red-600">却下</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between px-6 py-4">
+              <div>
+                <p class="text-sm font-semibold text-gray-900">ひかり作業所</p>
+                <p class="text-xs text-gray-400">愛知県 名古屋市 / 就労継続支援A型 / 申請：2026年3月24日</p>
+              </div>
+              <div class="flex gap-2">
+                <button class="rounded-lg bg-primary-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-primary-700">承認</button>
+                <button class="rounded-lg bg-red-500 px-3 py-1.5 text-xs font-semibold text-white hover:bg-red-600">却下</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 最近の口コミ -->
+        <div class="rounded-2xl bg-white shadow-sm border border-gray-200">
+          <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+            <h2 class="font-bold text-gray-900">📝 最近の口コミ</h2>
+            <span class="text-xs text-gray-400">直近7日間</span>
+          </div>
+          <div class="divide-y divide-gray-100">
+            <div class="px-6 py-4">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="text-xs font-semibold text-gray-700">サンシャイン就労A型センター</span>
+                    <span class="text-yellow-400 text-xs">★★★★☆</span>
+                  </div>
+                  <p class="text-xs text-gray-600 line-clamp-2">スタッフが非常に親切で、障害への理解も深く、とても働きやすい環境でした。</p>
+                  <p class="text-xs text-gray-400 mt-1">2026年3月27日 / テスト求職者</p>
+                </div>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs font-medium text-red-600 hover:bg-red-50 flex-shrink-0">削除</button>
+              </div>
+            </div>
+            <div class="px-6 py-4">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="text-xs font-semibold text-gray-700">グリーンファーム就労支援</span>
+                    <span class="text-yellow-400 text-xs">★★★★★</span>
+                  </div>
+                  <p class="text-xs text-gray-600 line-clamp-2">農業体験を通じて季節の変化を感じながら働けます。スタッフの支援も手厚いです。</p>
+                  <p class="text-xs text-gray-400 mt-1">2026年3月26日 / 田中 花子</p>
+                </div>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs font-medium text-red-600 hover:bg-red-50 flex-shrink-0">削除</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 監査ログ -->
+        <div class="rounded-2xl bg-white shadow-sm border border-gray-200">
+          <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+            <h2 class="font-bold text-gray-900">🔍 監査ログ（直近）</h2>
+          </div>
+          <div class="divide-y divide-gray-100 text-xs">
+            <div class="flex items-center gap-4 px-6 py-3">
+              <span class="text-gray-400 flex-shrink-0 w-32">2026/03/28 09:12</span>
+              <span class="rounded bg-blue-100 px-2 py-0.5 text-blue-700 font-medium">update</span>
+              <span class="text-gray-700">offices / ID:12 — 事業所情報を更新 (テスト事業者)</span>
+            </div>
+            <div class="flex items-center gap-4 px-6 py-3">
+              <span class="text-gray-400 flex-shrink-0 w-32">2026/03/28 08:55</span>
+              <span class="rounded bg-green-100 px-2 py-0.5 text-green-700 font-medium">create</span>
+              <span class="text-gray-700">office_reviews / ID:291 — 口コミを投稿 (テスト求職者)</span>
+            </div>
+            <div class="flex items-center gap-4 px-6 py-3">
+              <span class="text-gray-400 flex-shrink-0 w-32">2026/03/27 17:40</span>
+              <span class="rounded bg-red-100 px-2 py-0.5 text-red-700 font-medium">delete</span>
+              <span class="text-gray-700">users / ID:88 — ユーザーを退会処理 (admin)</span>
+            </div>
+            <div class="flex items-center gap-4 px-6 py-3">
+              <span class="text-gray-400 flex-shrink-0 w-32">2026/03/27 14:22</span>
+              <span class="rounded bg-green-100 px-2 py-0.5 text-green-700 font-medium">create</span>
+              <span class="text-gray-700">offices / ID:343 — 事業所を新規承認 (admin)</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 右カラム -->
+      <div class="space-y-6">
+
+        <!-- クイックリンク -->
+        <div class="rounded-2xl bg-white shadow-sm border border-gray-200 p-5">
+          <h2 class="font-bold text-gray-900 mb-4">クイックアクション</h2>
+          <div class="space-y-2">
+            <a href="18_admin-users.html" class="flex items-center gap-3 rounded-xl border border-gray-100 p-3 hover:bg-gray-50 transition-colors">
+              <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 text-base">👤</span>
+              <div>
+                <p class="text-sm font-semibold text-gray-800">ユーザー管理</p>
+                <p class="text-xs text-gray-400">検索・編集・退会処理</p>
+              </div>
+            </a>
+            <a href="19_admin-offices.html" class="flex items-center gap-3 rounded-xl border border-gray-100 p-3 hover:bg-gray-50 transition-colors">
+              <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-100 text-base">🏢</span>
+              <div>
+                <p class="text-sm font-semibold text-gray-800">事業所管理</p>
+                <p class="text-xs text-gray-400">承認・公開設定・編集</p>
+              </div>
+            </a>
+            <a href="20_admin-master.html" class="flex items-center gap-3 rounded-xl border border-gray-100 p-3 hover:bg-gray-50 transition-colors">
+              <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-purple-100 text-base">⚙️</span>
+              <div>
+                <p class="text-sm font-semibold text-gray-800">マスタ管理</p>
+                <p class="text-xs text-gray-400">カテゴリ・特徴・職種</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <!-- ログイン統計 -->
+        <div class="rounded-2xl bg-white shadow-sm border border-gray-200 p-5">
+          <h2 class="font-bold text-gray-900 mb-4">ログイン統計（今月）</h2>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-600">ログイン成功</span>
+              <span class="text-sm font-bold text-gray-900">3,412回</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-600">ログイン失敗</span>
+              <span class="text-sm font-bold text-red-600">28回</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-600">アクティブユーザー</span>
+              <span class="text-sm font-bold text-gray-900">842人</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-600">新規登録</span>
+              <span class="text-sm font-bold text-primary-600">12人</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

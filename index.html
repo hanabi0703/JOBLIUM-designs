@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOBLIUM - 画面一覧</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#f0faf7',100:'#d1f5ec',200:'#a3ead8',300:'#6ed9bf',400:'#3ec4a3',500:'#1eb38a',600:'#16A177',700:'#127e5e',800:'#0e5f47',900:'#094030' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 font-sans">
+  <div class="mx-auto max-w-4xl px-4 py-12">
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center gap-3 mb-4">
+        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-600">
+          <span class="text-xl font-bold text-white">J</span>
+        </div>
+        <span class="text-3xl font-extrabold text-primary-700">JOBLIUM</span>
+      </div>
+      <h1 class="text-xl font-bold text-gray-900">デザイン画面一覧</h1>
+      <p class="text-sm text-gray-500 mt-1">全15画面 / Tailwind CSS / 緑基調モダンデザイン</p>
+    </div>
+
+    <!-- Public -->
+    <section class="mb-8">
+      <h2 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3 px-1">公開ページ（求職者・未ログイン）</h2>
+      <div class="grid gap-3 sm:grid-cols-2">
+        <a href="01_top.html" class="group flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-600 text-white text-xl flex-shrink-0">🏠</div>
+          <div>
+            <div class="font-bold text-gray-900 group-hover:text-primary-700">01. トップページ</div>
+            <div class="text-xs text-gray-500 mt-0.5">ヒーロー・特徴・人気事業所・使い方</div>
+          </div>
+          <svg class="ml-auto h-4 w-4 text-gray-300 group-hover:text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+        <a href="04_facilities.html" class="group flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-500 text-white text-xl flex-shrink-0">🔍</div>
+          <div>
+            <div class="font-bold text-gray-900 group-hover:text-primary-700">04. 事業所一覧</div>
+            <div class="text-xs text-gray-500 mt-0.5">検索・フィルター・カード一覧・ページネーション</div>
+          </div>
+          <svg class="ml-auto h-4 w-4 text-gray-300 group-hover:text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+        <a href="05_facility-detail.html" class="group flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-purple-500 text-white text-xl flex-shrink-0">🏢</div>
+          <div>
+            <div class="font-bold text-gray-900 group-hover:text-primary-700">05. 事業所詳細</div>
+            <div class="text-xs text-gray-500 mt-0.5">基本情報・スコア・口コミ・応募ボタン</div>
+          </div>
+          <svg class="ml-auto h-4 w-4 text-gray-300 group-hover:text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Auth -->
+    <section class="mb-8">
+      <h2 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3 px-1">認証</h2>
+      <div class="grid gap-3 sm:grid-cols-2">
+        <a href="02_login.html" class="group flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-500 text-white text-xl flex-shrink-0">🔑</div>
+          <div>
+            <div class="font-bold text-gray-900 group-hover:text-primary-700">02. ログイン</div>
+            <div class="text-xs text-gray-500 mt-0.5">メール・パスワード認証</div>
+          </div>
+          <svg class="ml-auto h-4 w-4 text-gray-300 group-hover:text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+        <a href="03_register.html" class="group flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-600 text-white text-xl flex-shrink-0">📝</div>
+          <div>
+            <div class="font-bold text-gray-900 group-hover:text-primary-700">03. 会員登録</div>
+            <div class="text-xs text-gray-500 mt-0.5">求職者・事業者の選択・フォーム</div>
+          </div>
+          <svg class="ml-auto h-4 w-4 text-gray-300 group-hover:text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Seeker -->
+    <section class="mb-8">
+      <h2 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3 px-1">求職者ページ（ログイン必須）</h2>
+      <div class="grid gap-3 sm:grid-cols-2">
+        <a href="06_apply.html" class="group flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500 text-white text-xl flex-shrink-0">📨</div>
+          <div>
+            <div class="font-bold text-gray-900 group-hover:text-primary-700">06. 応募フォーム</div>
+            <div class="text-xs text-gray-500 mt-0.5">ステップ表示・応募内容入力</div>
+          </div>
+          <svg class="ml-auto h-4 w-4 text-gray-300 group-hover:text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+        <a href="07_apply-complete.html" class="group flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-500 text-white text-xl flex-shrink-0">✅</div>
+          <div>
+            <div class="font-bold text-gray-900 group-hover:text-primary-700">07. 応募完了</div>
+            <div class="text-xs text-gray-500 mt-0.5">完了メッセージ・今後の流れ</div>
+          </div>
+          <svg class="ml-auto h-4 w-4 text-gray-300 group-hover:text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+        <a href="08_mypage.html" class="group flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-gray-600 text-white text-xl flex-shrink-0">👤</div>
+          <div>
+            <div class="font-bold text-gray-900 group-hover:text-primary-700">08. マイページ</div>
+            <div class="text-xs text-gray-500 mt-0.5">プロフィール・メニュー・活動履歴</div>
+          </div>
+          <svg class="ml-auto h-4 w-4 text-gray-300 group-hover:text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+        <a href="09_applications.html" class="group flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-white text-xl flex-shrink-0">📋</div>
+          <div>
+            <div class="font-bold text-gray-900 group-hover:text-primary-700">09. 応募履歴</div>
+            <div class="text-xs text-gray-500 mt-0.5">ステータス・詳細・取り消し機能</div>
+          </div>
+          <svg class="ml-auto h-4 w-4 text-gray-300 group-hover:text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+        <a href="10_favorites.html" class="group flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-red-500 text-white text-xl flex-shrink-0">❤️</div>
+          <div>
+            <div class="font-bold text-gray-900 group-hover:text-primary-700">10. お気に入り</div>
+            <div class="text-xs text-gray-500 mt-0.5">お気に入り事業所一覧・削除・応募</div>
+          </div>
+          <svg class="ml-auto h-4 w-4 text-gray-300 group-hover:text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+        <a href="11_messages.html" class="group flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-600 text-white text-xl flex-shrink-0">💬</div>
+          <div>
+            <div class="font-bold text-gray-900 group-hover:text-primary-700">11. メッセージ一覧</div>
+            <div class="text-xs text-gray-500 mt-0.5">スレッド一覧・未読バッジ</div>
+          </div>
+          <svg class="ml-auto h-4 w-4 text-gray-300 group-hover:text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+        <a href="12_message-detail.html" class="group flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-700 text-white text-xl flex-shrink-0">📩</div>
+          <div>
+            <div class="font-bold text-gray-900 group-hover:text-primary-700">12. メッセージ詳細</div>
+            <div class="text-xs text-gray-500 mt-0.5">チャットUI・メッセージ送信</div>
+          </div>
+          <svg class="ml-auto h-4 w-4 text-gray-300 group-hover:text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+        <a href="15_my-reviews.html" class="group flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-yellow-500 text-white text-xl flex-shrink-0">⭐</div>
+          <div>
+            <div class="font-bold text-gray-900 group-hover:text-primary-700">15. 投稿済み口コミ</div>
+            <div class="text-xs text-gray-500 mt-0.5">口コミ内容・スコア内訳・事業所返信</div>
+          </div>
+          <svg class="ml-auto h-4 w-4 text-gray-300 group-hover:text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Operator -->
+    <section class="mb-8">
+      <h2 class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-3 px-1">事業者ページ（事業者ログイン必須）</h2>
+      <div class="grid gap-3 sm:grid-cols-2">
+        <a href="13_manage-dashboard.html" class="group flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-600 text-white text-xl flex-shrink-0">📊</div>
+          <div>
+            <div class="font-bold text-gray-900 group-hover:text-primary-700">13. 管理ダッシュボード</div>
+            <div class="text-xs text-gray-500 mt-0.5">事業所一覧・統計・管理操作</div>
+          </div>
+          <svg class="ml-auto h-4 w-4 text-gray-300 group-hover:text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+        <a href="14_manage-applications.html" class="group flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm border border-gray-100 hover:border-primary-300 hover:shadow-md transition-all">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-700 text-white text-xl flex-shrink-0">👥</div>
+          <div>
+            <div class="font-bold text-gray-900 group-hover:text-primary-700">14. 事業所応募管理</div>
+            <div class="text-xs text-gray-500 mt-0.5">応募一覧・ステータス変更・メッセージ</div>
+          </div>
+          <svg class="ml-auto h-4 w-4 text-gray-300 group-hover:text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </a>
+      </div>
+    </section>
+
+    <div class="text-center text-xs text-gray-400 mt-8">
+      JOBLIUM Design Mockups — Tailwind CSS v3 CDN — Green Mondern Theme
+    </div>
+  </div>
+</body>
+</html>

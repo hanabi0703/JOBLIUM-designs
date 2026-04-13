@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>東京の就労支援施設TOP20【2026年最新】空きあり・口コミ掲載 | JOBLIUM</title>
+<meta name="description" content="東京都の就労支援施設（就労移行支援・就労継続支援A型・B型）をTOP20掲載。新宿・渋谷・池袋など主要エリア別に空き状況・口コミ・工賃・就職実績で比較できます。無料で見学申込み可能。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #16A177;
+  --green-light: #E8F7F1;
+  --green-mid: #127e5e;
+  --green-dark: #0e5f47;
+  --text: #1a1a1a;
+  --text-sub: #555;
+  --text-mute: #999;
+  --border: #e4e8ec;
+  --bg: #f4f6f8;
+  --white: #fff;
+  --radius: 8px;
+  --radius-lg: 12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans JP',sans-serif;font-size:14px;color:var(--text);background:var(--bg);line-height:1.6}
+a{color:var(--green);text-decoration:none}
+
+/* HEADER */
+.hdr{background:var(--green);height:54px;display:flex;align-items:center;padding:0 24px;gap:24px;position:sticky;top:0;z-index:200}
+.hdr-logo{font-size:18px;font-weight:700;letter-spacing:-0.5px;color:#fff}
+.hdr-nav{display:flex;gap:20px;font-size:13px}
+.hdr-nav a{color:rgba(255,255,255,0.8)}
+.hdr-nav a:hover{color:#fff}
+.hdr-right{margin-left:auto;display:flex;gap:8px}
+.hdr-btn{font-size:12px;font-family:inherit;padding:6px 14px;border-radius:6px;cursor:pointer;font-weight:500}
+.hdr-btn-outline{border:1px solid rgba(255,255,255,0.5);background:transparent;color:#fff}
+.hdr-btn-fill{border:none;background:#fff;color:var(--green)}
+
+/* PAGE HERO */
+.hero{background:var(--white);border-bottom:1px solid var(--border);padding:16px 24px 0}
+.hero-inner{max-width:1100px;margin:0 auto}
+.breadcrumb{font-size:12px;color:var(--text-mute);display:flex;gap:6px;align-items:center;margin-bottom:10px}
+.breadcrumb a{color:var(--text-sub)}
+.breadcrumb-sep{color:#ccc}
+.hero-title{font-size:24px;font-weight:700;color:var(--text);margin-bottom:4px;line-height:1.3}
+.hero-sub{font-size:13px;color:var(--text-sub);padding-bottom:14px}
+.hero-badges{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.hero-badge{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600}
+.hb-green{background:var(--green-light);color:var(--green-dark)}
+.hb-gray{background:#f0f2f5;color:#555}
+
+/* SEARCH BAR */
+.searchbar-wrap{background:var(--white);border-bottom:1px solid var(--border);padding:10px 24px 12px}
+.searchbar-inner{max-width:1100px;margin:0 auto}
+.searchbar{display:flex;gap:6px;margin-bottom:10px}
+.searchbar input{flex:1;height:42px;border:1.5px solid var(--border);border-radius:var(--radius);padding:0 14px;font-size:14px;font-family:inherit;outline:none;color:var(--text)}
+.searchbar input:focus{border-color:var(--green)}
+.searchbar select{height:42px;border:1.5px solid var(--border);border-radius:var(--radius);padding:0 10px;font-size:13px;font-family:inherit;outline:none;color:var(--text);background:var(--white)}
+.searchbar-btn{height:42px;padding:0 22px;background:var(--green);color:#fff;border:none;border-radius:var(--radius);font-size:14px;font-weight:700;font-family:inherit;cursor:pointer;white-space:nowrap}
+.active-filters{display:flex;gap:6px;flex-wrap:wrap}
+.af-tag{display:flex;align-items:center;gap:5px;font-size:12px;background:var(--green-light);color:var(--green-dark);border-radius:20px;padding:3px 10px 3px 12px;font-weight:500}
+.af-rm{cursor:pointer;font-size:13px;line-height:1;opacity:.7}
+
+/* MAIN */
+.main{max-width:1100px;margin:0 auto;padding:20px 24px 40px;display:grid;grid-template-columns:220px 1fr;gap:20px;align-items:start}
+
+/* SIDEBAR */
+.sidebar{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
+.sb-head{padding:12px 14px;font-size:12px;font-weight:700;color:var(--text-sub);background:#fafbfc;border-bottom:1px solid var(--border);letter-spacing:.05em}
+.sb-section{padding:12px 14px;border-bottom:1px solid #f0f2f4}
+.sb-section:last-of-type{border-bottom:none}
+.sb-label{font-size:10.5px;font-weight:700;color:var(--text-mute);letter-spacing:.07em;text-transform:uppercase;margin-bottom:8px}
+.sb-row{display:flex;align-items:center;gap:7px;padding:3.5px 0;cursor:pointer;font-size:13px;color:var(--text)}
+.sb-row input[type=checkbox]{width:14px;height:14px;accent-color:var(--green);cursor:pointer;flex-shrink:0}
+.sb-row.on{font-weight:700;color:var(--green-dark)}
+.sb-cnt{margin-left:auto;font-size:11px;color:var(--text-mute)}
+.sb-reset{display:block;width:calc(100% - 28px);margin:10px 14px 12px;padding:7px 0;font-size:12px;font-family:inherit;color:var(--text-mute);background:none;border:1px solid var(--border);border-radius:6px;cursor:pointer;text-align:center}
+
+/* RESULT AREA */
+.result-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.result-count{font-size:13px;color:var(--text-sub)}
+.result-count strong{font-size:17px;font-weight:700;color:var(--text)}
+.sort-wrap{display:flex;align-items:center;gap:7px}
+.sort-lbl{font-size:12px;color:var(--text-mute)}
+.sort-sel{font-size:13px;font-family:inherit;border:1px solid var(--border);border-radius:6px;padding:5px 10px;background:var(--white);color:var(--text);outline:none}
+
+/* CARDS */
+.cards{display:flex;flex-direction:column;gap:10px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);display:grid;grid-template-columns:180px 1fr;overflow:hidden;transition:border-color .15s,box-shadow .15s;cursor:pointer}
+.card:hover{border-color:#9dd4bf;box-shadow:0 3px 14px rgba(22,161,119,.1)}
+.c-img{width:180px;min-height:130px;overflow:hidden;position:relative;flex-shrink:0}
+.c-img img{width:100%;height:100%;object-fit:cover}
+.c-rank{position:absolute;top:8px;left:8px;background:var(--green);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:4px}
+.c-fav{position:absolute;top:8px;right:8px;background:rgba(255,255,255,0.85);border:none;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer}
+.c-body{padding:12px 16px;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+.c-badges{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px}
+.badge{font-size:10.5px;padding:2px 8px;border-radius:20px;font-weight:700;white-space:nowrap}
+.b-svc-a{background:#dbeafe;color:#1d4ed8}
+.b-svc-b{background:#ede9fe;color:#6d28d9}
+.b-svc-i{background:#fef3c7;color:#92400e}
+.b-ok{background:#dcfce7;color:#166534}
+.b-new{background:#fff7ed;color:#9a3412}
+.b-sp{background:#fce7f3;color:#9d174d}
+.b-dis{background:#e0f2fe;color:#075985}
+.c-name{font-size:15px;font-weight:700;color:var(--text);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.c-corp{font-size:11px;color:var(--text-mute);margin-bottom:5px}
+.c-meta{font-size:12px;color:var(--text-sub);display:flex;flex-wrap:wrap;gap:2px 12px;margin-bottom:6px}
+.c-meta-item{display:flex;align-items:center;gap:3px}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0}
+.dot-gray{background:#c5c9ce}
+.c-rating{display:flex;align-items:center;gap:4px;font-size:12px;margin-bottom:5px}
+.stars{color:#f59e0b;font-size:13px;letter-spacing:1px}
+.c-desc{font-size:12px;color:#666;line-height:1.65;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:9px}
+.c-foot{display:flex;align-items:center;justify-content:space-between}
+.c-stat{font-size:12px;color:var(--text-sub)}
+.c-stat-num{font-size:18px;font-weight:700;color:var(--green)}
+.c-stat-unit{font-size:11px}
+.c-btns{display:flex;gap:7px}
+.btn-tour{font-size:12px;font-family:inherit;font-weight:700;padding:6px 13px;border:1px solid var(--border);border-radius:6px;background:var(--white);color:var(--text-sub);cursor:pointer}
+.btn-detail{font-size:12px;font-family:inherit;font-weight:700;padding:6px 15px;border:1.5px solid var(--green);border-radius:6px;background:var(--white);color:var(--green);cursor:pointer}
+
+/* PAGINATION */
+.pager{display:flex;justify-content:center;align-items:center;gap:4px;margin:24px 0 0}
+.pg{width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:13px;font-family:inherit;border:1px solid var(--border);border-radius:7px;cursor:pointer;color:var(--text-sub);background:var(--white)}
+.pg.on{background:var(--green);color:#fff;border-color:var(--green);font-weight:700}
+
+/* STATS BANNER */
+.stats-banner{background:linear-gradient(135deg,var(--green) 0%,var(--green-dark) 100%);border-radius:var(--radius-lg);padding:24px 28px;margin:32px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;text-align:center;color:#fff}
+.stat-item .stat-num{font-size:28px;font-weight:700;line-height:1}
+.stat-item .stat-label{font-size:11px;color:rgba(255,255,255,0.8);margin-top:4px}
+.stat-item .stat-sub{font-size:10px;color:rgba(255,255,255,0.6)}
+
+/* SEO SECTION */
+.seo{margin-top:32px;padding-top:26px;border-top:2px solid #eaecee}
+.seo-h2{font-size:18px;font-weight:700;color:var(--text);margin-bottom:12px}
+.seo-p{font-size:13px;color:var(--text-sub);line-height:1.9;margin-bottom:12px}
+.seo-h3{font-size:14px;font-weight:700;color:var(--text);margin:22px 0 10px;padding-left:10px;border-left:3px solid var(--green)}
+.chip-group{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px}
+.chip{font-size:12px;padding:5px 12px;border:1px solid var(--border);border-radius:20px;color:var(--green);background:var(--white);cursor:pointer}
+.chip:hover{background:var(--green-light);border-color:var(--green)}
+.chip-svc{color:var(--text-sub)}
+.chip-svc:hover{background:#f0f4f8;border-color:#aab;color:var(--text)}
+
+/* TABLE */
+.data-table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:4px}
+.data-table th{background:#f8faf9;color:var(--text-sub);font-weight:600;padding:8px 12px;text-align:left;border:1px solid var(--border);font-size:12px}
+.data-table td{padding:8px 12px;border:1px solid var(--border);color:var(--text)}
+.data-table tr:nth-child(even) td{background:#fafbfc}
+.data-table .highlight{color:var(--green);font-weight:700}
+
+/* FAQ */
+.faq{display:flex;flex-direction:column;gap:8px}
+.faq-item{border:1px solid var(--border);border-radius:var(--radius)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;font-size:13px;font-weight:700;background:#fafbfc;cursor:pointer}
+.faq-q-icon{font-size:16px;color:var(--green);flex-shrink:0}
+.faq-a{padding:10px 16px 14px;font-size:13px;color:var(--text-sub);line-height:1.85;border-top:1px solid var(--border)}
+
+.rel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:4px}
+.rel-chip{font-size:12px;padding:8px 8px;border:1px solid var(--border);border-radius:7px;text-align:center;color:var(--green);background:var(--white);cursor:pointer}
+.rel-chip:hover{background:var(--green-light);border-color:var(--green)}
+
+/* Accordion sidebar */
+.ac-section { border-bottom: 1px solid #f0f2f4; }
+.ac-section:last-of-type { border-bottom: none; }
+.ac-btn { display:flex; width:100%; align-items:center; justify-content:space-between; padding:11px 14px; text-align:left; background:none; border:none; cursor:pointer; font-family:inherit; font-size:13px; font-weight:600; color:var(--text); }
+.ac-btn:hover { background:#fafbfc; }
+.ac-icon { font-size:16px; font-weight:300; color:#bbb; }
+.ac-body { padding:0 14px 12px; }
+.ac-radio, .ac-check { display:flex; align-items:center; gap:8px; padding:4px 0; cursor:pointer; font-size:13px; color:var(--text); }
+.ac-radio input, .ac-check input { width:14px; height:14px; accent-color:var(--green); cursor:pointer; }
+.ac-radio.on, .ac-check.on { font-weight:700; color:var(--green-dark); }
+.tag-group { display:flex; flex-wrap:wrap; gap:6px; }
+.tag-btn { font-size:11px; padding:3px 10px; border-radius:20px; border:1px solid var(--border); background:#fff; color:#555; cursor:pointer; }
+.tag-btn.on { border-color:var(--green); background:var(--green); color:#fff; font-weight:600; }
+.more-btn { margin-top:6px; font-size:11px; color:var(--green); background:none; border:none; cursor:pointer; font-family:inherit; padding:0; }
+
+/* FOOTER */
+.ftr{background:#1a1a1a;margin-top:48px;padding:32px 24px 20px}
+.ftr-inner{max-width:1100px;margin:0 auto}
+.ftr-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:24px}
+.ftr-logo{font-size:18px;font-weight:700;color:#fff;margin-bottom:8px}
+.ftr-logo em{color:var(--green);font-style:normal}
+.ftr-desc{font-size:12px;color:#888;line-height:1.7}
+.ftr-col h4{font-size:12px;font-weight:700;color:#ccc;margin-bottom:10px;letter-spacing:.05em}
+.ftr-col ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.ftr-col ul li a{font-size:12px;color:#888}
+.ftr-col ul li a:hover{color:#fff}
+.ftr-bottom{border-top:1px solid #333;padding-top:16px;display:flex;justify-content:space-between;align-items:center}
+.ftr-links{display:flex;gap:16px;font-size:11px}
+.ftr-links a{color:#666}
+.ftr-copy{font-size:11px;color:#555}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="hdr">
+  <a href="01_top.html" style="display:flex;align-items:center;gap:8px;text-decoration:none">
+    <div style="display:flex;align-items:center;justify-content:center;width:32px;height:32px;background:#fff;border-radius:8px;flex-shrink:0">
+      <span style="font-size:13px;font-weight:700;color:var(--green)">J</span>
+    </div>
+    <span class="hdr-logo">JOBLIUM</span>
+  </a>
+  <nav class="hdr-nav">
+    <a href="04_facilities.html">事業所を探す</a>
+    <a href="#">利用の流れ</a>
+    <a href="#">よくある質問</a>
+    <a href="#">コラム</a>
+    <a href="#">施設掲載</a>
+  </nav>
+  <div class="hdr-right">
+    <button class="hdr-btn hdr-btn-outline">ログイン</button>
+    <button class="hdr-btn hdr-btn-fill">無料会員登録</button>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="01_top.html">トップ</a><span class="breadcrumb-sep">›</span>
+      <a href="04_facilities.html">事業所を探す</a><span class="breadcrumb-sep">›</span>
+      <a href="#">東京都</a><span class="breadcrumb-sep">›</span>
+      <span>就労支援施設TOP20</span>
+    </div>
+    <h1 class="hero-title">東京の就労支援施設TOP20【2026年最新】</h1>
+    <div class="hero-badges">
+      <span class="hero-badge hb-green">空きあり施設あり</span>
+      <span class="hero-badge hb-green">見学受付中</span>
+      <span class="hero-badge hb-gray">2026年4月更新</span>
+      <span class="hero-badge hb-gray">全248件掲載中</span>
+    </div>
+    <p class="hero-sub">東京都内の就労移行支援・就労継続支援A型・B型を口コミ評価・就職実績・空き状況で比較。新宿・渋谷・池袋・品川など主要エリアから検索できます。</p>
+  </div>
+</div>
+
+<!-- SEARCH BAR -->
+<div class="searchbar-wrap">
+  <div class="searchbar-inner">
+    <div class="searchbar">
+      <input type="text" value="東京都　就労支援" placeholder="施設名・駅名・エリアで絞り込む">
+      <select>
+        <option selected>東京都</option>
+        <option>神奈川県</option>
+        <option>埼玉県</option>
+      </select>
+      <select>
+        <option selected>すべての種別</option>
+        <option>就労移行支援</option>
+        <option>就労継続支援A型</option>
+        <option>就労継続支援B型</option>
+      </select>
+      <button class="searchbar-btn">検索する</button>
+    </div>
+    <div class="active-filters">
+      <div class="af-tag">東京都 <span class="af-rm">×</span></div>
+      <div class="af-tag">空きあり <span class="af-rm">×</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+  <div class="sb-head" style="display:flex;justify-content:space-between;align-items:center;">
+    <span>絞り込み条件</span>
+    <button onclick="document.querySelectorAll('.ac-body').forEach(el=>{ el.style.display='block'; el.previousElementSibling.querySelector('.ac-icon').textContent='−'; })" style="font-size:11px;color:#999;background:none;border:none;cursor:pointer;text-decoration:underline;font-family:inherit;">すべて開く</button>
+  </div>
+
+  <!-- 施設タイプ -->
+  <div class="ac-section">
+    <button class="ac-btn" onclick="toggleTkAc('tk-ft')">施設タイプ<span id="tk-ft-icon" class="ac-icon">−</span></button>
+    <div id="tk-ft" class="ac-body">
+      <label class="ac-radio"><input type="radio" name="tkft" />すべて</label>
+      <label class="ac-radio on"><input type="radio" name="tkft" checked />就労移行支援</label>
+      <label class="ac-radio"><input type="radio" name="tkft" />就労継続支援A型</label>
+      <label class="ac-radio"><input type="radio" name="tkft" />就労継続支援B型</label>
+      <label class="ac-radio"><input type="radio" name="tkft" />多機能型</label>
+    </div>
+  </div>
+
+  <!-- エリア（東京専用） -->
+  <div class="ac-section">
+    <button class="ac-btn" onclick="toggleTkAc('tk-area')">エリア<span id="tk-area-icon" class="ac-icon">−</span></button>
+    <div id="tk-area" class="ac-body">
+      <label class="ac-check on"><input type="checkbox" checked />新宿区<span style="margin-left:auto;font-size:11px;color:#aaa;">28</span></label>
+      <label class="ac-check"><input type="checkbox" />渋谷区<span style="margin-left:auto;font-size:11px;color:#aaa;">21</span></label>
+      <label class="ac-check"><input type="checkbox" />豊島区（池袋）<span style="margin-left:auto;font-size:11px;color:#aaa;">18</span></label>
+      <label class="ac-check"><input type="checkbox" />港区<span style="margin-left:auto;font-size:11px;color:#aaa;">17</span></label>
+      <label class="ac-check"><input type="checkbox" />品川区<span style="margin-left:auto;font-size:11px;color:#aaa;">15</span></label>
+      <label class="ac-check"><input type="checkbox" />千代田区<span style="margin-left:auto;font-size:11px;color:#aaa;">14</span></label>
+      <label class="ac-check"><input type="checkbox" />その他23区<span style="margin-left:auto;font-size:11px;color:#aaa;">93</span></label>
+    </div>
+  </div>
+
+  <!-- 条件 -->
+  <div class="ac-section">
+    <button class="ac-btn" onclick="toggleTkAc('tk-cond')">条件<span id="tk-cond-icon" class="ac-icon">＋</span></button>
+    <div id="tk-cond" class="ac-body" style="display:none">
+      <label class="ac-check on"><input type="checkbox" checked />空きあり</label>
+      <label class="ac-check"><input type="checkbox" />見学受付中</label>
+      <label class="ac-check"><input type="checkbox" />体験利用可</label>
+      <label class="ac-check"><input type="checkbox" />🚌 送迎あり</label>
+    </div>
+  </div>
+
+  <!-- 工賃・給料 -->
+  <div class="ac-section">
+    <button class="ac-btn" onclick="toggleTkAc('tk-wage')">工賃・給料<span id="tk-wage-icon" class="ac-icon">−</span></button>
+    <div id="tk-wage" class="ac-body">
+      <label class="ac-radio"><input type="radio" name="tkwage" />すべて</label>
+      <label class="ac-radio"><input type="radio" name="tkwage" />¥30,000 以上</label>
+      <label class="ac-radio on"><input type="radio" name="tkwage" checked />¥60,000 以上</label>
+      <label class="ac-radio"><input type="radio" name="tkwage" />¥80,000 以上</label>
+      <label class="ac-radio"><input type="radio" name="tkwage" />¥100,000 以上</label>
+    </div>
+  </div>
+
+  <!-- 勤務日数 -->
+  <div class="ac-section">
+    <button class="ac-btn" onclick="toggleTkAc('tk-days')">勤務日数<span id="tk-days-icon" class="ac-icon">＋</span></button>
+    <div id="tk-days" class="ac-body" style="display:none">
+      <label class="ac-radio"><input type="radio" name="tkdays" />すべて</label>
+      <label class="ac-radio"><input type="radio" name="tkdays" />週2日以上</label>
+      <label class="ac-radio on"><input type="radio" name="tkdays" checked />週3日以上</label>
+      <label class="ac-radio"><input type="radio" name="tkdays" />週4日以上</label>
+      <label class="ac-radio"><input type="radio" name="tkdays" />週5日</label>
+    </div>
+  </div>
+
+  <!-- 定員規模 -->
+  <div class="ac-section">
+    <button class="ac-btn" onclick="toggleTkAc('tk-cap')">定員規模<span id="tk-cap-icon" class="ac-icon">＋</span></button>
+    <div id="tk-cap" class="ac-body" style="display:none">
+      <label class="ac-radio on"><input type="radio" name="tkcap" checked />すべて</label>
+      <label class="ac-radio"><input type="radio" name="tkcap" />10名以上</label>
+      <label class="ac-radio"><input type="radio" name="tkcap" />20名以上</label>
+      <label class="ac-radio"><input type="radio" name="tkcap" />30名以上</label>
+    </div>
+  </div>
+
+  <!-- レビュー評価 -->
+  <div class="ac-section">
+    <button class="ac-btn" onclick="toggleTkAc('tk-score')">レビュー評価<span id="tk-score-icon" class="ac-icon">＋</span></button>
+    <div id="tk-score" class="ac-body" style="display:none">
+      <label class="ac-radio"><input type="radio" name="tkscore" />すべて</label>
+      <label class="ac-radio"><input type="radio" name="tkscore" />★ 3.0 以上</label>
+      <label class="ac-radio"><input type="radio" name="tkscore" />★ 3.5 以上</label>
+      <label class="ac-radio on"><input type="radio" name="tkscore" checked />★ 4.0 以上</label>
+      <label class="ac-radio"><input type="radio" name="tkscore" />★ 4.5 以上</label>
+    </div>
+  </div>
+
+  <!-- 駅からの徒歩距離 -->
+  <div class="ac-section">
+    <button class="ac-btn" onclick="toggleTkAc('tk-walk')">駅からの徒歩距離<span id="tk-walk-icon" class="ac-icon">＋</span></button>
+    <div id="tk-walk" class="ac-body" style="display:none">
+      <label class="ac-radio"><input type="radio" name="tkwalk" />すべて</label>
+      <label class="ac-radio on"><input type="radio" name="tkwalk" checked />5分以内</label>
+      <label class="ac-radio"><input type="radio" name="tkwalk" />10分以内</label>
+      <label class="ac-radio"><input type="radio" name="tkwalk" />15分以内</label>
+      <label class="ac-radio"><input type="radio" name="tkwalk" />20分以内</label>
+    </div>
+  </div>
+
+  <!-- 仕事内容 -->
+  <div class="ac-section">
+    <button class="ac-btn" onclick="toggleTkAc('tk-work')">仕事内容<span id="tk-work-icon" class="ac-icon">−</span></button>
+    <div id="tk-work" class="ac-body">
+      <div class="tag-group">
+        <span class="tag-btn on">PC作業</span>
+        <span class="tag-btn">デザイン・制作</span>
+        <span class="tag-btn">農業・園芸</span>
+        <span class="tag-btn">軽作業</span>
+        <span class="tag-btn">接客・販売</span>
+      </div>
+      <button class="more-btn" onclick="openTkModal('work')">その他の項目 <span style="color:#aaa;">＋2</span></button>
+    </div>
+  </div>
+
+  <!-- 特徴・待遇 -->
+  <div class="ac-section">
+    <button class="ac-btn" onclick="toggleTkAc('tk-feat')">特徴・待遇<span id="tk-feat-icon" class="ac-icon">＋</span></button>
+    <div id="tk-feat" class="ac-body" style="display:none">
+      <div class="tag-group">
+        <span class="tag-btn">バリアフリー</span>
+        <span class="tag-btn on">駐車場あり</span>
+        <span class="tag-btn">食堂あり</span>
+        <span class="tag-btn">個室あり</span>
+        <span class="tag-btn">昇給あり</span>
+      </div>
+      <button class="more-btn" onclick="openTkModal('feat')">その他の項目 <span style="color:#aaa;">＋3</span></button>
+    </div>
+  </div>
+
+  <!-- 活動内容 -->
+  <div class="ac-section">
+    <button class="ac-btn" onclick="toggleTkAc('tk-act')">活動内容<span id="tk-act-icon" class="ac-icon">＋</span></button>
+    <div id="tk-act" class="ac-body" style="display:none">
+      <div class="tag-group">
+        <span class="tag-btn">創作・アート</span>
+        <span class="tag-btn on">スポーツ・体操</span>
+        <span class="tag-btn">音楽活動</span>
+        <span class="tag-btn">調理・料理</span>
+        <span class="tag-btn">外出・余暇支援</span>
+      </div>
+      <button class="more-btn" onclick="openTkModal('act')">その他の項目 <span style="color:#aaa;">＋1</span></button>
+    </div>
+  </div>
+
+  <!-- サポート内容 -->
+  <div class="ac-section">
+    <button class="ac-btn" onclick="toggleTkAc('tk-sup')">サポート内容<span id="tk-sup-icon" class="ac-icon">＋</span></button>
+    <div id="tk-sup" class="ac-body" style="display:none">
+      <div class="tag-group">
+        <span class="tag-btn">精神障害対応</span>
+        <span class="tag-btn">身体障害対応</span>
+        <span class="tag-btn on">発達障害対応</span>
+        <span class="tag-btn">知的障害対応</span>
+        <span class="tag-btn">ジョブコーチ</span>
+      </div>
+      <button class="more-btn" onclick="openTkModal('sup')">その他の項目 <span style="color:#aaa;">＋3</span></button>
+    </div>
+  </div>
+
+  <button class="sb-reset">条件をリセット</button>
+</aside>
+
+  <!-- RESULT -->
+  <div>
+    <div class="result-hd">
+      <div class="result-count"><strong>248件</strong> 中 TOP 20件を表示</div>
+      <div class="sort-wrap">
+        <span class="sort-lbl">並び替え：</span>
+        <select class="sort-sel">
+          <option>おすすめ順</option>
+          <option>口コミ評価順</option>
+          <option>就職実績が多い順</option>
+          <option>新着順</option>
+          <option>駅近順</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="cards">
+
+      <!-- card 1 -->
+      <div class="card">
+        <div class="c-img">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=360&auto=format&fit=crop&q=80" alt="">
+          <span class="c-rank">TOP1</span>
+          <button class="c-fav">❤️</button>
+        </div>
+        <div class="c-body">
+          <div>
+            <div class="c-badges">
+              <span class="badge b-svc-i">就労移行支援</span>
+              <span class="badge b-ok">空きあり</span>
+              <span class="badge b-new">人気No.1</span>
+            </div>
+            <div class="c-name">サンライズワーク新宿オフィス</div>
+            <div class="c-corp">運営：株式会社サンライズリハビリテーション</div>
+            <div class="c-rating"><span class="stars">★★★★★</span><strong>4.8</strong><span style="color:#999;font-size:11px">（口コミ43件）</span></div>
+            <div class="c-meta">
+              <span class="c-meta-item"><span class="dot"></span>新宿区・新宿駅 徒歩3分</span>
+              <span class="c-meta-item"><span class="dot"></span>定員30名</span>
+              <span class="c-meta-item"><span class="dot dot-gray"></span>精神・発達・身体</span>
+            </div>
+            <div class="c-desc">IT・Web・デザイン系職種への就職実績多数。個別カリキュラムとグループ訓練を組み合わせ、昨年度の一般就職率は92%。定着支援も最長3年間提供。</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-stat">年間就職実績 <span class="c-stat-num">26</span><span class="c-stat-unit">名</span></div>
+            <div class="c-btns">
+              <button class="btn-tour">見学を申し込む</button>
+              <button class="btn-detail">詳細を見る</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- card 2 -->
+      <div class="card">
+        <div class="c-img">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=360&auto=format&fit=crop&q=80" alt="">
+          <span class="c-rank">TOP2</span>
+          <button class="c-fav">🤍</button>
+        </div>
+        <div class="c-body">
+          <div>
+            <div class="c-badges">
+              <span class="badge b-svc-a">就労継続支援A型</span>
+              <span class="badge b-ok">空きあり</span>
+              <span class="badge b-dis">発達障がい特化</span>
+            </div>
+            <div class="c-name">ネクストステップ渋谷</div>
+            <div class="c-corp">運営：社会福祉法人ネクスト福祉会</div>
+            <div class="c-rating"><span class="stars">★★★★★</span><strong>4.7</strong><span style="color:#999;font-size:11px">（口コミ38件）</span></div>
+            <div class="c-meta">
+              <span class="c-meta-item"><span class="dot"></span>渋谷区・渋谷駅 徒歩5分</span>
+              <span class="c-meta-item"><span class="dot"></span>定員20名</span>
+              <span class="c-meta-item"><span class="dot dot-gray"></span>発達・精神</span>
+            </div>
+            <div class="c-desc">発達障がいのある方に特化したプログラムを提供。PC・データ入力・デザインなど実務スキルを習得しながら月給10万円〜の雇用契約で働けます。</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-stat">月額工賃 <span class="c-stat-num">¥112,000</span></div>
+            <div class="c-btns">
+              <button class="btn-tour">見学を申し込む</button>
+              <button class="btn-detail">詳細を見る</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- card 3 -->
+      <div class="card">
+        <div class="c-img">
+          <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=360&auto=format&fit=crop&q=80" alt="">
+          <span class="c-rank">TOP3</span>
+          <button class="c-fav">🤍</button>
+        </div>
+        <div class="c-body">
+          <div>
+            <div class="c-badges">
+              <span class="badge b-svc-i">就労移行支援</span>
+              <span class="badge b-ok">空きあり</span>
+              <span class="badge b-sp">土日利用可</span>
+            </div>
+            <div class="c-name">ハーモニーワーク池袋</div>
+            <div class="c-corp">運営：医療法人ハーモニー会</div>
+            <div class="c-rating"><span class="stars">★★★★★</span><strong>4.6</strong><span style="color:#999;font-size:11px">（口コミ51件）</span></div>
+            <div class="c-meta">
+              <span class="c-meta-item"><span class="dot"></span>豊島区・池袋駅 徒歩4分</span>
+              <span class="c-meta-item"><span class="dot"></span>定員25名</span>
+              <span class="c-meta-item"><span class="dot dot-gray"></span>精神・難病</span>
+            </div>
+            <div class="c-desc">医療法人運営で精神科・心療内科との連携が充実。体調に配慮しながら週1日から通所可能。土曜日も開所しており、仕事をしながら通う方にも対応しています。</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-stat">年間就職実績 <span class="c-stat-num">19</span><span class="c-stat-unit">名</span></div>
+            <div class="c-btns">
+              <button class="btn-tour">見学を申し込む</button>
+              <button class="btn-detail">詳細を見る</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- card 4 -->
+      <div class="card">
+        <div class="c-img">
+          <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=360&auto=format&fit=crop&q=80" alt="">
+          <span class="c-rank">TOP4</span>
+          <button class="c-fav">🤍</button>
+        </div>
+        <div class="c-body">
+          <div>
+            <div class="c-badges">
+              <span class="badge b-svc-a">就労継続支援A型</span>
+              <span class="badge b-ok">空きあり</span>
+            </div>
+            <div class="c-name">アクセス品川オフィス</div>
+            <div class="c-corp">運営：株式会社アクセスワーク</div>
+            <div class="c-rating"><span class="stars">★★★★☆</span><strong>4.5</strong><span style="color:#999;font-size:11px">（口コミ29件）</span></div>
+            <div class="c-meta">
+              <span class="c-meta-item"><span class="dot"></span>品川区・品川駅 徒歩6分</span>
+              <span class="c-meta-item"><span class="dot"></span>定員30名</span>
+              <span class="c-meta-item"><span class="dot dot-gray"></span>精神・発達・身体</span>
+            </div>
+            <div class="c-desc">事務・PC・軽作業など多様な仕事を提供。雇用契約に基づき最低賃金以上の給料が保障されます。社会保険完備・交通費支給・昇給制度あり。</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-stat">月額工賃 <span class="c-stat-num">¥95,000</span></div>
+            <div class="c-btns">
+              <button class="btn-tour">見学を申し込む</button>
+              <button class="btn-detail">詳細を見る</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- card 5 -->
+      <div class="card">
+        <div class="c-img">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=360&auto=format&fit=crop&q=80" alt="">
+          <span class="c-rank">TOP5</span>
+          <button class="c-fav">🤍</button>
+        </div>
+        <div class="c-body">
+          <div>
+            <div class="c-badges">
+              <span class="badge b-svc-i">就労移行支援</span>
+              <span class="badge b-ok">見学受付中</span>
+              <span class="badge b-dis">身体障がい対応</span>
+            </div>
+            <div class="c-name">ライズ東京千代田</div>
+            <div class="c-corp">運営：NPO法人東京就労支援センター</div>
+            <div class="c-rating"><span class="stars">★★★★☆</span><strong>4.4</strong><span style="color:#999;font-size:11px">（口コミ22件）</span></div>
+            <div class="c-meta">
+              <span class="c-meta-item"><span class="dot"></span>千代田区・神保町駅 徒歩2分</span>
+              <span class="c-meta-item"><span class="dot"></span>定員20名</span>
+              <span class="c-meta-item"><span class="dot dot-gray"></span>身体・難病</span>
+            </div>
+            <div class="c-desc">車いす対応・完全バリアフリー設計。身体障がい・難病のある方が安心して通える環境。在宅ワーク訓練にも対応しており、通所が難しい方もサポートします。</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-stat">年間就職実績 <span class="c-stat-num">14</span><span class="c-stat-unit">名</span></div>
+            <div class="c-btns">
+              <button class="btn-tour">見学を申し込む</button>
+              <button class="btn-detail">詳細を見る</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- card 6 -->
+      <div class="card">
+        <div class="c-img">
+          <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=360&auto=format&fit=crop&q=80" alt="">
+          <span class="c-rank">TOP6</span>
+          <button class="c-fav">🤍</button>
+        </div>
+        <div class="c-body">
+          <div>
+            <div class="c-badges">
+              <span class="badge b-svc-b">就労継続支援B型</span>
+              <span class="badge b-ok">空きあり</span>
+            </div>
+            <div class="c-name">グリーンファーム東京立川</div>
+            <div class="c-corp">運営：社会福祉法人グリーン福祉会</div>
+            <div class="c-rating"><span class="stars">★★★★☆</span><strong>4.3</strong><span style="color:#999;font-size:11px">（口コミ35件）</span></div>
+            <div class="c-meta">
+              <span class="c-meta-item"><span class="dot"></span>立川市・立川駅 徒歩8分</span>
+              <span class="c-meta-item"><span class="dot"></span>定員40名</span>
+              <span class="c-meta-item"><span class="dot dot-gray"></span>精神・知的・発達</span>
+            </div>
+            <div class="c-desc">農業・園芸・軽作業など多彩な仕事を提供。自分のペースで無理なく働ける環境が好評。送迎サービスあり、月額平均工賃¥32,000。</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-stat">月額平均工賃 <span class="c-stat-num">¥32,000</span></div>
+            <div class="c-btns">
+              <button class="btn-tour">見学を申し込む</button>
+              <button class="btn-detail">詳細を見る</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- card 7 -->
+      <div class="card">
+        <div class="c-img">
+          <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=360&auto=format&fit=crop&q=80" alt="">
+          <span class="c-rank">TOP7</span>
+          <button class="c-fav">🤍</button>
+        </div>
+        <div class="c-body">
+          <div>
+            <div class="c-badges">
+              <span class="badge b-svc-a">就労継続支援A型</span>
+              <span class="badge b-ok">空きあり</span>
+              <span class="badge b-new">新着</span>
+            </div>
+            <div class="c-name">テックワーク秋葉原</div>
+            <div class="c-corp">運営：株式会社テックワーク</div>
+            <div class="c-rating"><span class="stars">★★★★☆</span><strong>4.3</strong><span style="color:#999;font-size:11px">（口コミ18件）</span></div>
+            <div class="c-meta">
+              <span class="c-meta-item"><span class="dot"></span>千代田区・秋葉原駅 徒歩3分</span>
+              <span class="c-meta-item"><span class="dot"></span>定員20名</span>
+              <span class="c-meta-item"><span class="dot dot-gray"></span>精神・発達</span>
+            </div>
+            <div class="c-desc">IT・プログラミング・データ入力に特化した就労継続A型事業所。実際の業務委託案件に取り組みながら実践的なスキルを習得。リモートワーク対応可。</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-stat">月額工賃 <span class="c-stat-num">¥120,000</span></div>
+            <div class="c-btns">
+              <button class="btn-tour">見学を申し込む</button>
+              <button class="btn-detail">詳細を見る</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- card 8 -->
+      <div class="card">
+        <div class="c-img">
+          <img src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=360&auto=format&fit=crop&q=80" alt="">
+          <span class="c-rank">TOP8</span>
+          <button class="c-fav">🤍</button>
+        </div>
+        <div class="c-body">
+          <div>
+            <div class="c-badges">
+              <span class="badge b-svc-b">就労継続支援B型</span>
+              <span class="badge b-ok">空きあり</span>
+            </div>
+            <div class="c-name">アトリエ東京目黒</div>
+            <div class="c-corp">運営：NPO法人クリエイティブ支援協会</div>
+            <div class="c-rating"><span class="stars">★★★★☆</span><strong>4.2</strong><span style="color:#999;font-size:11px">（口コミ27件）</span></div>
+            <div class="c-meta">
+              <span class="c-meta-item"><span class="dot"></span>目黒区・目黒駅 徒歩7分</span>
+              <span class="c-meta-item"><span class="dot"></span>定員25名</span>
+              <span class="c-meta-item"><span class="dot dot-gray"></span>精神・発達・知的</span>
+            </div>
+            <div class="c-desc">アート・デザイン・クラフト制作を中心とした作業を提供。制作物の販売収益を工賃に還元するモデルを採用。創作活動を通じて自己表現を楽しめます。</div>
+          </div>
+          <div class="c-foot">
+            <div class="c-stat">月額平均工賃 <span class="c-stat-num">¥28,000</span></div>
+            <div class="c-btns">
+              <button class="btn-tour">見学を申し込む</button>
+              <button class="btn-detail">詳細を見る</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /cards -->
+
+    <!-- PAGINATION -->
+    <div class="pager">
+      <div class="pg on">1</div>
+      <div class="pg">2</div>
+      <div class="pg">3</div>
+      <span style="color:#bbb;padding:0 4px">…</span>
+      <div class="pg">31</div>
+      <div class="pg">›</div>
+    </div>
+
+    <!-- 統計バナー -->
+    <div class="stats-banner">
+      <div class="stat-item">
+        <div class="stat-num">248</div>
+        <div class="stat-label">東京都内の登録施設数</div>
+        <div class="stat-sub">（2026年4月現在）</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">142</div>
+        <div class="stat-label">空きあり施設</div>
+        <div class="stat-sub">随時更新中</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4.1</div>
+        <div class="stat-label">東京都平均口コミ評価</div>
+        <div class="stat-sub">★4.0以上が67%</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3,800+</div>
+        <div class="stat-label">東京都の口コミ件数</div>
+        <div class="stat-sub">利用者の生の声</div>
+      </div>
+    </div>
+
+    <!-- SEO CONTENT -->
+    <div class="seo">
+
+      <h2 class="seo-h2">東京都の就労支援施設について</h2>
+      <p class="seo-p">東京都は全国で最も就労支援施設が充実した地域であり、2026年4月時点でJOBLIUMに登録されている施設数は248件にのぼります。就労移行支援・就労継続支援A型・B型・多機能型など多様なサービス形態から自分に合った施設を選ぶことができます。</p>
+      <p class="seo-p">新宿・渋谷・池袋・品川・秋葉原など主要ターミナル駅周辺には特に多くの施設が集まっており、交通アクセスの良さも東京の大きなメリットです。IT・Web・デザイン系職種への就職を目指す就労移行支援施設も多く、首都圏の豊富な雇用機会を活かした就職実績が期待できます。</p>
+
+      <h3 class="seo-h3">東京都内のエリア別施設数</h3>
+      <div class="chip-group">
+        <div class="chip">新宿区（28件）</div>
+        <div class="chip">渋谷区（21件）</div>
+        <div class="chip">豊島区（18件）</div>
+        <div class="chip">港区（17件）</div>
+        <div class="chip">品川区（15件）</div>
+        <div class="chip">千代田区（14件）</div>
+        <div class="chip">中野区（12件）</div>
+        <div class="chip">世田谷区（11件）</div>
+        <div class="chip">立川市（10件）</div>
+        <div class="chip">八王子市（9件）</div>
+        <div class="chip">その他（93件）</div>
+      </div>
+
+      <h3 class="seo-h3">東京都の就労支援施設 種別・実績データ</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>種別</th>
+            <th>施設数</th>
+            <th>平均工賃/給料</th>
+            <th>平均就職率</th>
+            <th>主な対応障がい</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>就労移行支援</td>
+            <td class="highlight">87件</td>
+            <td>—（訓練給付金あり）</td>
+            <td class="highlight">62%</td>
+            <td>精神・発達・身体・知的</td>
+          </tr>
+          <tr>
+            <td>就労継続支援A型</td>
+            <td class="highlight">72件</td>
+            <td class="highlight">月額 ¥98,000</td>
+            <td>—</td>
+            <td>精神・発達・身体</td>
+          </tr>
+          <tr>
+            <td>就労継続支援B型</td>
+            <td class="highlight">89件</td>
+            <td class="highlight">月額 ¥32,000</td>
+            <td>—</td>
+            <td>精神・知的・発達</td>
+          </tr>
+          <tr>
+            <td>多機能型</td>
+            <td>21件</td>
+            <td>種別による</td>
+            <td>—</td>
+            <td>すべて</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="seo-h3">関連するサービス種別</h3>
+      <div class="chip-group">
+        <div class="chip chip-svc">就労移行支援</div>
+        <div class="chip chip-svc">就労継続支援A型</div>
+        <div class="chip chip-svc">就労継続支援B型</div>
+        <div class="chip chip-svc">就労定着支援</div>
+        <div class="chip chip-svc">多機能型事業所</div>
+        <div class="chip chip-svc">生活介護</div>
+      </div>
+
+      <h3 class="seo-h3">よくある質問（東京都の就労支援施設）</h3>
+      <div class="faq">
+        <div class="faq-item">
+          <div class="faq-q">東京都で就労支援施設を選ぶポイントは何ですか？<span class="faq-q-icon">＋</span></div>
+          <div class="faq-a">① 自分の障がい種別に対応しているか、② 通いやすい場所・駅近か、③ 目指す仕事内容と訓練内容が合っているか、④ 就職実績・定着率、⑤ 空き状況の5点が特に重要です。東京都は施設数が多い分、複数の施設を見学・比較することをおすすめします。JOBLIUMでは無料の施設比較・相談サービスも提供しています。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">就労移行支援と就労継続支援の違いを教えてください。<span class="faq-q-icon">＋</span></div>
+          <div class="faq-a">就労移行支援は一般就労（企業への就職）を目指す最長2年間の訓練サービスです。就労継続支援A型は雇用契約を結び最低賃金以上の給料（東京都は時給1,163円〜）を受け取りながら働くサービス。B型は雇用契約なしで工賃（平均¥32,000/月）を受け取りながら福祉的就労を行うサービスです。一般就職を最終目標とするなら就労移行支援、長期的に安心して働き続けたい場合はA型・B型が選択肢となります。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">東京都の就労移行支援の費用はいくらかかりますか？<span class="faq-q-icon">＋</span></div>
+          <div class="faq-a">世帯所得に応じた自己負担上限額が設定されており、多くの方は月額0円〜9,300円で利用できます。生活保護受給者・低所得世帯（市区町村民税非課税）の方は月額0円です。東京都は独自の補助制度もあるため、お住まいの区市町村の障害福祉窓口でご確認ください。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">障害者手帳がなくても利用できますか？<span class="faq-q-icon">＋</span></div>
+          <div class="faq-a">就労移行支援・就労継続支援は障害者手帳がなくても、医師の診断書や意見書があれば「障害福祉サービス受給者証」を取得して利用できる場合があります。まずはお住まいの区市町村（東京都内23区や市部の障害福祉課）にご相談ください。JOBLIUMの無料相談窓口でも受給者証の取得手順をご案内しています。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">東京都で就労継続支援A型の工賃が高い施設を探すには？<span class="faq-q-icon">＋</span></div>
+          <div class="faq-a">JOBLIUMの検索では「工賃・給料」フィルターで¥80,000以上・¥100,000以上・¥120,000以上と絞り込みができます。東京都の就労継続支援A型の平均月給は約¥98,000（東京都最低賃金ベース）ですが、IT・デザイン特化型の施設では¥120,000以上を支給する事業所も増えています。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">見学はどのように申し込めばよいですか？<span class="faq-q-icon">＋</span></div>
+          <div class="faq-a">各施設ページの「見学を申し込む」ボタンからオンラインで申込みいただけます。複数施設を比較してから決めることを強くおすすめします。JOBLIUMでは無料のコンシェルジュサービスも提供しており、あなたの状況・希望に合った施設を専門スタッフがご提案します（電話・チャット対応）。</div>
+        </div>
+      </div>
+
+      <h3 class="seo-h3">他の都道府県の就労支援施設を探す</h3>
+      <div class="rel-grid">
+        <div class="rel-chip">神奈川県（189件）</div>
+        <div class="rel-chip">埼玉県（142件）</div>
+        <div class="rel-chip">千葉県（128件）</div>
+        <div class="rel-chip">大阪府（248件）</div>
+        <div class="rel-chip">愛知県（192件）</div>
+        <div class="rel-chip">福岡県（134件）</div>
+        <div class="rel-chip">京都府（72件）</div>
+        <div class="rel-chip">全国一覧を見る</div>
+      </div>
+
+    </div><!-- /seo -->
+  </div><!-- /result -->
+</div><!-- /main -->
+
+<!-- FOOTER -->
+<footer class="ftr">
+  <div class="ftr-inner">
+    <div class="ftr-top">
+      <div>
+        <div class="ftr-logo">JOB<em>LIUM</em></div>
+        <p class="ftr-desc">障害者就労支援事業所を検索・比較できるプラットフォーム。就労移行支援・就労継続支援A型・B型の施設情報、口コミ・評価を掲載しています。</p>
+      </div>
+      <div class="ftr-col">
+        <h4>施設を探す</h4>
+        <ul>
+          <li><a href="#">都道府県から探す</a></li>
+          <li><a href="#">種別から探す</a></li>
+          <li><a href="#">仕事内容から探す</a></li>
+          <li><a href="#">口コミランキング</a></li>
+        </ul>
+      </div>
+      <div class="ftr-col">
+        <h4>サービス</h4>
+        <ul>
+          <li><a href="#">利用の流れ</a></li>
+          <li><a href="#">無料相談</a></li>
+          <li><a href="#">施設掲載のご案内</a></li>
+          <li><a href="#">コラム</a></li>
+        </ul>
+      </div>
+      <div class="ftr-col">
+        <h4>サポート</h4>
+        <ul>
+          <li><a href="#">よくある質問</a></li>
+          <li><a href="#">お問い合わせ</a></li>
+          <li><a href="#">プライバシーポリシー</a></li>
+          <li><a href="#">利用規約</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-bottom">
+      <div class="ftr-links">
+        <a href="#">運営会社</a>
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">利用規約</a>
+        <a href="#">特定商取引法</a>
+      </div>
+      <div class="ftr-copy">© 2026 JOBLIUM All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleTkAc(id) {
+  const body = document.getElementById(id)
+  const icon = document.getElementById(id + '-icon')
+  const isOpen = body.style.display !== 'none'
+  body.style.display = isOpen ? 'none' : 'block'
+  icon.textContent = isOpen ? '＋' : '−'
+}
+
+const TK_MODAL_DATA = {
+  work:  { title:'仕事内容', all:['PC作業','デザイン・制作','農業・園芸','軽作業','接客・販売','清掃','食品加工'], selected:['PC作業'] },
+  feat:  { title:'特徴・待遇', all:['バリアフリー','駐車場あり','食堂あり','個室あり','昇給あり','社会保険完備','交通費支給','資格取得支援'], selected:['駐車場あり'] },
+  act:   { title:'活動内容', all:['創作・アート','スポーツ・体操','音楽活動','調理・料理','外出・余暇支援','ガーデニング'], selected:['スポーツ・体操'] },
+  sup:   { title:'サポート内容', all:['精神障害対応','身体障害対応','発達障害対応','知的障害対応','ジョブコーチ','就職活動支援','定着支援','生活相談'], selected:['発達障害対応'] }
+}
+
+function openTkModal(cat) {
+  const d = TK_MODAL_DATA[cat]
+  document.getElementById('tk-modal-title').textContent = d.title
+  document.getElementById('tk-modal-tags').innerHTML = d.all.map(t =>
+    d.selected.includes(t)
+      ? '<button style="font-size:12px;padding:5px 12px;border-radius:20px;border:1.5px solid var(--green);background:var(--green);color:#fff;cursor:pointer;font-weight:600;">' + t + '</button>'
+      : '<button style="font-size:12px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:#fff;color:#555;cursor:pointer;">' + t + '</button>'
+  ).join('')
+  document.getElementById('tk-modal').style.display = 'flex'
+}
+function closeTkModal() {
+  document.getElementById('tk-modal').style.display = 'none'
+}
+</script>
+
+<!-- タグ選択モーダル -->
+<div id="tk-modal" style="display:none;position:fixed;inset:0;z-index:50;align-items:center;justify-content:center;">
+  <div style="position:absolute;inset:0;background:rgba(0,0,0,0.4);" onclick="closeTkModal()"></div>
+  <div style="position:relative;z-index:10;width:100%;max-width:400px;margin:0 16px;background:#fff;border-radius:12px;box-shadow:0 10px 40px rgba(0,0,0,0.2);">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--border);">
+      <span id="tk-modal-title" style="font-size:15px;font-weight:700;"></span>
+      <button onclick="closeTkModal()" style="width:28px;height:28px;border-radius:50%;background:#f0f2f5;border:none;cursor:pointer;font-size:14px;font-weight:700;">✕</button>
+    </div>
+    <div id="tk-modal-tags" style="display:flex;flex-wrap:wrap;gap:8px;padding:18px;"></div>
+    <div style="border-top:1px solid var(--border);padding:12px 18px;display:flex;justify-content:flex-end;gap:8px;">
+      <button onclick="closeTkModal()" style="padding:7px 16px;border:1px solid var(--border);border-radius:8px;background:#fff;font-size:13px;font-family:inherit;cursor:pointer;">キャンセル</button>
+      <button onclick="closeTkModal()" style="padding:7px 16px;border:none;border-radius:8px;background:var(--green);color:#fff;font-size:13px;font-weight:700;font-family:inherit;cursor:pointer;">選択を確定</button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOBLIUM - 事業所管理</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#f0faf7',100:'#d1f5ec',200:'#a3ead8',300:'#6ed9bf',400:'#3ec4a3',500:'#1eb38a',600:'#16A177',700:'#127e5e',800:'#0e5f47',900:'#094030' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-gray-900 shadow-sm">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <div class="flex items-center gap-3">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-600">
+          <span class="text-sm font-bold text-white">J</span>
+        </div>
+        <span class="text-xl font-bold text-white">JOBLIUM</span>
+        <span class="rounded-md bg-red-600 px-2 py-0.5 text-xs font-bold text-white">ADMIN</span>
+      </div>
+      <nav class="hidden items-center gap-1 md:flex">
+        <a href="17_admin-dashboard.html" class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">ダッシュボード</a>
+        <a href="18_admin-users.html"     class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">ユーザー管理</a>
+        <a href="19_admin-offices.html"   class="rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold text-white">事業所管理</a>
+        <a href="21_admin-messages.html"  class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">メッセージ管理</a>
+        <a href="20_admin-master.html"    class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">マスタ管理</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-white/70">admin@joblium.com</span>
+        <span class="rounded-full bg-red-600 px-2.5 py-0.5 text-xs font-bold text-white">管理者</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="mx-auto max-w-7xl px-4 py-8">
+
+    <div class="mb-6 flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-gray-900">事業所管理</h1>
+        <p class="text-sm text-gray-500 mt-0.5">全 342 件</p>
+      </div>
+      <span class="rounded-full bg-yellow-100 px-4 py-1.5 text-sm font-semibold text-yellow-700">審査待ち 8件</span>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="flex gap-1 mb-5 bg-white rounded-xl p-1 shadow-sm border border-gray-200 w-fit">
+      <button class="rounded-lg bg-gray-900 px-4 py-2 text-xs font-semibold text-white">すべて (342)</button>
+      <button class="rounded-lg px-4 py-2 text-xs font-medium text-gray-600 hover:bg-gray-100">公開中 (318)</button>
+      <button class="rounded-lg px-4 py-2 text-xs font-medium text-yellow-600 hover:bg-yellow-50">審査待ち (8)</button>
+      <button class="rounded-lg px-4 py-2 text-xs font-medium text-gray-600 hover:bg-gray-100">非公開 (13)</button>
+      <button class="rounded-lg px-4 py-2 text-xs font-medium text-gray-600 hover:bg-gray-100">下書き (3)</button>
+    </div>
+
+    <!-- Search -->
+    <div class="flex gap-3 mb-6">
+      <input type="text" placeholder="事業所名・都道府県で検索..." class="flex-1 rounded-xl border border-gray-200 bg-white px-4 py-2.5 text-sm focus:border-primary-400 focus:outline-none shadow-sm" />
+      <select class="rounded-xl border border-gray-200 bg-white px-4 py-2.5 text-sm text-gray-700 focus:border-primary-400 focus:outline-none shadow-sm">
+        <option>種別：すべて</option>
+        <option>就労継続支援A型</option>
+        <option>就労継続支援B型</option>
+        <option>就労移行支援</option>
+      </select>
+      <button class="rounded-xl bg-primary-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-700">検索</button>
+    </div>
+
+    <!-- Office List -->
+    <div class="space-y-3">
+
+      <!-- 審査待ち -->
+      <div class="rounded-2xl border-l-4 border-l-yellow-400 border border-gray-200 bg-white p-5 shadow-sm">
+        <div class="flex items-start justify-between gap-4">
+          <div class="flex-1">
+            <div class="flex items-center gap-2 mb-1 flex-wrap">
+              <h2 class="font-bold text-gray-900">ハーモニー就労移行センター</h2>
+              <span class="rounded-full bg-yellow-100 px-2.5 py-0.5 text-xs font-bold text-yellow-700">⏳ 審査待ち</span>
+            </div>
+            <p class="text-xs text-gray-500">大阪府 大阪市 北区梅田2-2-2 / 就労移行支援 / 定員：20名</p>
+            <p class="text-xs text-gray-400 mt-1">申請日：2026年3月26日 / 事業者：関西福祉法人</p>
+          </div>
+          <div class="flex flex-col gap-2 flex-shrink-0">
+            <div class="flex gap-2">
+              <button class="rounded-lg bg-primary-600 px-4 py-1.5 text-xs font-semibold text-white hover:bg-primary-700">承認して公開</button>
+              <button class="rounded-lg bg-red-500 px-4 py-1.5 text-xs font-semibold text-white hover:bg-red-600">却下</button>
+            </div>
+            <a href="16_office-edit.html" class="text-center rounded-lg border border-gray-200 px-4 py-1.5 text-xs text-gray-600 hover:bg-gray-50">内容を確認・編集</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 公開中 1 -->
+      <div class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+        <div class="flex items-start justify-between gap-4">
+          <div class="flex-1">
+            <div class="flex items-center gap-2 mb-1 flex-wrap">
+              <h2 class="font-bold text-gray-900">サンシャイン就労A型センター</h2>
+              <span class="rounded-full bg-primary-100 px-2.5 py-0.5 text-xs font-bold text-primary-700">✓ 公開中</span>
+            </div>
+            <p class="text-xs text-gray-500">東京都 新宿区 西新宿1-1-1 / 就労継続支援A型 / 定員：20名</p>
+            <div class="flex items-center gap-4 mt-2 text-xs text-gray-400">
+              <span>⭐ 4.2（口コミ18件）</span>
+              <span>📋 今月の応募 5件</span>
+              <span>登録：2025/06/01</span>
+            </div>
+          </div>
+          <div class="flex gap-2 flex-shrink-0">
+            <a href="16_office-edit.html" class="rounded-lg border border-gray-200 px-3 py-1.5 text-xs text-gray-600 hover:bg-gray-50">編集</a>
+            <button class="rounded-lg border border-gray-200 px-3 py-1.5 text-xs text-gray-600 hover:bg-gray-50">非公開</button>
+            <button class="rounded-lg border border-red-200 px-3 py-1.5 text-xs text-red-600 hover:bg-red-50">削除</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 公開中 2 -->
+      <div class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+        <div class="flex items-start justify-between gap-4">
+          <div class="flex-1">
+            <div class="flex items-center gap-2 mb-1 flex-wrap">
+              <h2 class="font-bold text-gray-900">グリーンファーム就労支援</h2>
+              <span class="rounded-full bg-primary-100 px-2.5 py-0.5 text-xs font-bold text-primary-700">✓ 公開中</span>
+            </div>
+            <p class="text-xs text-gray-500">埼玉県 さいたま市 大宮区桜木町2-2-2 / 就労継続支援B型 / 定員：30名</p>
+            <div class="flex items-center gap-4 mt-2 text-xs text-gray-400">
+              <span>⭐ 4.7（口コミ32件）</span>
+              <span>📋 今月の応募 3件</span>
+              <span>登録：2025/04/15</span>
+            </div>
+          </div>
+          <div class="flex gap-2 flex-shrink-0">
+            <a href="16_office-edit.html" class="rounded-lg border border-gray-200 px-3 py-1.5 text-xs text-gray-600 hover:bg-gray-50">編集</a>
+            <button class="rounded-lg border border-gray-200 px-3 py-1.5 text-xs text-gray-600 hover:bg-gray-50">非公開</button>
+            <button class="rounded-lg border border-red-200 px-3 py-1.5 text-xs text-red-600 hover:bg-red-50">削除</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 非公開 -->
+      <div class="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm opacity-70">
+        <div class="flex items-start justify-between gap-4">
+          <div class="flex-1">
+            <div class="flex items-center gap-2 mb-1 flex-wrap">
+              <h2 class="font-bold text-gray-700">ひまわり就労継続B型センター</h2>
+              <span class="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-bold text-gray-500">非公開</span>
+            </div>
+            <p class="text-xs text-gray-400">福岡県 福岡市 博多区博多駅3-3-3 / 就労継続支援B型 / 定員：15名</p>
+            <p class="text-xs text-gray-400 mt-1">登録：2025/09/20</p>
+          </div>
+          <div class="flex gap-2 flex-shrink-0">
+            <button class="rounded-lg bg-primary-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-primary-700">公開する</button>
+            <a href="16_office-edit.html" class="rounded-lg border border-gray-200 px-3 py-1.5 text-xs text-gray-600 hover:bg-gray-50">編集</a>
+            <button class="rounded-lg border border-red-200 px-3 py-1.5 text-xs text-red-600 hover:bg-red-50">削除</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex items-center justify-between mt-6">
+      <span class="text-xs text-gray-400">342件中 1〜20件を表示</span>
+      <div class="flex gap-1">
+        <button class="rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs text-gray-500 hover:bg-gray-50">前へ</button>
+        <button class="rounded-lg bg-gray-900 px-3 py-1.5 text-xs font-semibold text-white">1</button>
+        <button class="rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs text-gray-500 hover:bg-gray-50">2</button>
+        <button class="rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs text-gray-500 hover:bg-gray-50">3</button>
+        <button class="rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-xs text-gray-500 hover:bg-gray-50">次へ</button>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

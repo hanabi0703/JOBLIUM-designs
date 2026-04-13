@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOBLIUM - 事業所一覧</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#f0faf7',100:'#d1f5ec',200:'#a3ead8',300:'#6ed9bf',400:'#3ec4a3',500:'#1eb38a',600:'#16A177',700:'#127e5e',800:'#0e5f47',900:'#094030' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-primary-600 shadow-sm">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <a href="01_top.html" class="flex items-center gap-2">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-white">
+          <span class="text-sm font-bold text-primary-600">J</span>
+        </div>
+        <span class="text-xl font-bold text-white">JOBLIUM</span>
+      </a>
+      <nav class="flex items-center gap-4">
+        <a href="04_facilities.html" class="text-sm font-semibold text-white border-b border-white/60 pb-0.5">事業所を探す</a>
+        <a href="08_mypage.html" class="text-sm font-medium text-white/80 hover:text-white">マイページ</a>
+        <button class="rounded-lg bg-white/20 px-3 py-1.5 text-sm font-medium text-white hover:bg-white/30">ログアウト</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <div class="bg-white border-b border-gray-200">
+    <div class="mx-auto max-w-7xl px-4 pt-4 pb-0">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-1.5 text-xs text-gray-400 mb-2.5">
+        <a href="01_top.html" class="text-gray-500 hover:text-primary-600">トップ</a>
+        <span class="text-gray-300">›</span>
+        <span class="text-gray-600">事業所を探す</span>
+      </nav>
+      <!-- Title -->
+      <h1 class="text-2xl font-bold text-gray-900 mb-1 leading-tight">就労支援施設を探す</h1>
+      <!-- Badges -->
+      <div class="flex flex-wrap gap-2 mb-3">
+        <span class="text-xs font-semibold rounded-full bg-primary-50 text-primary-700 px-2.5 py-0.5">空きあり施設あり</span>
+        <span class="text-xs font-semibold rounded-full bg-primary-50 text-primary-700 px-2.5 py-0.5">見学受付中</span>
+        <span class="text-xs font-semibold rounded-full bg-gray-100 text-gray-600 px-2.5 py-0.5">2026年4月更新</span>
+        <span class="text-xs font-semibold rounded-full bg-gray-100 text-gray-600 px-2.5 py-0.5">全1,200件以上掲載</span>
+      </div>
+      <!-- Sub description -->
+      <p class="text-sm text-gray-500 pb-3.5">就労移行支援・就労継続支援A型・B型を口コミ評価・就職実績・空き状況で比較。都道府県・こだわり条件から絞り込めます。</p>
+    </div>
+  </div>
+
+  <!-- Search Bar (below hero, above main) -->
+  <div class="bg-white border-b border-gray-200 px-4 py-3">
+    <div class="mx-auto max-w-7xl">
+      <div class="flex gap-2 mb-2">
+        <div class="relative flex-1">
+          <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+          <input type="text" placeholder="施設名・仕事内容・エリアなど" class="w-full h-[42px] rounded-lg border border-gray-300 pl-9 pr-3 text-sm outline-none focus:border-primary-500" />
+        </div>
+        <select class="h-[42px] rounded-lg border border-gray-300 px-3 text-sm outline-none focus:border-primary-500 bg-white">
+          <option value="">都道府県</option>
+          <option>東京都</option>
+          <option>埼玉県</option>
+          <option>神奈川県</option>
+          <option>大阪府</option>
+        </select>
+        <select class="h-[42px] rounded-lg border border-gray-300 px-3 text-sm outline-none focus:border-primary-500 bg-white">
+          <option value="">すべての種別</option>
+          <option>就労移行支援</option>
+          <option>就労継続支援A型</option>
+          <option>就労継続支援B型</option>
+        </select>
+        <button class="h-[42px] px-6 rounded-lg bg-primary-600 text-sm font-bold text-white hover:bg-primary-700 whitespace-nowrap">検索する</button>
+      </div>
+      <div class="flex gap-2 flex-wrap">
+        <span class="flex items-center gap-1 text-xs bg-primary-50 text-primary-700 rounded-full px-3 py-1 font-medium">就労継続支援A型 <span class="cursor-pointer opacity-60">×</span></span>
+        <span class="flex items-center gap-1 text-xs bg-primary-50 text-primary-700 rounded-full px-3 py-1 font-medium">空きあり <span class="cursor-pointer opacity-60">×</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-7xl px-4 py-8">
+
+    <div class="mt-0 flex gap-7">
+
+      <!-- ── 左サイドバー ── -->
+      <aside class="w-64 flex-shrink-0 flex flex-col gap-5">
+
+        <!-- 詳細条件（アコーディオン） -->
+        <div class="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+          <div class="flex items-center justify-between px-4 py-3 border-b border-gray-100">
+            <p class="text-sm font-bold text-gray-800">詳細条件</p>
+            <button class="text-xs text-gray-400 hover:text-gray-600 underline" onclick="document.querySelectorAll('.ac-content').forEach(el => { el.style.display='block'; el.previousElementSibling.querySelector('.ac-icon').textContent='−'; })">すべて開く</button>
+          </div>
+
+          <!-- 施設タイプ：開いた状態 -->
+          <div class="border-b border-gray-100">
+            <button onclick="toggleAc('ft')" class="flex w-full items-center justify-between px-4 py-3 text-left hover:bg-gray-50 transition-colors">
+              <span class="text-sm font-semibold text-gray-800">施設タイプ</span>
+              <span id="ft-icon" class="ac-icon text-lg font-light text-gray-400 leading-none">−</span>
+            </button>
+            <div id="ft" class="ac-content px-4 pb-4">
+              <div class="flex flex-col gap-2.5">
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="ft" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">すべて</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="ft" checked class="h-4 w-4 text-primary-600" /><span class="text-sm font-semibold text-primary-700">就労継続支援A型</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="ft" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">就労継続支援B型</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="ft" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">就労移行支援</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 条件：閉じた状態 -->
+          <div class="border-b border-gray-100">
+            <button onclick="toggleAc('cond')" class="flex w-full items-center justify-between px-4 py-3 text-left hover:bg-gray-50 transition-colors">
+              <span class="text-sm font-semibold text-gray-800">条件</span>
+              <span id="cond-icon" class="ac-icon text-lg font-light text-gray-400 leading-none">＋</span>
+            </button>
+            <div id="cond" class="ac-content px-4 pb-4" style="display:none">
+              <label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked class="h-4 w-4 rounded text-primary-600" /><span class="text-sm font-semibold text-primary-700">🚌 送迎あり</span></label>
+            </div>
+          </div>
+
+          <!-- 工賃・給料：開いた状態 -->
+          <div class="border-b border-gray-100">
+            <button onclick="toggleAc('wage')" class="flex w-full items-center justify-between px-4 py-3 text-left hover:bg-gray-50 transition-colors">
+              <span class="text-sm font-semibold text-gray-800">工賃・給料</span>
+              <span id="wage-icon" class="ac-icon text-lg font-light text-gray-400 leading-none">−</span>
+            </button>
+            <div id="wage" class="ac-content px-4 pb-4">
+              <div class="flex flex-col gap-2.5">
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="wage" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">すべて</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="wage" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">¥30,000 以上</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="wage" checked class="h-4 w-4 text-primary-600" /><span class="text-sm font-semibold text-primary-700">¥60,000 以上</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="wage" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">¥80,000 以上</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="wage" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">¥100,000 以上</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 勤務日数：閉じた状態 -->
+          <div class="border-b border-gray-100">
+            <button onclick="toggleAc('days')" class="flex w-full items-center justify-between px-4 py-3 text-left hover:bg-gray-50 transition-colors">
+              <span class="text-sm font-semibold text-gray-800">勤務日数</span>
+              <span id="days-icon" class="ac-icon text-lg font-light text-gray-400 leading-none">＋</span>
+            </button>
+            <div id="days" class="ac-content px-4 pb-4" style="display:none">
+              <div class="flex flex-col gap-2.5">
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="days" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">すべて</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="days" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">週2日以上</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="days" checked class="h-4 w-4 text-primary-600" /><span class="text-sm font-semibold text-primary-700">週3日以上</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="days" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">週4日以上</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="days" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">週5日</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 定員規模：閉じた状態 -->
+          <div class="border-b border-gray-100">
+            <button onclick="toggleAc('cap')" class="flex w-full items-center justify-between px-4 py-3 text-left hover:bg-gray-50 transition-colors">
+              <span class="text-sm font-semibold text-gray-800">定員規模</span>
+              <span id="cap-icon" class="ac-icon text-lg font-light text-gray-400 leading-none">＋</span>
+            </button>
+            <div id="cap" class="ac-content px-4 pb-4" style="display:none">
+              <div class="flex flex-col gap-2.5">
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="cap" checked class="h-4 w-4 text-primary-600" /><span class="text-sm font-semibold text-primary-700">すべて</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="cap" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">10名以上</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="cap" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">20名以上</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="cap" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">30名以上</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- レビュー評価：閉じた状態 -->
+          <div class="border-b border-gray-100">
+            <button onclick="toggleAc('score')" class="flex w-full items-center justify-between px-4 py-3 text-left hover:bg-gray-50 transition-colors">
+              <span class="text-sm font-semibold text-gray-800">レビュー評価</span>
+              <span id="score-icon" class="ac-icon text-lg font-light text-gray-400 leading-none">＋</span>
+            </button>
+            <div id="score" class="ac-content px-4 pb-4" style="display:none">
+              <div class="flex flex-col gap-2.5">
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="score" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">すべて</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="score" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">★ 3.0 以上</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="score" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">★ 3.5 以上</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="score" checked class="h-4 w-4 text-primary-600" /><span class="text-sm font-semibold text-primary-700">★ 4.0 以上</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="score" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">★ 4.5 以上</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 駅からの徒歩距離：閉じた状態 -->
+          <div class="border-b border-gray-100">
+            <button onclick="toggleAc('walk')" class="flex w-full items-center justify-between px-4 py-3 text-left hover:bg-gray-50 transition-colors">
+              <span class="text-sm font-semibold text-gray-800">駅からの徒歩距離</span>
+              <span id="walk-icon" class="ac-icon text-lg font-light text-gray-400 leading-none">＋</span>
+            </button>
+            <div id="walk" class="ac-content px-4 pb-4" style="display:none">
+              <div class="flex flex-col gap-2.5">
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="walk" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">すべて</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="walk" checked class="h-4 w-4 text-primary-600" /><span class="text-sm font-semibold text-primary-700">5分以内</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="walk" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">10分以内</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="walk" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">15分以内</span></label>
+                <label class="flex items-center gap-2.5 cursor-pointer"><input type="radio" name="walk" class="h-4 w-4 text-primary-600" /><span class="text-sm text-gray-700">20分以内</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 仕事内容：開いた状態（最初の5項目のみ） -->
+          <div class="border-b border-gray-100">
+            <button onclick="toggleAc('work')" class="flex w-full items-center justify-between px-4 py-3 text-left hover:bg-gray-50 transition-colors">
+              <span class="text-sm font-semibold text-gray-800">仕事内容</span>
+              <span id="work-icon" class="ac-icon text-lg font-light text-gray-400 leading-none">−</span>
+            </button>
+            <div id="work" class="ac-content px-4 pb-3">
+              <div class="flex flex-wrap gap-2">
+                <button class="rounded-full border border-primary-600 bg-primary-600 text-white px-2.5 py-1 text-xs font-medium">PC作業</button>
+                <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">デザイン・制作</button>
+                <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">農業・園芸</button>
+                <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">軽作業</button>
+                <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">接客・販売</button>
+              </div>
+              <button onclick="openModal('work')" class="mt-2 text-xs text-primary-600 hover:text-primary-800 font-medium flex items-center gap-1">その他の項目 <span class="text-gray-400">＋2</span></button>
+            </div>
+          </div>
+
+          <!-- 特徴・待遇：閉じた状態（最初の5項目のみ） -->
+          <div class="border-b border-gray-100">
+            <button onclick="toggleAc('feat')" class="flex w-full items-center justify-between px-4 py-3 text-left hover:bg-gray-50 transition-colors">
+              <span class="text-sm font-semibold text-gray-800">特徴・待遇</span>
+              <span id="feat-icon" class="ac-icon text-lg font-light text-gray-400 leading-none">＋</span>
+            </button>
+            <div id="feat" class="ac-content px-4 pb-3" style="display:none">
+              <div class="flex flex-wrap gap-2">
+                <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">バリアフリー</button>
+                <button class="rounded-full border border-primary-600 bg-primary-600 text-white px-2.5 py-1 text-xs font-medium">駐車場あり</button>
+                <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">食堂あり</button>
+                <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">個室あり</button>
+                <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">昇給あり</button>
+              </div>
+              <button onclick="openModal('feat')" class="mt-2 text-xs text-primary-600 hover:text-primary-800 font-medium flex items-center gap-1">その他の項目 <span class="text-gray-400">＋3</span></button>
+            </div>
+          </div>
+
+          <!-- 活動内容：閉じた状態（最初の5項目のみ） -->
+          <div class="border-b border-gray-100">
+            <button onclick="toggleAc('act')" class="flex w-full items-center justify-between px-4 py-3 text-left hover:bg-gray-50 transition-colors">
+              <span class="text-sm font-semibold text-gray-800">活動内容</span>
+              <span id="act-icon" class="ac-icon text-lg font-light text-gray-400 leading-none">＋</span>
+            </button>
+            <div id="act" class="ac-content px-4 pb-3" style="display:none">
+              <div class="flex flex-wrap gap-2">
+                <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">創作・アート</button>
+                <button class="rounded-full border border-primary-600 bg-primary-600 text-white px-2.5 py-1 text-xs font-medium">スポーツ・体操</button>
+                <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">音楽活動</button>
+                <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">調理・料理</button>
+                <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">外出・余暇支援</button>
+              </div>
+              <button onclick="openModal('act')" class="mt-2 text-xs text-primary-600 hover:text-primary-800 font-medium flex items-center gap-1">その他の項目 <span class="text-gray-400">＋1</span></button>
+            </div>
+          </div>
+
+          <!-- サポート内容：閉じた状態（最初の5項目のみ） -->
+          <div>
+            <button onclick="toggleAc('sup')" class="flex w-full items-center justify-between px-4 py-3 text-left hover:bg-gray-50 transition-colors">
+              <span class="text-sm font-semibold text-gray-800">サポート内容</span>
+              <span id="sup-icon" class="ac-icon text-lg font-light text-gray-400 leading-none">＋</span>
+            </button>
+            <div id="sup" class="ac-content px-4 pb-3" style="display:none">
+              <div class="flex flex-wrap gap-2">
+                <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">精神障害対応</button>
+                <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">身体障害対応</button>
+                <button class="rounded-full border border-primary-600 bg-primary-600 text-white px-2.5 py-1 text-xs font-medium">発達障害対応</button>
+                <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">知的障害対応</button>
+                <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">ジョブコーチ</button>
+              </div>
+              <button onclick="openModal('sup')" class="mt-2 text-xs text-primary-600 hover:text-primary-800 font-medium flex items-center gap-1">その他の項目 <span class="text-gray-400">＋3</span></button>
+            </div>
+          </div>
+
+          <!-- リセット -->
+          <div class="border-t border-gray-100 px-4 py-3">
+            <button class="w-full rounded-xl border border-gray-300 py-2 text-xs font-medium text-gray-500 hover:bg-gray-50">
+              絞り込みをすべてリセット
+            </button>
+          </div>
+        </div>
+
+      </aside>
+
+      <script>
+        function toggleAc(id) {
+          const content = document.getElementById(id)
+          const icon = document.getElementById(id + '-icon')
+          const isOpen = content.style.display !== 'none'
+          content.style.display = isOpen ? 'none' : 'block'
+          icon.textContent = isOpen ? '＋' : '−'
+        }
+
+        const MODAL_DATA = {
+          work: {
+            title: '仕事内容',
+            all: ['PC作業', 'デザイン・制作', '農業・園芸', '軽作業', '接客・販売', '清掃', '食品加工'],
+            selected: ['PC作業']
+          },
+          feat: {
+            title: '特徴・待遇',
+            all: ['バリアフリー', '駐車場あり', '食堂あり', '個室あり', '昇給あり', '社会保険完備', '交通費支給', '資格取得支援'],
+            selected: ['駐車場あり']
+          },
+          act: {
+            title: '活動内容',
+            all: ['創作・アート', 'スポーツ・体操', '音楽活動', '調理・料理', '外出・余暇支援', 'ガーデニング'],
+            selected: ['スポーツ・体操']
+          },
+          sup: {
+            title: 'サポート内容',
+            all: ['精神障害対応', '身体障害対応', '発達障害対応', '知的障害対応', 'ジョブコーチ', '就職活動支援', '定着支援', '生活相談'],
+            selected: ['発達障害対応']
+          }
+        }
+
+        function openModal(category) {
+          const data = MODAL_DATA[category]
+          document.getElementById('modal-title').textContent = data.title
+          const area = document.getElementById('modal-tags')
+          area.innerHTML = data.all.map(tag => {
+            const isSelected = data.selected.includes(tag)
+            return isSelected
+              ? `<button class="rounded-full border border-primary-600 bg-primary-600 text-white px-3 py-1.5 text-sm font-medium">${tag}</button>`
+              : `<button class="rounded-full border border-gray-200 bg-white text-gray-700 px-3 py-1.5 text-sm font-medium hover:border-primary-500 hover:text-primary-600 transition-colors">${tag}</button>`
+          }).join('')
+          document.getElementById('tag-modal').style.display = 'flex'
+        }
+
+        function closeModal() {
+          document.getElementById('tag-modal').style.display = 'none'
+        }
+      </script>
+
+      <!-- ── メインコンテンツ ── -->
+      <div class="flex-1 min-w-0">
+
+        <!-- 件数・地図ボタン・並び替え -->
+        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+          <div>
+            <span class="text-base font-bold text-gray-900">42件</span>
+            <span class="ml-1.5 text-sm text-gray-500">の事業所が見つかりました</span>
+            <span class="ml-3 text-sm text-gray-400">1 / 3ページ</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <a href="04_facilities_map.html" class="inline-flex items-center gap-1.5 rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
+              <svg class="h-4 w-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>
+              地図で見る
+            </a>
+            <select class="rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-700">
+              <option value="newest">新着順</option>
+              <option value="score">評価順</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- カード一覧 -->
+        <div class="flex flex-col gap-4">
+
+          <!-- Card 1（横型・写真左） -->
+          <div class="rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+            <div class="flex">
+              <!-- 写真 -->
+              <a href="05_facility-detail.html" class="block relative w-56 flex-shrink-0 bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&auto=format&fit=crop" class="w-full h-full object-cover" alt="" />
+                <button class="absolute top-2.5 right-2.5 w-8 h-8 flex items-center justify-center rounded-full bg-white/85 text-lg shadow">🤍</button>
+              </a>
+              <!-- 情報 -->
+              <div class="flex-1 flex flex-col p-5 min-w-0">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-700">就労継続支援A型</span>
+                  <span class="rounded-full bg-primary-100 px-2.5 py-0.5 text-xs font-medium text-primary-700">🚌 送迎あり</span>
+                  <span class="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs text-gray-600">PC作業</span>
+                  <span class="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs text-gray-600">Web制作</span>
+                </div>
+                <a href="05_facility-detail.html" class="mt-2 text-lg font-bold text-gray-900 hover:text-primary-600 leading-snug">サンシャイン就労A型センター</a>
+                <div class="mt-1 flex flex-wrap items-center gap-x-3 text-sm text-gray-500">
+                  <span class="flex items-center gap-1">
+                    <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    東京都 新宿区
+                  </span>
+                  <span class="flex items-center gap-1">
+                    <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
+                    新宿駅 徒歩5分
+                  </span>
+                </div>
+                <p class="mt-2 text-sm text-gray-600 line-clamp-2">PCを使ったデータ入力・Web制作作業をメインに行います。未経験者も丁寧にサポートします。</p>
+                <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500">
+                  <span class="flex items-center gap-1">
+                    <svg class="h-3.5 w-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    9:00〜17:00
+                  </span>
+                  <span class="flex items-center gap-1">
+                    <svg class="h-3.5 w-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    週3〜5日
+                  </span>
+                  <span class="flex items-center gap-1">
+                    <svg class="h-3.5 w-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    定員 20名
+                  </span>
+                </div>
+                <div class="mt-auto pt-3 border-t border-gray-100 flex items-center justify-between gap-3">
+                  <div class="flex items-center gap-2">
+                    <span class="text-yellow-400 text-sm">★★★★☆</span>
+                    <span class="text-sm font-semibold text-gray-800">4.2</span>
+                    <span class="text-xs text-gray-400">(18件)</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="text-right">
+                      <p class="text-xs text-gray-400">工賃</p>
+                      <p class="text-sm font-bold text-primary-700">80,000〜120,000円</p>
+                    </div>
+                    <a href="05_facility-detail.html" class="rounded-xl bg-primary-600 px-4 py-2 text-xs font-semibold text-white hover:bg-primary-700 whitespace-nowrap">詳細を見る</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+            <div class="flex">
+              <a href="05_facility-detail.html" class="block relative w-56 flex-shrink-0 bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&auto=format&fit=crop" class="w-full h-full object-cover" alt="" />
+                <button class="absolute top-2.5 right-2.5 w-8 h-8 flex items-center justify-center rounded-full bg-white/85 text-lg shadow">❤️</button>
+              </a>
+              <div class="flex-1 flex flex-col p-5 min-w-0">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-700">就労継続支援B型</span>
+                  <span class="rounded-full bg-primary-100 px-2.5 py-0.5 text-xs font-medium text-primary-700">🚌 送迎あり</span>
+                  <span class="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs text-gray-600">農業・園芸</span>
+                  <span class="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs text-gray-600">軽作業</span>
+                </div>
+                <a href="05_facility-detail.html" class="mt-2 text-lg font-bold text-gray-900 hover:text-primary-600 leading-snug">グリーンファーム就労支援</a>
+                <div class="mt-1 flex flex-wrap items-center gap-x-3 text-sm text-gray-500">
+                  <span class="flex items-center gap-1">
+                    <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    埼玉県 さいたま市
+                  </span>
+                  <span class="flex items-center gap-1">
+                    <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
+                    大宮駅 徒歩15分
+                  </span>
+                </div>
+                <p class="mt-2 text-sm text-gray-600 line-clamp-2">広大な農園での野菜・花卉栽培を中心に、自然の中でゆったりと働ける環境です。体を動かすのが好きな方に最適。</p>
+                <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500">
+                  <span class="flex items-center gap-1">
+                    <svg class="h-3.5 w-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    8:30〜15:30
+                  </span>
+                  <span class="flex items-center gap-1">
+                    <svg class="h-3.5 w-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    週2〜5日
+                  </span>
+                  <span class="flex items-center gap-1">
+                    <svg class="h-3.5 w-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    定員 15名
+                  </span>
+                </div>
+                <div class="mt-auto pt-3 border-t border-gray-100 flex items-center justify-between gap-3">
+                  <div class="flex items-center gap-2">
+                    <span class="text-yellow-400 text-sm">★★★★★</span>
+                    <span class="text-sm font-semibold text-gray-800">4.7</span>
+                    <span class="text-xs text-gray-400">(32件)</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <div class="text-right">
+                      <p class="text-xs text-gray-400">工賃</p>
+                      <p class="text-sm font-bold text-primary-700">70,000〜100,000円</p>
+                    </div>
+                    <a href="05_facility-detail.html" class="rounded-xl bg-primary-600 px-4 py-2 text-xs font-semibold text-white hover:bg-primary-700 whitespace-nowrap">詳細を見る</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3（写真なし） -->
+          <div class="rounded-2xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow overflow-hidden">
+            <div class="flex">
+              <a href="05_facility-detail.html" class="block relative w-56 flex-shrink-0 bg-gray-100">
+                <div class="flex flex-col items-center justify-center h-full text-gray-300 gap-2 py-12">
+                  <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                  <span class="text-xs">写真なし</span>
+                </div>
+              </a>
+              <div class="flex-1 flex flex-col p-5 min-w-0">
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="rounded-full bg-orange-100 px-2.5 py-0.5 text-xs font-medium text-orange-700">就労移行支援</span>
+                  <span class="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs text-gray-600">事務・データ入力</span>
+                  <span class="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs text-gray-600">就職支援</span>
+                </div>
+                <a href="05_facility-detail.html" class="mt-2 text-lg font-bold text-gray-900 hover:text-primary-600 leading-snug">ハーモニー就労移行センター</a>
+                <div class="mt-1 flex flex-wrap items-center gap-x-3 text-sm text-gray-500">
+                  <span class="flex items-center gap-1">
+                    <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    大阪府 大阪市 北区
+                  </span>
+                  <span class="flex items-center gap-1">
+                    <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
+                    梅田駅 徒歩3分
+                  </span>
+                </div>
+                <p class="mt-2 text-sm text-gray-600 line-clamp-2">就労を目指す方向けに、ビジネスマナーやPCスキル、コミュニケーション能力を幅広く習得できます。</p>
+                <div class="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500">
+                  <span class="flex items-center gap-1">
+                    <svg class="h-3.5 w-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    10:00〜16:00
+                  </span>
+                  <span class="flex items-center gap-1">
+                    <svg class="h-3.5 w-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    週3〜5日
+                  </span>
+                  <span class="flex items-center gap-1">
+                    <svg class="h-3.5 w-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    定員 12名
+                  </span>
+                </div>
+                <div class="mt-auto pt-3 border-t border-gray-100 flex items-center justify-between gap-3">
+                  <div class="flex items-center gap-2">
+                    <span class="text-yellow-400 text-sm">★★★★☆</span>
+                    <span class="text-sm font-semibold text-gray-800">4.1</span>
+                    <span class="text-xs text-gray-400">(21件)</span>
+                  </div>
+                  <div class="flex items-center gap-3">
+                    <span class="text-sm text-gray-400">訓練給付金あり</span>
+                    <a href="05_facility-detail.html" class="rounded-xl bg-primary-600 px-4 py-2 text-xs font-semibold text-white hover:bg-primary-700 whitespace-nowrap">詳細を見る</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ページネーション -->
+        <div class="mt-10">
+          <div class="flex justify-center items-center gap-1">
+            <button class="px-3 py-2 rounded-xl text-sm border border-gray-300 text-gray-400 opacity-40 cursor-not-allowed">前へ</button>
+            <button class="min-w-[2.5rem] px-3 py-2 rounded-xl text-sm border bg-primary-600 border-primary-600 text-white font-semibold">1</button>
+            <button class="min-w-[2.5rem] px-3 py-2 rounded-xl text-sm border border-gray-300 text-gray-600 hover:bg-gray-50">2</button>
+            <button class="min-w-[2.5rem] px-3 py-2 rounded-xl text-sm border border-gray-300 text-gray-600 hover:bg-gray-50">3</button>
+            <button class="px-3 py-2 rounded-xl text-sm border border-gray-300 text-gray-600 hover:bg-gray-50">次へ</button>
+          </div>
+          <p class="mt-3 text-center text-xs text-gray-400">1〜15件目を表示</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- その他の項目 モーダル -->
+  <div id="tag-modal" style="display:none" class="fixed inset-0 z-50 flex items-center justify-center">
+    <!-- オーバーレイ -->
+    <div class="absolute inset-0 bg-black/40" onclick="closeModal()"></div>
+    <!-- モーダル本体 -->
+    <div class="relative z-10 w-full max-w-sm mx-4 rounded-2xl bg-white shadow-2xl">
+      <!-- ヘッダー -->
+      <div class="flex items-center justify-between border-b border-gray-100 px-5 py-4">
+        <h3 id="modal-title" class="text-base font-bold text-gray-900"></h3>
+        <button onclick="closeModal()" class="flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 text-gray-500 hover:bg-gray-200 text-sm font-bold">✕</button>
+      </div>
+      <!-- タグ一覧 -->
+      <div class="px-5 py-5">
+        <div id="modal-tags" class="flex flex-wrap gap-2.5"></div>
+      </div>
+      <!-- フッター -->
+      <div class="border-t border-gray-100 px-5 py-3 flex justify-end gap-2">
+        <button onclick="closeModal()" class="rounded-xl border border-gray-300 px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50">キャンセル</button>
+        <button onclick="closeModal()" class="rounded-xl bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700">選択を確定</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOBLIUM - 事業所編集</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#f0faf7',100:'#d1f5ec',200:'#a3ead8',300:'#6ed9bf',400:'#3ec4a3',500:'#1eb38a',600:'#16A177',700:'#127e5e',800:'#0e5f47',900:'#094030' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-primary-600 shadow-sm">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <a href="01_top.html" class="flex items-center gap-2">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-white">
+          <span class="text-sm font-bold text-primary-600">J</span>
+        </div>
+        <span class="text-xl font-bold text-white">JOBLIUM</span>
+      </a>
+      <nav class="hidden items-center gap-1 md:flex">
+        <a href="13_manage-dashboard.html" class="rounded-lg px-4 py-2 text-sm font-medium text-white/80 hover:bg-primary-700">ダッシュボード</a>
+        <a href="09_applications.html" class="rounded-lg px-4 py-2 text-sm font-medium text-white/80 hover:bg-primary-700">応募管理</a>
+        <a href="12_message-detail.html" class="rounded-lg px-4 py-2 text-sm font-medium text-white/80 hover:bg-primary-700">メッセージ</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <span class="text-sm font-medium text-white">テスト事業者</span>
+        <span class="rounded-full bg-orange-100 px-2.5 py-0.5 text-xs font-semibold text-orange-700">事業者</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="mx-auto max-w-4xl px-4 py-8">
+
+    <!-- Page Title -->
+    <div class="mb-6 flex items-center justify-between">
+      <div>
+        <div class="flex items-center gap-2 mb-1">
+          <a href="13_manage-dashboard.html" class="text-sm text-gray-500 hover:text-primary-600">← ダッシュボード</a>
+        </div>
+        <h1 class="text-2xl font-bold text-gray-900">事業所を編集</h1>
+        <p class="text-sm text-gray-500 mt-0.5">サンシャイン就労A型センター</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="rounded-full bg-primary-100 px-3 py-1 text-xs font-bold text-primary-700">✓ 公開中</span>
+        <a href="05_facility-detail.html" target="_blank" class="rounded-xl border border-gray-200 px-4 py-2 text-xs font-medium text-gray-700 hover:bg-gray-50">👁 公開ページを確認</a>
+      </div>
+    </div>
+
+    <form class="space-y-6">
+
+      <!-- Section 1: 基本情報 -->
+      <div class="rounded-2xl bg-white p-6 shadow-sm border border-gray-100">
+        <h2 class="text-base font-bold text-gray-900 mb-5 flex items-center gap-2">
+          <span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary-600 text-xs font-bold text-white">1</span>
+          基本情報
+        </h2>
+        <div class="space-y-5">
+
+          <!-- 事業所名 -->
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1.5">事業所名 <span class="text-red-500">*</span></label>
+              <input type="text" value="サンシャイン就労A型センター" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1.5">事業所名（フリガナ） <span class="text-red-500">*</span></label>
+              <input type="text" value="サンシャインシュウロウエーガタセンター" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100" />
+            </div>
+          </div>
+
+          <!-- 代表者名・事業所種別 -->
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1.5">代表者名</label>
+              <input type="text" value="山田 太郎" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1.5">事業所種別 <span class="text-red-500">*</span></label>
+              <select class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100 bg-white">
+                <option selected>就労継続支援A型</option>
+                <option>就労継続支援B型</option>
+                <option>就労移行支援</option>
+                <option>就労定着支援</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- キャッチコピー -->
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1.5">キャッチコピー <span class="text-xs font-normal text-gray-400">（100文字以内）</span></label>
+            <input type="text" value="あなたのペースで、一歩ずつ。農業と事務で笑顔を育てる就労支援" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100" />
+          </div>
+
+          <!-- 運営法人名 -->
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1.5">運営法人名</label>
+              <input type="text" value="社会福祉法人 サンシャイン会" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1.5">ホームページURL</label>
+              <input type="url" placeholder="https://example.com" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100" />
+              <p class="mt-1 text-xs text-gray-400">※ 有料プランのみ公開されます</p>
+            </div>
+          </div>
+
+          <!-- 対象者・定員 -->
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">対象障害種別 <span class="text-red-500">*</span></label>
+            <div class="flex flex-wrap gap-3">
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded accent-primary-600" /><span class="text-sm text-gray-700">精神障害</span></label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded accent-primary-600" /><span class="text-sm text-gray-700">知的障害</span></label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded accent-primary-600" /><span class="text-sm text-gray-700">身体障害</span></label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked class="rounded accent-primary-600" /><span class="text-sm text-gray-700">発達障害</span></label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded accent-primary-600" /><span class="text-sm text-gray-700">難病</span></label>
+              <label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" class="rounded accent-primary-600" /><span class="text-sm text-gray-700">その他</span></label>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1.5">定員</label>
+              <div class="flex items-center gap-2">
+                <input type="number" value="20" class="w-24 rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100" />
+                <span class="text-sm text-gray-500">名</span>
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1.5">就職実績（累計）</label>
+              <div class="flex items-center gap-2">
+                <input type="number" value="42" class="w-24 rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100" />
+                <span class="text-sm text-gray-500">件</span>
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1.5">受付状況</label>
+              <select class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none bg-white">
+                <option selected>受付中</option>
+                <option>一時停止</option>
+                <option>満員</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Section 2: 所在地・アクセス -->
+      <div class="rounded-2xl bg-white p-6 shadow-sm border border-gray-100">
+        <h2 class="text-base font-bold text-gray-900 mb-5 flex items-center gap-2">
+          <span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary-600 text-xs font-bold text-white">2</span>
+          所在地・アクセス
+        </h2>
+        <div class="space-y-4">
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1.5">郵便番号 <span class="text-red-500">*</span></label>
+              <input type="text" value="160-0023" placeholder="000-0000" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100" />
+            </div>
+            <div class="sm:col-span-2">
+              <label class="block text-sm font-semibold text-gray-700 mb-1.5">住所1（都道府県・市区町村） <span class="text-red-500">*</span></label>
+              <input type="text" value="東京都 新宿区 西新宿" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100" />
+            </div>
+          </div>
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1.5">住所2（番地）</label>
+              <input type="text" value="1-1-1" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1.5">建物名・階数</label>
+              <input type="text" value="サンシャインビル 3F" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100" />
+            </div>
+          </div>
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1.5">電話番号</label>
+              <input type="tel" value="03-1234-5678" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100" />
+              <p class="mt-1 text-xs text-gray-400">※ 有料プランのみ公開</p>
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1.5">最寄り駅</label>
+              <input type="text" value="西新宿駅" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1.5">徒歩（分）</label>
+              <div class="flex items-center gap-2">
+                <input type="number" value="5" class="w-20 rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100" />
+                <span class="text-sm text-gray-500">分</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1.5">アクセス詳細</label>
+            <textarea rows="2" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100 resize-none">西新宿駅3番出口より徒歩5分。新宿駅西口より徒歩10分。</textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: 営業時間 -->
+      <div class="rounded-2xl bg-white p-6 shadow-sm border border-gray-100">
+        <h2 class="text-base font-bold text-gray-900 mb-5 flex items-center gap-2">
+          <span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary-600 text-xs font-bold text-white">3</span>
+          サービス利用時間
+        </h2>
+        <div class="space-y-3">
+          <div class="grid grid-cols-4 gap-3 text-xs font-semibold text-gray-500 px-1">
+            <div>曜日</div><div>開始</div><div>終了</div><div>備考</div>
+          </div>
+          <!-- 月〜金 -->
+          <div class="grid grid-cols-4 gap-3 items-center">
+            <div class="text-sm font-medium text-gray-700">月</div>
+            <input type="time" value="09:00" class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-primary-400 focus:outline-none" />
+            <input type="time" value="17:00" class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-primary-400 focus:outline-none" />
+            <input type="text" placeholder="備考" class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-primary-400 focus:outline-none" />
+          </div>
+          <div class="grid grid-cols-4 gap-3 items-center">
+            <div class="text-sm font-medium text-gray-700">火</div>
+            <input type="time" value="09:00" class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-primary-400 focus:outline-none" />
+            <input type="time" value="17:00" class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-primary-400 focus:outline-none" />
+            <input type="text" placeholder="備考" class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-primary-400 focus:outline-none" />
+          </div>
+          <div class="grid grid-cols-4 gap-3 items-center">
+            <div class="text-sm font-medium text-gray-700">水</div>
+            <input type="time" value="09:00" class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-primary-400 focus:outline-none" />
+            <input type="time" value="17:00" class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-primary-400 focus:outline-none" />
+            <input type="text" placeholder="備考" class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-primary-400 focus:outline-none" />
+          </div>
+          <div class="grid grid-cols-4 gap-3 items-center">
+            <div class="text-sm font-medium text-gray-700">木</div>
+            <input type="time" value="09:00" class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-primary-400 focus:outline-none" />
+            <input type="time" value="17:00" class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-primary-400 focus:outline-none" />
+            <input type="text" placeholder="備考" class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-primary-400 focus:outline-none" />
+          </div>
+          <div class="grid grid-cols-4 gap-3 items-center">
+            <div class="text-sm font-medium text-gray-700">金</div>
+            <input type="time" value="09:00" class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-primary-400 focus:outline-none" />
+            <input type="time" value="17:00" class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-primary-400 focus:outline-none" />
+            <input type="text" placeholder="備考" class="rounded-lg border border-gray-200 px-3 py-2 text-sm focus:border-primary-400 focus:outline-none" />
+          </div>
+          <div class="grid grid-cols-4 gap-3 items-center">
+            <div class="text-sm font-medium text-gray-500">土</div>
+            <input type="time" class="rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-400 focus:border-primary-400 focus:outline-none" placeholder="--:--" />
+            <input type="time" class="rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-400 focus:border-primary-400 focus:outline-none" placeholder="--:--" />
+            <input type="text" value="休業" class="rounded-lg border border-gray-100 bg-gray-50 px-3 py-2 text-sm text-gray-400 focus:outline-none" />
+          </div>
+          <div class="grid grid-cols-4 gap-3 items-center">
+            <div class="text-sm font-medium text-gray-500">日</div>
+            <input type="time" class="rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-400 focus:border-primary-400 focus:outline-none" placeholder="--:--" />
+            <input type="time" class="rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-400 focus:border-primary-400 focus:outline-none" placeholder="--:--" />
+            <input type="text" value="休業" class="rounded-lg border border-gray-100 bg-gray-50 px-3 py-2 text-sm text-gray-400 focus:outline-none" />
+          </div>
+          <div class="grid grid-cols-4 gap-3 items-center">
+            <div class="text-sm font-medium text-gray-500">祝</div>
+            <input type="time" class="rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-400 focus:border-primary-400 focus:outline-none" placeholder="--:--" />
+            <input type="time" class="rounded-lg border border-gray-200 px-3 py-2 text-sm text-gray-400 focus:border-primary-400 focus:outline-none" placeholder="--:--" />
+            <input type="text" value="休業" class="rounded-lg border border-gray-100 bg-gray-50 px-3 py-2 text-sm text-gray-400 focus:outline-none" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1.5">利用時間の補足・備考</label>
+            <textarea rows="2" placeholder="例：祝日前後は変更になる場合があります" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100 resize-none"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: 画像 -->
+      <div class="rounded-2xl bg-white p-6 shadow-sm border border-gray-100">
+        <h2 class="text-base font-bold text-gray-900 mb-5 flex items-center gap-2">
+          <span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary-600 text-xs font-bold text-white">4</span>
+          画像
+        </h2>
+        <div class="space-y-5">
+          <!-- メインビジュアル -->
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">メインビジュアル</label>
+            <div class="flex items-start gap-4">
+              <div class="h-24 w-40 rounded-xl bg-gradient-to-br from-primary-100 to-primary-200 flex items-center justify-center flex-shrink-0">
+                <span class="text-3xl">🌿</span>
+              </div>
+              <div>
+                <label class="cursor-pointer rounded-xl border-2 border-dashed border-gray-200 px-5 py-3 text-sm text-gray-500 hover:border-primary-300 hover:text-primary-600 inline-block transition-colors">
+                  <input type="file" accept="image/*" class="hidden" />
+                  📁 画像を変更する
+                </label>
+                <p class="mt-2 text-xs text-gray-400">推奨サイズ: 1200×630px / JPG・PNG・WebP / 5MB以下</p>
+              </div>
+            </div>
+          </div>
+          <!-- ロゴ -->
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">ロゴ画像</label>
+            <div class="flex items-start gap-4">
+              <div class="h-16 w-16 rounded-xl bg-primary-100 flex items-center justify-center flex-shrink-0">
+                <span class="text-xl font-bold text-primary-700">S</span>
+              </div>
+              <div>
+                <label class="cursor-pointer rounded-xl border-2 border-dashed border-gray-200 px-5 py-3 text-sm text-gray-500 hover:border-primary-300 hover:text-primary-600 inline-block transition-colors">
+                  <input type="file" accept="image/*" class="hidden" />
+                  📁 ロゴを変更する
+                </label>
+                <p class="mt-2 text-xs text-gray-400">推奨サイズ: 400×400px（正方形）/ 2MB以下</p>
+              </div>
+            </div>
+          </div>
+          <!-- その他画像 -->
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">施設・活動写真 <span class="text-xs font-normal text-gray-400">（最大10枚）</span></label>
+            <div class="flex flex-wrap gap-3">
+              <div class="h-20 w-28 rounded-xl bg-green-50 flex items-center justify-center text-2xl relative group cursor-pointer">
+                🌱
+                <button class="absolute -top-1.5 -right-1.5 h-5 w-5 rounded-full bg-red-500 text-white text-xs hidden group-hover:flex items-center justify-center">×</button>
+              </div>
+              <div class="h-20 w-28 rounded-xl bg-blue-50 flex items-center justify-center text-2xl relative group cursor-pointer">
+                💻
+                <button class="absolute -top-1.5 -right-1.5 h-5 w-5 rounded-full bg-red-500 text-white text-xs hidden group-hover:flex items-center justify-center">×</button>
+              </div>
+              <label class="h-20 w-28 rounded-xl border-2 border-dashed border-gray-200 flex flex-col items-center justify-center cursor-pointer hover:border-primary-300 transition-colors">
+                <input type="file" accept="image/*" multiple class="hidden" />
+                <span class="text-2xl text-gray-300">+</span>
+                <span class="text-xs text-gray-400">追加</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: 事業所からのメッセージ -->
+      <div class="rounded-2xl bg-white p-6 shadow-sm border border-gray-100">
+        <h2 class="text-base font-bold text-gray-900 mb-5 flex items-center gap-2">
+          <span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary-600 text-xs font-bold text-white">5</span>
+          事業所からのメッセージ
+        </h2>
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1.5">タイトル</label>
+            <input type="text" value="一緒に、働く喜びを見つけましょう" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1.5">メッセージ本文</label>
+            <textarea rows="5" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100 resize-none">私たちは一人ひとりの個性と可能性を大切にした支援を行っています。農業作業からPC事務まで、あなたに合った仕事を一緒に見つけましょう。スタッフ全員がサポートしますので、安心してご相談ください。</textarea>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1.5">備考・補足情報</label>
+            <textarea rows="3" placeholder="見学・体験についての案内、交通費補助など自由にご記入ください" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm text-gray-900 focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100 resize-none"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 6: 利用者・スタッフ比率 -->
+      <div class="rounded-2xl bg-white p-6 shadow-sm border border-gray-100">
+        <h2 class="text-base font-bold text-gray-900 mb-5 flex items-center gap-2">
+          <span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary-600 text-xs font-bold text-white">6</span>
+          利用者・スタッフ情報
+        </h2>
+        <div class="space-y-5">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-3">利用者の比率</label>
+            <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
+              <div>
+                <p class="text-xs text-gray-500 mb-1">男性 / 女性</p>
+                <div class="flex gap-2">
+                  <div class="flex items-center gap-1"><input type="text" value="60" class="w-14 rounded-lg border border-gray-200 px-2 py-1.5 text-sm text-center" /><span class="text-xs text-gray-400">%</span></div>
+                  <span class="text-gray-300 self-center">/</span>
+                  <div class="flex items-center gap-1"><input type="text" value="40" class="w-14 rounded-lg border border-gray-200 px-2 py-1.5 text-sm text-center" /><span class="text-xs text-gray-400">%</span></div>
+                </div>
+              </div>
+              <div>
+                <p class="text-xs text-gray-500 mb-1">10〜20代</p>
+                <div class="flex items-center gap-1"><input type="text" value="25" class="w-14 rounded-lg border border-gray-200 px-2 py-1.5 text-sm text-center" /><span class="text-xs text-gray-400">%</span></div>
+              </div>
+              <div>
+                <p class="text-xs text-gray-500 mb-1">30〜40代</p>
+                <div class="flex items-center gap-1"><input type="text" value="50" class="w-14 rounded-lg border border-gray-200 px-2 py-1.5 text-sm text-center" /><span class="text-xs text-gray-400">%</span></div>
+              </div>
+              <div>
+                <p class="text-xs text-gray-500 mb-1">50代以上</p>
+                <div class="flex items-center gap-1"><input type="text" value="25" class="w-14 rounded-lg border border-gray-200 px-2 py-1.5 text-sm text-center" /><span class="text-xs text-gray-400">%</span></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1.5">スタッフ情報</label>
+            <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <input type="text" placeholder="男性スタッフ（例: 3名・支援員2名 相談員1名）" class="rounded-xl border border-gray-200 px-4 py-2.5 text-sm focus:border-primary-400 focus:outline-none" />
+              <input type="text" placeholder="女性スタッフ（例: 4名・看護師1名含む）" class="rounded-xl border border-gray-200 px-4 py-2.5 text-sm focus:border-primary-400 focus:outline-none" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 7: 公開設定 -->
+      <div class="rounded-2xl bg-white p-6 shadow-sm border border-gray-100">
+        <h2 class="text-base font-bold text-gray-900 mb-5 flex items-center gap-2">
+          <span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary-600 text-xs font-bold text-white">7</span>
+          公開設定
+        </h2>
+        <div class="flex flex-col gap-3 sm:flex-row">
+          <label class="flex flex-1 items-start gap-3 rounded-xl border-2 border-primary-300 bg-primary-50 p-4 cursor-pointer">
+            <input type="radio" name="is_active" checked class="mt-0.5 accent-primary-600" />
+            <div>
+              <p class="text-sm font-bold text-primary-800">公開中</p>
+              <p class="text-xs text-primary-600 mt-0.5">求職者が事業所ページを閲覧・応募できます</p>
+            </div>
+          </label>
+          <label class="flex flex-1 items-start gap-3 rounded-xl border-2 border-gray-200 p-4 cursor-pointer hover:border-gray-300">
+            <input type="radio" name="is_active" class="mt-0.5 accent-primary-600" />
+            <div>
+              <p class="text-sm font-bold text-gray-700">非公開</p>
+              <p class="text-xs text-gray-500 mt-0.5">ページは公開されず、検索にも表示されません</p>
+            </div>
+          </label>
+          <label class="flex flex-1 items-start gap-3 rounded-xl border-2 border-gray-200 p-4 cursor-pointer hover:border-gray-300">
+            <input type="radio" name="is_active" class="mt-0.5 accent-primary-600" />
+            <div>
+              <p class="text-sm font-bold text-gray-700">審査中</p>
+              <p class="text-xs text-gray-500 mt-0.5">管理者による審査待ちの状態です</p>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col-reverse gap-3 sm:flex-row sm:justify-between pb-8">
+        <button type="button" class="rounded-xl border-2 border-red-200 px-6 py-3 text-sm font-semibold text-red-600 hover:bg-red-50 transition-colors">
+          🗑 この事業所を削除する
+        </button>
+        <div class="flex gap-3">
+          <a href="13_manage-dashboard.html" class="rounded-xl border border-gray-200 px-6 py-3 text-sm font-semibold text-gray-600 hover:bg-gray-50 transition-colors text-center">
+            キャンセル
+          </a>
+          <button type="button" class="rounded-xl border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors">
+            下書き保存
+          </button>
+          <button type="submit" class="rounded-xl bg-primary-600 px-8 py-3 text-sm font-bold text-white hover:bg-primary-700 transition-colors shadow-sm">
+            変更を保存する
+          </button>
+        </div>
+      </div>
+
+    </form>
+  </div>
+
+</body>
+</html>

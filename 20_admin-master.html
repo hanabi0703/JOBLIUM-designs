@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOBLIUM - マスタ管理</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#f0faf7',100:'#d1f5ec',200:'#a3ead8',300:'#6ed9bf',400:'#3ec4a3',500:'#1eb38a',600:'#16A177',700:'#127e5e',800:'#0e5f47',900:'#094030' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-gray-900 shadow-sm">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <div class="flex items-center gap-3">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-600">
+          <span class="text-sm font-bold text-white">J</span>
+        </div>
+        <span class="text-xl font-bold text-white">JOBLIUM</span>
+        <span class="rounded-md bg-red-600 px-2 py-0.5 text-xs font-bold text-white">ADMIN</span>
+      </div>
+      <nav class="hidden items-center gap-1 md:flex">
+        <a href="17_admin-dashboard.html" class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">ダッシュボード</a>
+        <a href="18_admin-users.html"     class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">ユーザー管理</a>
+        <a href="19_admin-offices.html"   class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">事業所管理</a>
+        <a href="20_admin-master.html"    class="rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold text-white">マスタ管理</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-white/70">admin@joblium.com</span>
+        <span class="rounded-full bg-red-600 px-2.5 py-0.5 text-xs font-bold text-white">管理者</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="mx-auto max-w-7xl px-4 py-8">
+
+    <div class="mb-6">
+      <h1 class="text-2xl font-bold text-gray-900">マスタ管理</h1>
+      <p class="text-sm text-gray-500 mt-0.5">カテゴリ・特徴・職種などのマスタデータを管理します</p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+
+      <!-- 左カラム: カテゴリ・障害種別 -->
+      <div class="space-y-6">
+
+        <!-- 事業所カテゴリ -->
+        <div class="rounded-2xl bg-white shadow-sm border border-gray-200">
+          <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+            <div>
+              <h2 class="font-bold text-gray-900">事業所カテゴリ</h2>
+              <p class="text-xs text-gray-400 mt-0.5">就労支援の種別</p>
+            </div>
+            <button class="rounded-lg bg-primary-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-primary-700">+ 追加</button>
+          </div>
+          <div class="divide-y divide-gray-100">
+            <div class="flex items-center justify-between px-5 py-3">
+              <div>
+                <p class="text-sm font-medium text-gray-800">就労継続支援A型</p>
+                <p class="text-xs text-gray-400">登録事業所: 128件</p>
+              </div>
+              <div class="flex gap-1.5">
+                <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs text-red-600 hover:bg-red-50">削除</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3">
+              <div>
+                <p class="text-sm font-medium text-gray-800">就労継続支援B型</p>
+                <p class="text-xs text-gray-400">登録事業所: 154件</p>
+              </div>
+              <div class="flex gap-1.5">
+                <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs text-red-600 hover:bg-red-50">削除</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3">
+              <div>
+                <p class="text-sm font-medium text-gray-800">就労移行支援</p>
+                <p class="text-xs text-gray-400">登録事業所: 60件</p>
+              </div>
+              <div class="flex gap-1.5">
+                <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs text-red-600 hover:bg-red-50">削除</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 障害種別 -->
+        <div class="rounded-2xl bg-white shadow-sm border border-gray-200">
+          <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+            <div>
+              <h2 class="font-bold text-gray-900">障害種別</h2>
+              <p class="text-xs text-gray-400 mt-0.5">ユーザー・事業所の障害分類</p>
+            </div>
+            <button class="rounded-lg bg-primary-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-primary-700">+ 追加</button>
+          </div>
+          <div class="divide-y divide-gray-100">
+            <div class="flex items-center justify-between px-5 py-3">
+              <p class="text-sm font-medium text-gray-800">精神障害</p>
+              <div class="flex gap-1.5">
+                <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs text-red-600 hover:bg-red-50">削除</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3">
+              <p class="text-sm font-medium text-gray-800">身体障害</p>
+              <div class="flex gap-1.5">
+                <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs text-red-600 hover:bg-red-50">削除</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3">
+              <p class="text-sm font-medium text-gray-800">知的障害</p>
+              <div class="flex gap-1.5">
+                <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs text-red-600 hover:bg-red-50">削除</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3">
+              <p class="text-sm font-medium text-gray-800">発達障害</p>
+              <div class="flex gap-1.5">
+                <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs text-red-600 hover:bg-red-50">削除</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3">
+              <p class="text-sm font-medium text-gray-800">難病</p>
+              <div class="flex gap-1.5">
+                <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs text-red-600 hover:bg-red-50">削除</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 中カラム: 事業所特徴・対応職種 -->
+      <div class="space-y-6">
+
+        <!-- 事業所特徴 -->
+        <div class="rounded-2xl bg-white shadow-sm border border-gray-200">
+          <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+            <div>
+              <h2 class="font-bold text-gray-900">事業所特徴タグ</h2>
+              <p class="text-xs text-gray-400 mt-0.5">事業所検索のフィルター用</p>
+            </div>
+            <button class="rounded-lg bg-primary-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-primary-700">+ 追加</button>
+          </div>
+          <div class="divide-y divide-gray-100">
+            <div class="flex items-center justify-between px-5 py-3">
+              <div class="flex items-center gap-2">
+                <span class="rounded-full bg-primary-100 px-2.5 py-0.5 text-xs font-medium text-primary-700">交通費支給</span>
+              </div>
+              <div class="flex gap-1.5">
+                <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs text-red-600 hover:bg-red-50">削除</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3">
+              <div class="flex items-center gap-2">
+                <span class="rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-700">在宅・リモート</span>
+              </div>
+              <div class="flex gap-1.5">
+                <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs text-red-600 hover:bg-red-50">削除</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3">
+              <div class="flex items-center gap-2">
+                <span class="rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-700">土日休み</span>
+              </div>
+              <div class="flex gap-1.5">
+                <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs text-red-600 hover:bg-red-50">削除</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3">
+              <div class="flex items-center gap-2">
+                <span class="rounded-full bg-orange-100 px-2.5 py-0.5 text-xs font-medium text-orange-700">短時間勤務OK</span>
+              </div>
+              <div class="flex gap-1.5">
+                <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs text-red-600 hover:bg-red-50">削除</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3">
+              <div class="flex items-center gap-2">
+                <span class="rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-700">農業・自然体験</span>
+              </div>
+              <div class="flex gap-1.5">
+                <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs text-red-600 hover:bg-red-50">削除</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3">
+              <div class="flex items-center gap-2">
+                <span class="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600">送迎あり</span>
+              </div>
+              <div class="flex gap-1.5">
+                <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs text-red-600 hover:bg-red-50">削除</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 対応職種 -->
+        <div class="rounded-2xl bg-white shadow-sm border border-gray-200">
+          <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+            <div>
+              <h2 class="font-bold text-gray-900">対応職種</h2>
+              <p class="text-xs text-gray-400 mt-0.5">事業所・履歴書の職種分類</p>
+            </div>
+            <button class="rounded-lg bg-primary-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-primary-700">+ 追加</button>
+          </div>
+          <div class="divide-y divide-gray-100">
+            <div class="flex items-center justify-between px-5 py-3">
+              <p class="text-sm font-medium text-gray-800">PC・データ入力</p>
+              <div class="flex gap-1.5">
+                <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs text-red-600 hover:bg-red-50">削除</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3">
+              <p class="text-sm font-medium text-gray-800">軽作業・梱包</p>
+              <div class="flex gap-1.5">
+                <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs text-red-600 hover:bg-red-50">削除</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3">
+              <p class="text-sm font-medium text-gray-800">農業・園芸</p>
+              <div class="flex gap-1.5">
+                <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs text-red-600 hover:bg-red-50">削除</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3">
+              <p class="text-sm font-medium text-gray-800">清掃・メンテナンス</p>
+              <div class="flex gap-1.5">
+                <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs text-red-600 hover:bg-red-50">削除</button>
+              </div>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3">
+              <p class="text-sm font-medium text-gray-800">デザイン・クリエイティブ</p>
+              <div class="flex gap-1.5">
+                <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                <button class="rounded-lg border border-red-200 px-2.5 py-1 text-xs text-red-600 hover:bg-red-50">削除</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 右カラム: エリア・その他 -->
+      <div class="space-y-6">
+
+        <!-- 都道府県（エリア） -->
+        <div class="rounded-2xl bg-white shadow-sm border border-gray-200">
+          <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+            <div>
+              <h2 class="font-bold text-gray-900">都道府県マスタ</h2>
+              <p class="text-xs text-gray-400 mt-0.5">検索フィルター用エリア</p>
+            </div>
+            <span class="text-xs text-gray-400">47件</span>
+          </div>
+          <div class="px-5 py-4">
+            <div class="flex flex-wrap gap-1.5">
+              <span class="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs text-gray-600">北海道</span>
+              <span class="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs text-gray-600">青森</span>
+              <span class="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs text-gray-600">岩手</span>
+              <span class="rounded-full border border-primary-200 bg-primary-50 px-2.5 py-1 text-xs text-primary-700">東京</span>
+              <span class="rounded-full border border-primary-200 bg-primary-50 px-2.5 py-1 text-xs text-primary-700">神奈川</span>
+              <span class="rounded-full border border-primary-200 bg-primary-50 px-2.5 py-1 text-xs text-primary-700">埼玉</span>
+              <span class="rounded-full border border-primary-200 bg-primary-50 px-2.5 py-1 text-xs text-primary-700">大阪</span>
+              <span class="rounded-full border border-primary-200 bg-primary-50 px-2.5 py-1 text-xs text-primary-700">愛知</span>
+              <span class="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs text-gray-600">宮城</span>
+              <span class="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs text-gray-600">福岡</span>
+              <span class="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs text-gray-600">広島</span>
+              <span class="rounded-full border border-gray-200 bg-gray-50 px-2.5 py-1 text-xs text-gray-600">京都</span>
+              <span class="text-xs text-gray-400 flex items-center">+35...</span>
+            </div>
+            <p class="text-xs text-gray-400 mt-3">※ 強調表示は登録事業所が多い都道府県</p>
+          </div>
+        </div>
+
+        <!-- お知らせ管理 -->
+        <div class="rounded-2xl bg-white shadow-sm border border-gray-200">
+          <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+            <div>
+              <h2 class="font-bold text-gray-900">お知らせ管理</h2>
+              <p class="text-xs text-gray-400 mt-0.5">サービス全体へのアナウンス</p>
+            </div>
+            <button class="rounded-lg bg-primary-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-primary-700">+ 投稿</button>
+          </div>
+          <div class="divide-y divide-gray-100">
+            <div class="px-5 py-3">
+              <div class="flex items-start justify-between gap-3">
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 mb-0.5">
+                    <span class="rounded bg-primary-100 px-1.5 py-0.5 text-xs font-medium text-primary-700">公開中</span>
+                    <span class="text-xs text-gray-400">2026/03/15</span>
+                  </div>
+                  <p class="text-xs font-medium text-gray-800">【重要】利用規約改定のお知らせ</p>
+                </div>
+                <div class="flex gap-1 flex-shrink-0">
+                  <button class="rounded border border-gray-200 px-2 py-0.5 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                  <button class="rounded border border-red-200 px-2 py-0.5 text-xs text-red-600 hover:bg-red-50">削除</button>
+                </div>
+              </div>
+            </div>
+            <div class="px-5 py-3">
+              <div class="flex items-start justify-between gap-3">
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 mb-0.5">
+                    <span class="rounded bg-primary-100 px-1.5 py-0.5 text-xs font-medium text-primary-700">公開中</span>
+                    <span class="text-xs text-gray-400">2026/02/28</span>
+                  </div>
+                  <p class="text-xs font-medium text-gray-800">メッセージ機能を刷新しました</p>
+                </div>
+                <div class="flex gap-1 flex-shrink-0">
+                  <button class="rounded border border-gray-200 px-2 py-0.5 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                  <button class="rounded border border-red-200 px-2 py-0.5 text-xs text-red-600 hover:bg-red-50">削除</button>
+                </div>
+              </div>
+            </div>
+            <div class="px-5 py-3">
+              <div class="flex items-start justify-between gap-3">
+                <div class="flex-1">
+                  <div class="flex items-center gap-2 mb-0.5">
+                    <span class="rounded bg-gray-100 px-1.5 py-0.5 text-xs font-medium text-gray-500">下書き</span>
+                    <span class="text-xs text-gray-400">2026/03/28</span>
+                  </div>
+                  <p class="text-xs font-medium text-gray-500">春の新機能リリース予告</p>
+                </div>
+                <div class="flex gap-1 flex-shrink-0">
+                  <button class="rounded border border-gray-200 px-2 py-0.5 text-xs text-gray-600 hover:bg-gray-50">編集</button>
+                  <button class="rounded border border-red-200 px-2 py-0.5 text-xs text-red-600 hover:bg-red-50">削除</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- システム設定 -->
+        <div class="rounded-2xl bg-white shadow-sm border border-gray-200">
+          <div class="px-5 py-4 border-b border-gray-100">
+            <h2 class="font-bold text-gray-900">システム設定</h2>
+            <p class="text-xs text-gray-400 mt-0.5">サービス全体のパラメータ</p>
+          </div>
+          <div class="divide-y divide-gray-100">
+            <div class="flex items-center justify-between px-5 py-3">
+              <div>
+                <p class="text-xs font-medium text-gray-700">口コミ公開：審査制</p>
+                <p class="text-xs text-gray-400">投稿後に管理者確認</p>
+              </div>
+              <button class="relative inline-flex h-5 w-9 items-center rounded-full bg-primary-600">
+                <span class="inline-block h-3.5 w-3.5 translate-x-4 rounded-full bg-white shadow transition"></span>
+              </button>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3">
+              <div>
+                <p class="text-xs font-medium text-gray-700">新規事業所登録：審査制</p>
+                <p class="text-xs text-gray-400">申請後に管理者承認</p>
+              </div>
+              <button class="relative inline-flex h-5 w-9 items-center rounded-full bg-primary-600">
+                <span class="inline-block h-3.5 w-3.5 translate-x-4 rounded-full bg-white shadow transition"></span>
+              </button>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3">
+              <div>
+                <p class="text-xs font-medium text-gray-700">新規ユーザー登録：開放</p>
+                <p class="text-xs text-gray-400">メール認証のみで登録可</p>
+              </div>
+              <button class="relative inline-flex h-5 w-9 items-center rounded-full bg-primary-600">
+                <span class="inline-block h-3.5 w-3.5 translate-x-4 rounded-full bg-white shadow transition"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

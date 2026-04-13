@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOBLIUM - 応募フォーム</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#f0faf7',100:'#d1f5ec',200:'#a3ead8',300:'#6ed9bf',400:'#3ec4a3',500:'#1eb38a',600:'#16A177',700:'#127e5e',800:'#0e5f47',900:'#094030' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+  <!-- Header -->
+  <header class="bg-primary-600 shadow-sm">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <a href="01_top.html" class="flex items-center gap-2">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-white">
+          <span class="text-sm font-bold text-primary-600">J</span>
+        </div>
+        <span class="text-xl font-bold text-white">JOBLIUM</span>
+      </a>
+    </div>
+  </header>
+
+  <div class="mx-auto max-w-2xl px-4 py-8">
+    <!-- Breadcrumb -->
+    <nav class="mb-4 text-sm text-gray-500">
+      <a href="04_facilities.html" class="hover:text-primary-600">事業所一覧</a>
+      <span class="mx-2">›</span>
+      <a href="05_facility-detail.html" class="hover:text-primary-600">サンシャイン就労A型センター</a>
+      <span class="mx-2">›</span>
+      <span class="text-gray-800">応募</span>
+    </nav>
+
+    <h1 class="text-2xl font-bold text-gray-900">応募フォーム</h1>
+
+    <!-- Facility Info -->
+    <div class="mt-3 rounded-2xl bg-primary-50 border border-primary-200 px-5 py-4 flex items-center gap-3">
+      <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary-600 flex-shrink-0">
+        <span class="text-white text-lg">🏢</span>
+      </div>
+      <div>
+        <p class="text-xs text-primary-700 font-medium">応募先事業所</p>
+        <p class="font-bold text-gray-900">サンシャイン就労A型センター</p>
+        <p class="text-xs text-gray-500">東京都 新宿区 西新宿1-1-1</p>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <form class="mt-6 rounded-3xl bg-white p-8 shadow-sm space-y-6">
+
+      <!-- Step Indicator -->
+      <div class="flex items-center gap-2 pb-4 border-b border-gray-100">
+        <div class="flex items-center gap-2">
+          <div class="flex h-6 w-6 items-center justify-center rounded-full bg-primary-600 text-white text-xs font-bold">1</div>
+          <span class="text-xs font-medium text-primary-700">応募内容</span>
+        </div>
+        <div class="flex-1 h-0.5 bg-gray-200"></div>
+        <div class="flex items-center gap-2">
+          <div class="flex h-6 w-6 items-center justify-center rounded-full bg-gray-200 text-gray-500 text-xs font-bold">2</div>
+          <span class="text-xs text-gray-400">確認</span>
+        </div>
+        <div class="flex-1 h-0.5 bg-gray-200"></div>
+        <div class="flex items-center gap-2">
+          <div class="flex h-6 w-6 items-center justify-center rounded-full bg-gray-200 text-gray-500 text-xs font-bold">3</div>
+          <span class="text-xs text-gray-400">完了</span>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-gray-800 mb-1.5">
+          希望する理由・自己紹介 <span class="text-red-500">*</span>
+        </label>
+        <p class="text-xs text-gray-500 mb-2">この事業所を希望する理由や、現在の状況・希望などをお書きください。</p>
+        <textarea
+          rows="6"
+          class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm text-gray-900 outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100 resize-none"
+          placeholder="例：現在、軽度の統合失調症で通院中です。PCスキルを活かした就労継続支援A型を探しておりました。デザインに興味があり、貴事業所の業務内容に大変魅力を感じています。ぜひ一度見学させていただければと思います。"
+        >よろしくお願いします。障害者手帳を持っており、PCを使った業務に興味があります。</textarea>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-gray-800 mb-1.5">希望見学日（任意）</label>
+        <input type="date" value="2026-04-10" class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm text-gray-900 outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100" />
+        <p class="text-xs text-gray-400 mt-1">※ 事業所の都合により調整が必要な場合があります</p>
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-gray-800 mb-1.5">
+          連絡先メールアドレス <span class="text-red-500">*</span>
+        </label>
+        <input type="email" value="seeker@test.com" class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm text-gray-900 outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100" />
+      </div>
+
+      <div>
+        <label class="block text-sm font-semibold text-gray-800 mb-1.5">連絡先電話番号（任意）</label>
+        <input type="tel" placeholder="例: 090-1234-5678" class="w-full rounded-xl border border-gray-300 px-4 py-3 text-sm text-gray-900 outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-100" />
+      </div>
+
+      <!-- Note -->
+      <div class="rounded-xl bg-yellow-50 border border-yellow-200 p-4">
+        <p class="text-xs text-yellow-800 font-medium mb-1">⚠️ 応募前にご確認ください</p>
+        <ul class="text-xs text-yellow-700 space-y-1 list-disc list-inside">
+          <li>応募後、事業所から連絡が来るまでお待ちください</li>
+          <li>同一事業所への重複応募はできません</li>
+          <li>メッセージ機能で事前相談も可能です</li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3 pt-2">
+        <a href="05_facility-detail.html" class="flex-1 rounded-xl border-2 border-gray-200 py-3 text-center text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors">
+          ← 戻る
+        </a>
+        <a href="07_apply-complete.html" class="flex-1 rounded-xl bg-primary-600 py-3 text-center text-sm font-bold text-white hover:bg-primary-700 transition-colors shadow-sm hover:shadow-md">
+          応募する →
+        </a>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>
