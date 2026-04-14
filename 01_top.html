@@ -258,74 +258,73 @@
       <div class="text-center mb-10">
         <span class="inline-block rounded-full bg-primary-100 px-3 py-1 text-xs font-bold text-primary-700 mb-2">エリアから探す</span>
         <h2 class="text-2xl font-bold text-gray-900">都道府県から探す</h2>
-        <p class="mt-2 text-sm text-gray-500">地図の地方をクリックして絞り込めます</p>
+        <p class="mt-2 text-sm text-gray-500">地方をクリックして絞り込み・都道府県名をクリックで市区町村を選択できます</p>
       </div>
 
       <div class="flex flex-col lg:flex-row gap-8 items-start justify-center">
 
         <!-- SVG 略式地図 -->
         <div class="flex-shrink-0 w-full lg:w-auto flex justify-center">
-          <svg id="japan-map" viewBox="0 0 385 415" class="w-72 lg:w-80 select-none" xmlns="http://www.w3.org/2000/svg">
-            <style>
-              .map-region { transition: opacity .15s, filter .15s; cursor: pointer; }
-              .map-region:hover rect, .map-region.active rect { filter: brightness(.88); }
-              .map-region.active rect { stroke-width: 2.5; }
-              .map-label { pointer-events: none; font-family: sans-serif; font-weight: 600; }
-            </style>
+          <!-- デフォルメ日本地図 -->
+          <svg id="japan-map" viewBox="0 0 280 395" class="w-60 lg:w-64 select-none drop-shadow-sm" xmlns="http://www.w3.org/2000/svg">
+            <!-- 海 -->
+            <rect width="280" height="395" rx="14" fill="#dbeafe" opacity="0.55"/>
             <!-- 北海道 -->
             <g class="map-region" data-region="hokkaido" onclick="selectRegion('hokkaido')">
-              <rect x="200" y="8" width="178" height="55" rx="8" fill="#bfdbfe" stroke="#60a5fa" stroke-width="1.5"/>
-              <text x="289" y="40" text-anchor="middle" font-size="13" class="map-label" fill="#1d4ed8">北海道</text>
+              <polygon points="148,10 270,10 276,24 270,70 244,78 212,76 184,58 150,37 142,22" fill="#bfdbfe" stroke="#60a5fa" stroke-width="1.5" stroke-linejoin="round"/>
+              <text x="207" y="47" text-anchor="middle" font-size="11" font-weight="700" fill="#1d4ed8" font-family="sans-serif">北海道</text>
             </g>
             <!-- 東北 -->
             <g class="map-region" data-region="tohoku" onclick="selectRegion('tohoku')">
-              <rect x="200" y="73" width="128" height="55" rx="8" fill="#bbf7d0" stroke="#4ade80" stroke-width="1.5"/>
-              <text x="264" y="105" text-anchor="middle" font-size="13" class="map-label" fill="#15803d">東北</text>
+              <polygon points="205,82 244,78 251,106 243,150 228,164 211,162 205,140 202,108" fill="#bbf7d0" stroke="#4ade80" stroke-width="1.5" stroke-linejoin="round"/>
+              <text x="226" y="127" text-anchor="middle" font-size="10" font-weight="700" fill="#15803d" font-family="sans-serif">東北</text>
             </g>
             <!-- 関東 -->
             <g class="map-region" data-region="kanto" onclick="selectRegion('kanto')">
-              <rect x="200" y="138" width="128" height="55" rx="8" fill="#a3ead8" stroke="#16A177" stroke-width="1.5"/>
-              <text x="264" y="170" text-anchor="middle" font-size="13" class="map-label" fill="#127e5e">関東</text>
+              <polygon points="199,167 244,163 252,192 242,218 217,224 194,214 191,191" fill="#a3ead8" stroke="#16A177" stroke-width="1.5" stroke-linejoin="round"/>
+              <text x="222" y="198" text-anchor="middle" font-size="10" font-weight="700" fill="#127e5e" font-family="sans-serif">関東</text>
             </g>
             <!-- 甲信越 -->
             <g class="map-region" data-region="koshinetsu" onclick="selectRegion('koshinetsu')">
-              <rect x="336" y="73" width="42" height="120" rx="8" fill="#99f6e4" stroke="#2dd4bf" stroke-width="1.5"/>
-              <text x="357" y="128" text-anchor="middle" font-size="10" class="map-label" fill="#0f766e">甲信越</text>
+              <polygon points="163,110 200,106 204,167 195,214 174,219 161,194 157,141" fill="#99f6e4" stroke="#2dd4bf" stroke-width="1.5" stroke-linejoin="round"/>
+              <text x="180" y="164" text-anchor="middle" font-size="9" font-weight="700" fill="#0f766e" font-family="sans-serif">甲信越</text>
             </g>
             <!-- 北陸 -->
             <g class="map-region" data-region="hokuriku" onclick="selectRegion('hokuriku')">
-              <rect x="200" y="203" width="72" height="55" rx="8" fill="#cffafe" stroke="#22d3ee" stroke-width="1.5"/>
-              <text x="236" y="235" text-anchor="middle" font-size="12" class="map-label" fill="#0e7490">北陸</text>
+              <polygon points="124,194 163,190 169,215 162,240 131,242 120,217" fill="#cffafe" stroke="#22d3ee" stroke-width="1.5" stroke-linejoin="round"/>
+              <text x="146" y="220" text-anchor="middle" font-size="9" font-weight="700" fill="#0e7490" font-family="sans-serif">北陸</text>
             </g>
             <!-- 東海 -->
             <g class="map-region" data-region="tokai" onclick="selectRegion('tokai')">
-              <rect x="280" y="203" width="98" height="55" rx="8" fill="#fed7aa" stroke="#fb923c" stroke-width="1.5"/>
-              <text x="329" y="235" text-anchor="middle" font-size="13" class="map-label" fill="#c2410c">東海</text>
+              <polygon points="162,222 200,218 210,246 202,272 179,278 154,265 149,246" fill="#fed7aa" stroke="#fb923c" stroke-width="1.5" stroke-linejoin="round"/>
+              <text x="181" y="251" text-anchor="middle" font-size="10" font-weight="700" fill="#c2410c" font-family="sans-serif">東海</text>
             </g>
             <!-- 近畿 -->
             <g class="map-region" data-region="kinki" onclick="selectRegion('kinki')">
-              <rect x="190" y="268" width="120" height="55" rx="8" fill="#e9d5ff" stroke="#c084fc" stroke-width="1.5"/>
-              <text x="250" y="300" text-anchor="middle" font-size="13" class="map-label" fill="#7e22ce">近畿</text>
+              <polygon points="109,255 160,251 165,278 155,304 129,310 103,297 102,273" fill="#e9d5ff" stroke="#c084fc" stroke-width="1.5" stroke-linejoin="round"/>
+              <text x="134" y="282" text-anchor="middle" font-size="10" font-weight="700" fill="#7e22ce" font-family="sans-serif">近畿</text>
             </g>
             <!-- 中国 -->
             <g class="map-region" data-region="chugoku" onclick="selectRegion('chugoku')">
-              <rect x="318" y="268" width="60" height="55" rx="8" fill="#fbcfe8" stroke="#f472b6" stroke-width="1.5"/>
-              <text x="348" y="300" text-anchor="middle" font-size="12" class="map-label" fill="#9d174d">中国</text>
+              <polygon points="55,244 113,240 119,263 108,293 80,299 52,280 49,261" fill="#fbcfe8" stroke="#f472b6" stroke-width="1.5" stroke-linejoin="round"/>
+              <text x="84" y="271" text-anchor="middle" font-size="10" font-weight="700" fill="#9d174d" font-family="sans-serif">中国</text>
             </g>
             <!-- 四国 -->
             <g class="map-region" data-region="shikoku" onclick="selectRegion('shikoku')">
-              <rect x="318" y="333" width="60" height="48" rx="8" fill="#fef08a" stroke="#facc15" stroke-width="1.5"/>
-              <text x="348" y="361" text-anchor="middle" font-size="12" class="map-label" fill="#854d0e">四国</text>
+              <polygon points="79,309 140,305 147,330 135,350 107,354 80,338 74,319" fill="#fef08a" stroke="#facc15" stroke-width="1.5" stroke-linejoin="round"/>
+              <text x="111" y="334" text-anchor="middle" font-size="10" font-weight="700" fill="#854d0e" font-family="sans-serif">四国</text>
             </g>
             <!-- 九州 -->
             <g class="map-region" data-region="kyushu" onclick="selectRegion('kyushu')">
-              <rect x="72" y="303" width="120" height="55" rx="8" fill="#fecaca" stroke="#f87171" stroke-width="1.5"/>
-              <text x="132" y="335" text-anchor="middle" font-size="13" class="map-label" fill="#991b1b">九州</text>
+              <polygon points="18,270 62,262 72,287 65,330 39,344 12,322 9,296" fill="#fecaca" stroke="#f87171" stroke-width="1.5" stroke-linejoin="round"/>
+              <text x="40" y="305" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b" font-family="sans-serif">九州</text>
             </g>
             <!-- 沖縄 -->
             <g class="map-region" data-region="okinawa" onclick="selectRegion('okinawa')">
-              <rect x="8" y="368" width="75" height="38" rx="8" fill="#c7d2fe" stroke="#818cf8" stroke-width="1.5"/>
-              <text x="45" y="391" text-anchor="middle" font-size="11" class="map-label" fill="#3730a3">沖縄</text>
+              <ellipse cx="30" cy="371" rx="22" ry="13" fill="#c7d2fe" stroke="#818cf8" stroke-width="1.5"/>
+              <circle cx="63" cy="363" r="5" fill="#c7d2fe" stroke="#818cf8" stroke-width="1.2"/>
+              <circle cx="75" cy="357" r="4" fill="#c7d2fe" stroke="#818cf8" stroke-width="1.2"/>
+              <text x="30" y="375" text-anchor="middle" font-size="9" font-weight="700" fill="#3730a3" font-family="sans-serif">沖縄</text>
             </g>
           </svg>
         </div>
@@ -346,7 +345,7 @@
                 <span class="inline-block h-2 w-2 rounded-full bg-blue-400"></span>北海道
               </p>
               <div class="flex flex-wrap gap-1.5">
-                <a href="04_facilities.html" class="pref-chip">北海道</a>
+                <button type="button" onclick="openCityModal('北海道')" class="pref-chip">北海道</button>
               </div>
             </div>
 
@@ -355,12 +354,12 @@
                 <span class="inline-block h-2 w-2 rounded-full bg-green-400"></span>東北
               </p>
               <div class="flex flex-wrap gap-1.5">
-                <a href="04_facilities.html" class="pref-chip">青森</a>
-                <a href="04_facilities.html" class="pref-chip">岩手</a>
-                <a href="04_facilities.html" class="pref-chip">宮城</a>
-                <a href="04_facilities.html" class="pref-chip">秋田</a>
-                <a href="04_facilities.html" class="pref-chip">山形</a>
-                <a href="04_facilities.html" class="pref-chip">福島</a>
+                <button type="button" onclick="openCityModal('青森')" class="pref-chip">青森</button>
+                <button type="button" onclick="openCityModal('岩手')" class="pref-chip">岩手</button>
+                <button type="button" onclick="openCityModal('宮城')" class="pref-chip">宮城</button>
+                <button type="button" onclick="openCityModal('秋田')" class="pref-chip">秋田</button>
+                <button type="button" onclick="openCityModal('山形')" class="pref-chip">山形</button>
+                <button type="button" onclick="openCityModal('福島')" class="pref-chip">福島</button>
               </div>
             </div>
 
@@ -369,13 +368,13 @@
                 <span class="inline-block h-2 w-2 rounded-full bg-primary-500"></span>関東
               </p>
               <div class="flex flex-wrap gap-1.5">
-                <a href="04_facilities_tokyo.html" class="pref-chip pref-chip--hot">東京</a>
-                <a href="04_facilities.html" class="pref-chip">神奈川</a>
-                <a href="04_facilities.html" class="pref-chip">千葉</a>
-                <a href="04_facilities.html" class="pref-chip">埼玉</a>
-                <a href="04_facilities.html" class="pref-chip">茨城</a>
-                <a href="04_facilities.html" class="pref-chip">栃木</a>
-                <a href="04_facilities.html" class="pref-chip">群馬</a>
+                <button type="button" onclick="openCityModal('東京')" class="pref-chip pref-chip--hot">東京</button>
+                <button type="button" onclick="openCityModal('神奈川')" class="pref-chip">神奈川</button>
+                <button type="button" onclick="openCityModal('千葉')" class="pref-chip">千葉</button>
+                <button type="button" onclick="openCityModal('埼玉')" class="pref-chip">埼玉</button>
+                <button type="button" onclick="openCityModal('茨城')" class="pref-chip">茨城</button>
+                <button type="button" onclick="openCityModal('栃木')" class="pref-chip">栃木</button>
+                <button type="button" onclick="openCityModal('群馬')" class="pref-chip">群馬</button>
               </div>
             </div>
 
@@ -384,9 +383,9 @@
                 <span class="inline-block h-2 w-2 rounded-full bg-teal-400"></span>甲信越
               </p>
               <div class="flex flex-wrap gap-1.5">
-                <a href="04_facilities.html" class="pref-chip">新潟</a>
-                <a href="04_facilities.html" class="pref-chip">長野</a>
-                <a href="04_facilities.html" class="pref-chip">山梨</a>
+                <button type="button" onclick="openCityModal('新潟')" class="pref-chip">新潟</button>
+                <button type="button" onclick="openCityModal('長野')" class="pref-chip">長野</button>
+                <button type="button" onclick="openCityModal('山梨')" class="pref-chip">山梨</button>
               </div>
             </div>
 
@@ -395,9 +394,9 @@
                 <span class="inline-block h-2 w-2 rounded-full bg-cyan-400"></span>北陸
               </p>
               <div class="flex flex-wrap gap-1.5">
-                <a href="04_facilities.html" class="pref-chip">富山</a>
-                <a href="04_facilities.html" class="pref-chip">石川</a>
-                <a href="04_facilities.html" class="pref-chip">福井</a>
+                <button type="button" onclick="openCityModal('富山')" class="pref-chip">富山</button>
+                <button type="button" onclick="openCityModal('石川')" class="pref-chip">石川</button>
+                <button type="button" onclick="openCityModal('福井')" class="pref-chip">福井</button>
               </div>
             </div>
 
@@ -406,10 +405,10 @@
                 <span class="inline-block h-2 w-2 rounded-full bg-orange-400"></span>東海
               </p>
               <div class="flex flex-wrap gap-1.5">
-                <a href="04_facilities.html" class="pref-chip">愛知</a>
-                <a href="04_facilities.html" class="pref-chip">静岡</a>
-                <a href="04_facilities.html" class="pref-chip">岐阜</a>
-                <a href="04_facilities.html" class="pref-chip">三重</a>
+                <button type="button" onclick="openCityModal('愛知')" class="pref-chip">愛知</button>
+                <button type="button" onclick="openCityModal('静岡')" class="pref-chip">静岡</button>
+                <button type="button" onclick="openCityModal('岐阜')" class="pref-chip">岐阜</button>
+                <button type="button" onclick="openCityModal('三重')" class="pref-chip">三重</button>
               </div>
             </div>
 
@@ -418,12 +417,12 @@
                 <span class="inline-block h-2 w-2 rounded-full bg-purple-400"></span>近畿
               </p>
               <div class="flex flex-wrap gap-1.5">
-                <a href="04_facilities.html" class="pref-chip pref-chip--hot">大阪</a>
-                <a href="04_facilities.html" class="pref-chip">兵庫</a>
-                <a href="04_facilities.html" class="pref-chip">京都</a>
-                <a href="04_facilities.html" class="pref-chip">奈良</a>
-                <a href="04_facilities.html" class="pref-chip">滋賀</a>
-                <a href="04_facilities.html" class="pref-chip">和歌山</a>
+                <button type="button" onclick="openCityModal('大阪')" class="pref-chip pref-chip--hot">大阪</button>
+                <button type="button" onclick="openCityModal('兵庫')" class="pref-chip">兵庫</button>
+                <button type="button" onclick="openCityModal('京都')" class="pref-chip">京都</button>
+                <button type="button" onclick="openCityModal('奈良')" class="pref-chip">奈良</button>
+                <button type="button" onclick="openCityModal('滋賀')" class="pref-chip">滋賀</button>
+                <button type="button" onclick="openCityModal('和歌山')" class="pref-chip">和歌山</button>
               </div>
             </div>
 
@@ -432,11 +431,11 @@
                 <span class="inline-block h-2 w-2 rounded-full bg-pink-400"></span>中国
               </p>
               <div class="flex flex-wrap gap-1.5">
-                <a href="04_facilities.html" class="pref-chip">広島</a>
-                <a href="04_facilities.html" class="pref-chip">岡山</a>
-                <a href="04_facilities.html" class="pref-chip">山口</a>
-                <a href="04_facilities.html" class="pref-chip">鳥取</a>
-                <a href="04_facilities.html" class="pref-chip">島根</a>
+                <button type="button" onclick="openCityModal('広島')" class="pref-chip">広島</button>
+                <button type="button" onclick="openCityModal('岡山')" class="pref-chip">岡山</button>
+                <button type="button" onclick="openCityModal('山口')" class="pref-chip">山口</button>
+                <button type="button" onclick="openCityModal('鳥取')" class="pref-chip">鳥取</button>
+                <button type="button" onclick="openCityModal('島根')" class="pref-chip">島根</button>
               </div>
             </div>
 
@@ -445,10 +444,10 @@
                 <span class="inline-block h-2 w-2 rounded-full bg-yellow-400"></span>四国
               </p>
               <div class="flex flex-wrap gap-1.5">
-                <a href="04_facilities.html" class="pref-chip">高知</a>
-                <a href="04_facilities.html" class="pref-chip">愛媛</a>
-                <a href="04_facilities.html" class="pref-chip">香川</a>
-                <a href="04_facilities.html" class="pref-chip">徳島</a>
+                <button type="button" onclick="openCityModal('高知')" class="pref-chip">高知</button>
+                <button type="button" onclick="openCityModal('愛媛')" class="pref-chip">愛媛</button>
+                <button type="button" onclick="openCityModal('香川')" class="pref-chip">香川</button>
+                <button type="button" onclick="openCityModal('徳島')" class="pref-chip">徳島</button>
               </div>
             </div>
 
@@ -457,13 +456,13 @@
                 <span class="inline-block h-2 w-2 rounded-full bg-red-400"></span>九州
               </p>
               <div class="flex flex-wrap gap-1.5">
-                <a href="04_facilities.html" class="pref-chip">福岡</a>
-                <a href="04_facilities.html" class="pref-chip">佐賀</a>
-                <a href="04_facilities.html" class="pref-chip">長崎</a>
-                <a href="04_facilities.html" class="pref-chip">熊本</a>
-                <a href="04_facilities.html" class="pref-chip">大分</a>
-                <a href="04_facilities.html" class="pref-chip">宮崎</a>
-                <a href="04_facilities.html" class="pref-chip">鹿児島</a>
+                <button type="button" onclick="openCityModal('福岡')" class="pref-chip">福岡</button>
+                <button type="button" onclick="openCityModal('佐賀')" class="pref-chip">佐賀</button>
+                <button type="button" onclick="openCityModal('長崎')" class="pref-chip">長崎</button>
+                <button type="button" onclick="openCityModal('熊本')" class="pref-chip">熊本</button>
+                <button type="button" onclick="openCityModal('大分')" class="pref-chip">大分</button>
+                <button type="button" onclick="openCityModal('宮崎')" class="pref-chip">宮崎</button>
+                <button type="button" onclick="openCityModal('鹿児島')" class="pref-chip">鹿児島</button>
               </div>
             </div>
 
@@ -472,7 +471,7 @@
                 <span class="inline-block h-2 w-2 rounded-full bg-indigo-400"></span>沖縄
               </p>
               <div class="flex flex-wrap gap-1.5">
-                <a href="04_facilities.html" class="pref-chip">沖縄</a>
+                <button type="button" onclick="openCityModal('沖縄')" class="pref-chip">沖縄</button>
               </div>
             </div>
 
@@ -482,6 +481,13 @@
     </div>
 
     <style>
+      .map-region { transition: opacity .15s; cursor: pointer; }
+      .map-region:hover polygon,
+      .map-region:hover ellipse,
+      .map-region:hover circle { filter: brightness(.82); }
+      .map-region.active polygon,
+      .map-region.active ellipse,
+      .map-region.active circle { filter: brightness(.78); stroke-width: 2.5; }
       .pref-chip {
         display: inline-block;
         padding: 4px 12px;
@@ -492,7 +498,9 @@
         color: #374151;
         border: 1px solid #e5e7eb;
         transition: background .15s, color .15s, border-color .15s;
-        text-decoration: none;
+        cursor: pointer;
+        font-family: inherit;
+        line-height: 1.6;
       }
       .pref-chip:hover { background: #d1f5ec; color: #127e5e; border-color: #6ed9bf; }
       .pref-chip--hot { background: #d1f5ec; color: #127e5e; border-color: #6ed9bf; font-weight: 700; }
@@ -513,27 +521,97 @@
           kinki:'近畿', chugoku:'中国', shikoku:'四国',
           kyushu:'九州', okinawa:'沖縄'
         }
-        // 同じ地方を再クリックで解除
         if (currentRegion === region) region = null
         currentRegion = region
-
-        // SVG のアクティブ状態
         map.querySelectorAll('.map-region').forEach(g => g.classList.toggle('active', g.dataset.region === region))
-
-        // リストの表示切り替え
         groups.forEach(g => {
           if (!region || g.dataset.region === region) {
-            g.classList.remove('dimmed')
-            g.style.display = ''
+            g.classList.remove('dimmed'); g.style.display = ''
           } else {
-            g.classList.add('dimmed')
-            g.style.display = region ? 'none' : ''
+            g.classList.add('dimmed'); g.style.display = region ? 'none' : ''
           }
         })
-
         label.textContent = region ? regionNames[region] : 'すべての地方'
         resetBtn.classList.toggle('hidden', !region)
       }
+
+      // 市区町村データ（全47都道府県）
+      const cityData = {
+        '北海道': ['札幌市','函館市','旭川市','釧路市','帯広市','北見市','小樽市','苫小牧市','室蘭市','江別市','千歳市','岩見沢市','北広島市','恵庭市','伊達市'],
+        '青森': ['青森市','弘前市','八戸市','むつ市','三沢市','十和田市','黒石市','五所川原市','つがる市','平川市'],
+        '岩手': ['盛岡市','花巻市','北上市','一関市','奥州市','釜石市','宮古市','大船渡市','久慈市','遠野市'],
+        '宮城': ['仙台市','石巻市','名取市','大崎市','東松島市','塩竈市','気仙沼市','多賀城市','栗原市','登米市'],
+        '秋田': ['秋田市','横手市','大仙市','能代市','由利本荘市','大館市','湯沢市','男鹿市','にかほ市','潟上市'],
+        '山形': ['山形市','米沢市','鶴岡市','酒田市','新庄市','寒河江市','上山市','村山市','長井市','天童市'],
+        '福島': ['福島市','郡山市','いわき市','会津若松市','白河市','須賀川市','喜多方市','相馬市','二本松市','田村市'],
+        '茨城': ['水戸市','つくば市','日立市','古河市','ひたちなか市','土浦市','取手市','筑西市','守谷市','神栖市'],
+        '栃木': ['宇都宮市','足利市','栃木市','佐野市','小山市','日光市','真岡市','大田原市','矢板市','那須塩原市'],
+        '群馬': ['前橋市','高崎市','太田市','伊勢崎市','桐生市','渋川市','藤岡市','富岡市','安中市','みどり市'],
+        '埼玉': ['さいたま市','川越市','川口市','越谷市','熊谷市','所沢市','春日部市','草加市','上尾市','朝霞市','和光市','新座市'],
+        '千葉': ['千葉市','船橋市','松戸市','柏市','市川市','市原市','流山市','八千代市','我孫子市','鎌ケ谷市','浦安市'],
+        '東京': ['千代田区','中央区','港区','新宿区','渋谷区','豊島区','世田谷区','練馬区','足立区','葛飾区','江戸川区','杉並区','中野区','板橋区','北区','荒川区','台東区','墨田区','江東区','品川区','目黒区','大田区','八王子市','町田市','立川市','府中市','調布市','三鷹市'],
+        '神奈川': ['横浜市','川崎市','相模原市','藤沢市','横須賀市','平塚市','茅ヶ崎市','厚木市','大和市','海老名市','座間市','綾瀬市','鎌倉市','小田原市'],
+        '新潟': ['新潟市','長岡市','上越市','三条市','新発田市','小千谷市','加茂市','十日町市','見附市','村上市'],
+        '富山': ['富山市','高岡市','射水市','魚津市','砺波市','小矢部市','南砺市','黒部市','滑川市','氷見市'],
+        '石川': ['金沢市','七尾市','小松市','白山市','加賀市','能美市','川北町','野々市市','津幡町','内灘町'],
+        '福井': ['福井市','敦賀市','越前市','坂井市','鯖江市','あわら市','越前町','南越前町','池田町'],
+        '山梨': ['甲府市','富士吉田市','甲斐市','笛吹市','山梨市','韮崎市','南アルプス市','中央市','上野原市','都留市'],
+        '長野': ['長野市','松本市','上田市','諏訪市','飯田市','佐久市','塩尻市','伊那市','大町市','岡谷市'],
+        '岐阜': ['岐阜市','大垣市','各務原市','可児市','多治見市','関市','中津川市','美濃加茂市','土岐市','羽島市'],
+        '静岡': ['静岡市','浜松市','沼津市','富士市','磐田市','焼津市','掛川市','藤枝市','島田市','富士宮市'],
+        '愛知': ['名古屋市','豊田市','岡崎市','一宮市','豊橋市','春日井市','安城市','西尾市','刈谷市','豊川市','小牧市','稲沢市','大府市','知多市','日進市'],
+        '三重': ['津市','四日市市','松阪市','伊勢市','鈴鹿市','名張市','尾鷲市','亀山市','鳥羽市','熊野市'],
+        '滋賀': ['大津市','彦根市','草津市','長浜市','近江八幡市','東近江市','守山市','栗東市','甲賀市','野洲市'],
+        '京都': ['京都市','宇治市','舞鶴市','亀岡市','城陽市','向日市','長岡京市','八幡市','京田辺市','南丹市'],
+        '大阪': ['大阪市','堺市','東大阪市','枚方市','豊中市','吹田市','高槻市','茨木市','八尾市','寝屋川市','摂津市','箕面市','大東市','門真市','守口市'],
+        '兵庫': ['神戸市','姫路市','尼崎市','明石市','西宮市','芦屋市','伊丹市','加古川市','宝塚市','川西市','三田市','高砂市','小野市'],
+        '奈良': ['奈良市','橿原市','生駒市','大和郡山市','天理市','大和高田市','葛城市','桜井市','五條市','宇陀市'],
+        '和歌山': ['和歌山市','田辺市','海南市','橋本市','有田市','御坊市','新宮市','紀の川市','岩出市','紀美野町'],
+        '鳥取': ['鳥取市','米子市','倉吉市','境港市','琴浦町','八頭町','智頭町','若桜町'],
+        '島根': ['松江市','出雲市','浜田市','益田市','大田市','安来市','江津市','雲南市'],
+        '岡山': ['岡山市','倉敷市','津山市','玉野市','笠岡市','井原市','総社市','高梁市','新見市','備前市'],
+        '広島': ['広島市','福山市','呉市','尾道市','東広島市','廿日市市','三原市','府中市','竹原市','三次市'],
+        '山口': ['下関市','山口市','周南市','宇部市','萩市','岩国市','防府市','光市','長門市','柳井市'],
+        '徳島': ['徳島市','鳴門市','阿南市','吉野川市','阿波市','美馬市','三好市','小松島市'],
+        '香川': ['高松市','丸亀市','坂出市','さぬき市','東かがわ市','三豊市','善通寺市','観音寺市'],
+        '愛媛': ['松山市','今治市','新居浜市','西条市','宇和島市','大洲市','四国中央市','伊予市','東温市'],
+        '高知': ['高知市','南国市','四万十市','香南市','土佐市','室戸市','安芸市','須崎市','宿毛市'],
+        '福岡': ['福岡市','北九州市','久留米市','飯塚市','大牟田市','春日市','筑紫野市','太宰府市','糸島市','宗像市','古賀市','福津市'],
+        '佐賀': ['佐賀市','唐津市','鳥栖市','伊万里市','武雄市','鹿島市','小城市','嬉野市','神埼市'],
+        '長崎': ['長崎市','佐世保市','諫早市','大村市','島原市','対馬市','壱岐市','五島市','雲仙市','南島原市'],
+        '熊本': ['熊本市','八代市','天草市','荒尾市','水俣市','玉名市','山鹿市','菊池市','宇土市','上天草市'],
+        '大分': ['大分市','別府市','中津市','日田市','佐伯市','臼杵市','津久見市','竹田市','豊後高田市','杵築市'],
+        '宮崎': ['宮崎市','都城市','延岡市','日向市','日南市','小林市','串間市','えびの市','三股町'],
+        '鹿児島': ['鹿児島市','霧島市','鹿屋市','薩摩川内市','姶良市','出水市','日置市','曽於市','いちき串木野市'],
+        '沖縄': ['那覇市','沖縄市','浦添市','糸満市','宜野湾市','名護市','うるま市','豊見城市','南城市','南風原町','読谷村','北中城村']
+      }
+
+      function openCityModal(pref) {
+        const modal = document.getElementById('city-modal')
+        document.getElementById('modal-pref-title').textContent = pref + 'の事業所を探す'
+        const list = document.getElementById('modal-city-list')
+        list.innerHTML = ''
+        const cities = cityData[pref] || []
+        cities.forEach(city => {
+          const a = document.createElement('a')
+          a.href = '04_facilities.html'
+          a.textContent = city
+          a.className = 'inline-block px-3 py-1.5 rounded-full text-sm bg-gray-50 text-gray-700 border border-gray-200 hover:bg-primary-50 hover:text-primary-700 hover:border-primary-300 transition-colors'
+          list.appendChild(a)
+        })
+        modal.classList.remove('hidden')
+        modal.classList.add('flex')
+        document.body.style.overflow = 'hidden'
+      }
+
+      function closeCityModal() {
+        const modal = document.getElementById('city-modal')
+        modal.classList.add('hidden')
+        modal.classList.remove('flex')
+        document.body.style.overflow = ''
+      }
+
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCityModal() })
     </script>
   </section>
 
@@ -762,5 +840,37 @@
       </div>
     </div>
   </footer>
+
+  <!-- 市区町村選択モーダル -->
+  <div id="city-modal" class="fixed inset-0 z-[999] hidden items-center justify-center p-4">
+    <!-- オーバーレイ -->
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closeCityModal()"></div>
+    <!-- モーダルカード -->
+    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg flex flex-col" style="max-height:82vh">
+      <!-- ヘッダー -->
+      <div class="flex items-start justify-between px-6 pt-6 pb-4 border-b border-gray-100 flex-shrink-0">
+        <div>
+          <h3 id="modal-pref-title" class="text-lg font-bold text-gray-900"></h3>
+          <p class="text-xs text-gray-500 mt-0.5">市区町村を選択してください</p>
+        </div>
+        <button onclick="closeCityModal()" type="button" class="ml-4 flex-shrink-0 rounded-full p-1.5 text-gray-400 hover:bg-gray-100 hover:text-gray-600 transition-colors">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <!-- 市区町村リスト -->
+      <div class="px-6 py-5 overflow-y-auto flex-1">
+        <div id="modal-city-list" class="flex flex-wrap gap-2"></div>
+      </div>
+      <!-- フッター -->
+      <div class="px-6 pb-5 pt-2 border-t border-gray-100 flex-shrink-0">
+        <a href="04_facilities.html" class="block w-full text-center rounded-xl bg-primary-600 px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-700 transition-colors">
+          この都道府県の事業所をすべて見る →
+        </a>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
