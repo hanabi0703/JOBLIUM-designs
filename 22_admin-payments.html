@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOBLIUM - 入金管理</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#f0faf7',100:'#d1f5ec',200:'#a3ead8',300:'#6ed9bf',400:'#3ec4a3',500:'#1eb38a',600:'#16A177',700:'#127e5e',800:'#0e5f47',900:'#094030' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-gray-900 shadow-sm">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <div class="flex items-center gap-3">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-600">
+          <span class="text-sm font-bold text-white">J</span>
+        </div>
+        <span class="text-xl font-bold text-white">JOBLIUM</span>
+        <span class="rounded-md bg-red-600 px-2 py-0.5 text-xs font-bold text-white">ADMIN</span>
+      </div>
+      <nav class="hidden items-center gap-1 md:flex">
+        <a href="17_admin-dashboard.html" class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">ダッシュボード</a>
+        <a href="18_admin-users.html"     class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">ユーザー管理</a>
+        <a href="19_admin-offices.html"   class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">事業所管理</a>
+        <a href="21_admin-messages.html"  class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">メッセージ管理</a>
+        <a href="22_admin-payments.html"  class="rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold text-white">入金管理</a>
+        <a href="20_admin-master.html"    class="rounded-lg px-4 py-2 text-sm font-medium text-white/70 hover:bg-white/10">マスタ管理</a>
+      </nav>
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-white/70">admin@joblium.com</span>
+        <span class="rounded-full bg-red-600 px-2.5 py-0.5 text-xs font-bold text-white">管理者</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="mx-auto max-w-7xl px-4 py-8">
+
+    <!-- Title -->
+    <div class="mb-8 flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-bold text-gray-900">入金管理</h1>
+        <p class="text-sm text-gray-500 mt-0.5">事業所の掲載料・プラン料金の入金状況を確認・管理できます</p>
+      </div>
+      <button class="flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 shadow-sm">
+        <svg class="h-4 w-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+        CSVエクスポート
+      </button>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 gap-4 sm:grid-cols-4 mb-8">
+      <div class="rounded-2xl bg-white p-5 shadow-sm border border-gray-200">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-medium text-gray-500">今月の入金額</span>
+          <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-50">
+            <svg class="h-4 w-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+        </div>
+        <div class="text-2xl font-extrabold text-gray-900">¥1,248,000</div>
+        <div class="text-xs text-primary-600 mt-1 font-medium">+¥84,000 先月比</div>
+      </div>
+      <div class="rounded-2xl bg-white p-5 shadow-sm border border-gray-200">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-medium text-gray-500">未入金額</span>
+          <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-yellow-50">
+            <svg class="h-4 w-4 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+        </div>
+        <div class="text-2xl font-extrabold text-gray-900">¥186,000</div>
+        <div class="text-xs text-yellow-600 mt-1 font-medium">8件 期限内</div>
+      </div>
+      <div class="rounded-2xl bg-white p-5 shadow-sm border border-gray-200">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-medium text-gray-500">滞納額</span>
+          <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-red-50">
+            <svg class="h-4 w-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+          </div>
+        </div>
+        <div class="text-2xl font-extrabold text-gray-900">¥54,000</div>
+        <div class="text-xs text-red-500 mt-1 font-medium">3件 期限超過</div>
+      </div>
+      <div class="rounded-2xl bg-white p-5 shadow-sm border border-gray-200">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-medium text-gray-500">今月入金件数</span>
+          <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-50">
+            <svg class="h-4 w-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+        </div>
+        <div class="text-2xl font-extrabold text-gray-900">42<span class="text-base font-semibold text-gray-400 ml-1">件</span></div>
+        <div class="text-xs text-primary-600 mt-1 font-medium">入金率 84%</div>
+      </div>
+    </div>
+
+    <!-- Filter -->
+    <div class="rounded-2xl bg-white shadow-sm border border-gray-200 p-5 mb-6">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-end">
+        <div class="flex-1">
+          <label class="block text-xs font-medium text-gray-500 mb-1.5">事業所名 / 請求ID</label>
+          <div class="relative">
+            <svg class="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            <input type="text" placeholder="事業所名・請求IDで検索..." class="w-full rounded-xl border border-gray-200 pl-9 pr-3 py-2.5 text-sm focus:border-primary-400 focus:outline-none focus:ring-2 focus:ring-primary-100" />
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-gray-500 mb-1.5">ステータス</label>
+          <select class="rounded-xl border border-gray-200 px-3 py-2.5 text-sm text-gray-700 bg-white focus:border-primary-400 focus:outline-none">
+            <option>すべて</option>
+            <option>入金済み</option>
+            <option>未入金</option>
+            <option>滞納</option>
+            <option>返金済み</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-gray-500 mb-1.5">プラン</label>
+          <select class="rounded-xl border border-gray-200 px-3 py-2.5 text-sm text-gray-700 bg-white focus:border-primary-400 focus:outline-none">
+            <option>すべて</option>
+            <option>ベーシック</option>
+            <option>スタンダード</option>
+            <option>プレミアム</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-gray-500 mb-1.5">請求月</label>
+          <input type="month" value="2026-03" class="rounded-xl border border-gray-200 px-3 py-2.5 text-sm text-gray-700 bg-white focus:border-primary-400 focus:outline-none" />
+        </div>
+        <button class="rounded-xl bg-primary-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-700">絞り込む</button>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="rounded-2xl bg-white shadow-sm border border-gray-200 overflow-hidden">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+        <p class="text-sm font-semibold text-gray-800">請求一覧 <span class="text-gray-400 font-normal ml-1">全 50 件</span></p>
+        <div class="flex items-center gap-2 text-xs text-gray-500">
+          <span>表示件数:</span>
+          <select class="rounded-lg border border-gray-200 px-2 py-1 text-xs bg-white">
+            <option>20件</option>
+            <option>50件</option>
+            <option>100件</option>
+          </select>
+        </div>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-gray-50 border-b border-gray-100">
+              <th class="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 whitespace-nowrap">請求ID</th>
+              <th class="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 whitespace-nowrap">事業所名</th>
+              <th class="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 whitespace-nowrap">プラン</th>
+              <th class="px-5 py-3.5 text-right text-xs font-semibold text-gray-500 whitespace-nowrap">請求額</th>
+              <th class="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 whitespace-nowrap">請求日</th>
+              <th class="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 whitespace-nowrap">入金期限</th>
+              <th class="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 whitespace-nowrap">入金日</th>
+              <th class="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 whitespace-nowrap">ステータス</th>
+              <th class="px-5 py-3.5 text-left text-xs font-semibold text-gray-500 whitespace-nowrap">操作</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+
+            <!-- 入金済み -->
+            <tr class="hover:bg-gray-50 transition-colors">
+              <td class="px-5 py-4 text-xs text-gray-400 font-mono">#INV-2026-0042</td>
+              <td class="px-5 py-4">
+                <div class="font-semibold text-gray-800 text-sm">サンシャイン就労A型センター</div>
+                <div class="text-xs text-gray-400">ID: 12</div>
+              </td>
+              <td class="px-5 py-4"><span class="rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-medium text-indigo-700">プレミアム</span></td>
+              <td class="px-5 py-4 text-right font-semibold text-gray-800">¥29,800</td>
+              <td class="px-5 py-4 text-xs text-gray-600">2026/03/01</td>
+              <td class="px-5 py-4 text-xs text-gray-600">2026/03/31</td>
+              <td class="px-5 py-4 text-xs text-gray-600">2026/03/15</td>
+              <td class="px-5 py-4"><span class="inline-flex items-center gap-1 rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-semibold text-green-700"><span class="h-1.5 w-1.5 rounded-full bg-green-500 inline-block"></span>入金済み</span></td>
+              <td class="px-5 py-4">
+                <div class="flex gap-1.5">
+                  <button onclick="openDetail('INV-2026-0042')" class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs font-medium text-gray-600 hover:bg-gray-50">詳細</button>
+                  <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs font-medium text-gray-600 hover:bg-gray-50">領収書</button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- 入金済み -->
+            <tr class="hover:bg-gray-50 transition-colors">
+              <td class="px-5 py-4 text-xs text-gray-400 font-mono">#INV-2026-0041</td>
+              <td class="px-5 py-4">
+                <div class="font-semibold text-gray-800 text-sm">グリーンファーム就労支援</div>
+                <div class="text-xs text-gray-400">ID: 23</div>
+              </td>
+              <td class="px-5 py-4"><span class="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700">スタンダード</span></td>
+              <td class="px-5 py-4 text-right font-semibold text-gray-800">¥14,800</td>
+              <td class="px-5 py-4 text-xs text-gray-600">2026/03/01</td>
+              <td class="px-5 py-4 text-xs text-gray-600">2026/03/31</td>
+              <td class="px-5 py-4 text-xs text-gray-600">2026/03/12</td>
+              <td class="px-5 py-4"><span class="inline-flex items-center gap-1 rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-semibold text-green-700"><span class="h-1.5 w-1.5 rounded-full bg-green-500 inline-block"></span>入金済み</span></td>
+              <td class="px-5 py-4">
+                <div class="flex gap-1.5">
+                  <button onclick="openDetail('INV-2026-0041')" class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs font-medium text-gray-600 hover:bg-gray-50">詳細</button>
+                  <button class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs font-medium text-gray-600 hover:bg-gray-50">領収書</button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- 未入金 -->
+            <tr class="hover:bg-yellow-50/40 transition-colors bg-yellow-50/20">
+              <td class="px-5 py-4 text-xs text-gray-400 font-mono">#INV-2026-0043</td>
+              <td class="px-5 py-4">
+                <div class="font-semibold text-gray-800 text-sm">ハーモニー就労移行センター</div>
+                <div class="text-xs text-gray-400">ID: 34</div>
+              </td>
+              <td class="px-5 py-4"><span class="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700">スタンダード</span></td>
+              <td class="px-5 py-4 text-right font-semibold text-gray-800">¥14,800</td>
+              <td class="px-5 py-4 text-xs text-gray-600">2026/03/01</td>
+              <td class="px-5 py-4 text-xs font-medium text-yellow-700">2026/03/31</td>
+              <td class="px-5 py-4 text-xs text-gray-400">—</td>
+              <td class="px-5 py-4"><span class="inline-flex items-center gap-1 rounded-full bg-yellow-100 px-2.5 py-0.5 text-xs font-semibold text-yellow-700"><span class="h-1.5 w-1.5 rounded-full bg-yellow-400 inline-block"></span>未入金</span></td>
+              <td class="px-5 py-4">
+                <div class="flex gap-1.5">
+                  <button onclick="openDetail('INV-2026-0043')" class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs font-medium text-gray-600 hover:bg-gray-50">詳細</button>
+                  <button class="rounded-lg border border-yellow-300 bg-yellow-50 px-2.5 py-1 text-xs font-medium text-yellow-700 hover:bg-yellow-100">催促メール</button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- 未入金 -->
+            <tr class="hover:bg-yellow-50/40 transition-colors bg-yellow-50/20">
+              <td class="px-5 py-4 text-xs text-gray-400 font-mono">#INV-2026-0044</td>
+              <td class="px-5 py-4">
+                <div class="font-semibold text-gray-800 text-sm">ブライトホープ福祉センター</div>
+                <div class="text-xs text-gray-400">ID: 51</div>
+              </td>
+              <td class="px-5 py-4"><span class="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600">ベーシック</span></td>
+              <td class="px-5 py-4 text-right font-semibold text-gray-800">¥5,800</td>
+              <td class="px-5 py-4 text-xs text-gray-600">2026/03/01</td>
+              <td class="px-5 py-4 text-xs font-medium text-yellow-700">2026/03/31</td>
+              <td class="px-5 py-4 text-xs text-gray-400">—</td>
+              <td class="px-5 py-4"><span class="inline-flex items-center gap-1 rounded-full bg-yellow-100 px-2.5 py-0.5 text-xs font-semibold text-yellow-700"><span class="h-1.5 w-1.5 rounded-full bg-yellow-400 inline-block"></span>未入金</span></td>
+              <td class="px-5 py-4">
+                <div class="flex gap-1.5">
+                  <button onclick="openDetail('INV-2026-0044')" class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs font-medium text-gray-600 hover:bg-gray-50">詳細</button>
+                  <button class="rounded-lg border border-yellow-300 bg-yellow-50 px-2.5 py-1 text-xs font-medium text-yellow-700 hover:bg-yellow-100">催促メール</button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- 滞納 -->
+            <tr class="hover:bg-red-50/40 transition-colors bg-red-50/20">
+              <td class="px-5 py-4 text-xs text-gray-400 font-mono">#INV-2026-0035</td>
+              <td class="px-5 py-4">
+                <div class="font-semibold text-gray-800 text-sm">ひまわり就労支援センター</div>
+                <div class="text-xs text-gray-400">ID: 67</div>
+              </td>
+              <td class="px-5 py-4"><span class="rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-medium text-indigo-700">プレミアム</span></td>
+              <td class="px-5 py-4 text-right font-semibold text-red-700">¥29,800</td>
+              <td class="px-5 py-4 text-xs text-gray-600">2026/02/01</td>
+              <td class="px-5 py-4 text-xs font-semibold text-red-600">2026/02/28 <span class="block text-red-400 font-normal">31日超過</span></td>
+              <td class="px-5 py-4 text-xs text-gray-400">—</td>
+              <td class="px-5 py-4"><span class="inline-flex items-center gap-1 rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-semibold text-red-700"><span class="h-1.5 w-1.5 rounded-full bg-red-500 inline-block"></span>滞納</span></td>
+              <td class="px-5 py-4">
+                <div class="flex gap-1.5">
+                  <button onclick="openDetail('INV-2026-0035')" class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs font-medium text-gray-600 hover:bg-gray-50">詳細</button>
+                  <button class="rounded-lg border border-red-300 bg-red-50 px-2.5 py-1 text-xs font-medium text-red-600 hover:bg-red-100">催促メール</button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- 滞納 -->
+            <tr class="hover:bg-red-50/40 transition-colors bg-red-50/20">
+              <td class="px-5 py-4 text-xs text-gray-400 font-mono">#INV-2026-0034</td>
+              <td class="px-5 py-4">
+                <div class="font-semibold text-gray-800 text-sm">ステップアップ就労移行</div>
+                <div class="text-xs text-gray-400">ID: 78</div>
+              </td>
+              <td class="px-5 py-4"><span class="rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700">スタンダード</span></td>
+              <td class="px-5 py-4 text-right font-semibold text-red-700">¥14,800</td>
+              <td class="px-5 py-4 text-xs text-gray-600">2026/02/01</td>
+              <td class="px-5 py-4 text-xs font-semibold text-red-600">2026/02/28 <span class="block text-red-400 font-normal">20日超過</span></td>
+              <td class="px-5 py-4 text-xs text-gray-400">—</td>
+              <td class="px-5 py-4"><span class="inline-flex items-center gap-1 rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-semibold text-red-700"><span class="h-1.5 w-1.5 rounded-full bg-red-500 inline-block"></span>滞納</span></td>
+              <td class="px-5 py-4">
+                <div class="flex gap-1.5">
+                  <button onclick="openDetail('INV-2026-0034')" class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs font-medium text-gray-600 hover:bg-gray-50">詳細</button>
+                  <button class="rounded-lg border border-red-300 bg-red-50 px-2.5 py-1 text-xs font-medium text-red-600 hover:bg-red-100">催促メール</button>
+                </div>
+              </td>
+            </tr>
+
+            <!-- 返金済み -->
+            <tr class="hover:bg-gray-50 transition-colors">
+              <td class="px-5 py-4 text-xs text-gray-400 font-mono">#INV-2026-0028</td>
+              <td class="px-5 py-4">
+                <div class="font-semibold text-gray-800 text-sm">あおぞら就労センター</div>
+                <div class="text-xs text-gray-400">ID: 89</div>
+              </td>
+              <td class="px-5 py-4"><span class="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600">ベーシック</span></td>
+              <td class="px-5 py-4 text-right font-semibold text-gray-400 line-through">¥5,800</td>
+              <td class="px-5 py-4 text-xs text-gray-600">2026/01/01</td>
+              <td class="px-5 py-4 text-xs text-gray-400">2026/01/31</td>
+              <td class="px-5 py-4 text-xs text-gray-400">2026/02/10 <span class="block text-gray-400">返金処理</span></td>
+              <td class="px-5 py-4"><span class="inline-flex items-center gap-1 rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-semibold text-gray-500"><span class="h-1.5 w-1.5 rounded-full bg-gray-400 inline-block"></span>返金済み</span></td>
+              <td class="px-5 py-4">
+                <button onclick="openDetail('INV-2026-0028')" class="rounded-lg border border-gray-200 px-2.5 py-1 text-xs font-medium text-gray-600 hover:bg-gray-50">詳細</button>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex items-center justify-between px-6 py-4 border-t border-gray-100">
+        <span class="text-xs text-gray-500">1〜7件 / 全50件</span>
+        <div class="flex items-center gap-1">
+          <button class="rounded-lg border border-gray-200 px-3 py-1.5 text-xs text-gray-400">前へ</button>
+          <button class="rounded-lg bg-primary-600 px-3 py-1.5 text-xs font-semibold text-white">1</button>
+          <button class="rounded-lg border border-gray-200 px-3 py-1.5 text-xs text-gray-600 hover:bg-gray-50">2</button>
+          <button class="rounded-lg border border-gray-200 px-3 py-1.5 text-xs text-gray-600 hover:bg-gray-50">3</button>
+          <span class="px-1 text-xs text-gray-400">…</span>
+          <button class="rounded-lg border border-gray-200 px-3 py-1.5 text-xs text-gray-600 hover:bg-gray-50">8</button>
+          <button class="rounded-lg border border-gray-200 px-3 py-1.5 text-xs text-gray-600 hover:bg-gray-50">次へ</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 詳細モーダル -->
+  <div id="detail-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 hidden">
+    <div class="w-full max-w-md rounded-2xl bg-white shadow-xl mx-4">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+        <h3 class="font-bold text-gray-900" id="modal-title">請求詳細</h3>
+        <button onclick="closeDetail()" class="text-gray-400 hover:text-gray-600">
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="px-6 py-5 space-y-3 text-sm" id="modal-body">
+        <div class="flex justify-between py-2 border-b border-gray-100">
+          <span class="text-gray-500">請求ID</span>
+          <span class="font-semibold text-gray-800" id="m-id">—</span>
+        </div>
+        <div class="flex justify-between py-2 border-b border-gray-100">
+          <span class="text-gray-500">事業所名</span>
+          <span class="font-semibold text-gray-800">サンシャイン就労A型センター</span>
+        </div>
+        <div class="flex justify-between py-2 border-b border-gray-100">
+          <span class="text-gray-500">プラン</span>
+          <span class="rounded-full bg-indigo-50 px-2.5 py-0.5 text-xs font-medium text-indigo-700">プレミアム</span>
+        </div>
+        <div class="flex justify-between py-2 border-b border-gray-100">
+          <span class="text-gray-500">請求額</span>
+          <span class="font-bold text-gray-900">¥29,800</span>
+        </div>
+        <div class="flex justify-between py-2 border-b border-gray-100">
+          <span class="text-gray-500">請求日</span>
+          <span class="text-gray-700">2026/03/01</span>
+        </div>
+        <div class="flex justify-between py-2 border-b border-gray-100">
+          <span class="text-gray-500">入金期限</span>
+          <span class="text-gray-700">2026/03/31</span>
+        </div>
+        <div class="flex justify-between py-2 border-b border-gray-100">
+          <span class="text-gray-500">入金日</span>
+          <span class="text-gray-700">2026/03/15</span>
+        </div>
+        <div class="flex justify-between py-2">
+          <span class="text-gray-500">ステータス</span>
+          <span class="inline-flex items-center gap-1 rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-semibold text-green-700"><span class="h-1.5 w-1.5 rounded-full bg-green-500 inline-block"></span>入金済み</span>
+        </div>
+      </div>
+      <div class="px-6 pb-5 flex justify-end gap-2">
+        <button class="rounded-xl border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50">領収書発行</button>
+        <button onclick="closeDetail()" class="rounded-xl bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700">閉じる</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openDetail(id) {
+      document.getElementById('m-id').textContent = '#' + id
+      document.getElementById('modal-title').textContent = '請求詳細 — #' + id
+      document.getElementById('detail-modal').classList.remove('hidden')
+    }
+    function closeDetail() {
+      document.getElementById('detail-modal').classList.add('hidden')
+    }
+    // モーダル外クリックで閉じる
+    document.getElementById('detail-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeDetail()
+    })
+  </script>
+</body>
+</html>
