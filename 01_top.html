@@ -254,165 +254,175 @@
 
   <!-- ======= 都道府県から探す ======= -->
   <section class="py-20 bg-white">
-    <div class="mx-auto max-w-5xl px-4">
+    <div class="mx-auto max-w-[1200px] px-4">
       <div class="text-center mb-10">
         <span class="inline-block rounded-full bg-primary-100 px-3 py-1 text-xs font-bold text-primary-700 mb-2">エリアから探す</span>
         <h2 class="text-2xl font-bold text-gray-900">都道府県から探す</h2>
         <p class="mt-2 text-sm text-gray-500">都道府県名をクリックして市区町村を選択できます</p>
       </div>
 
-      <div class="flex flex-col lg:flex-row gap-8 items-start justify-center">
+      <!-- 3カラム：左エリア | 地図 | 右エリア -->
+      <div class="flex flex-col lg:flex-row gap-5 items-start justify-center">
 
-        <!-- 日本地図 -->
-        <div class="flex-shrink-0 w-full lg:w-auto flex justify-center">
-          <img src="japan-map.png" alt="日本地図" class="w-64 lg:w-80 object-contain select-none" />
+        <!-- 左カラム：北海道〜北陸 -->
+        <div class="w-full lg:w-48 flex-shrink-0 space-y-3">
+
+          <div class="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+            <div class="flex items-center gap-1.5 px-3 py-2 bg-blue-50 border-b border-blue-100">
+              <span class="inline-block h-2 w-2 rounded-full bg-blue-400"></span>
+              <span class="text-xs font-bold text-blue-700">北海道</span>
+            </div>
+            <div class="flex flex-wrap gap-1.5 p-3">
+              <button type="button" onclick="openCityModal('北海道')" class="pref-chip">北海道</button>
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+            <div class="flex items-center gap-1.5 px-3 py-2 bg-green-50 border-b border-green-100">
+              <span class="inline-block h-2 w-2 rounded-full bg-green-400"></span>
+              <span class="text-xs font-bold text-green-700">東北</span>
+            </div>
+            <div class="flex flex-wrap gap-1.5 p-3">
+              <button type="button" onclick="openCityModal('青森')" class="pref-chip">青森</button>
+              <button type="button" onclick="openCityModal('岩手')" class="pref-chip">岩手</button>
+              <button type="button" onclick="openCityModal('宮城')" class="pref-chip">宮城</button>
+              <button type="button" onclick="openCityModal('秋田')" class="pref-chip">秋田</button>
+              <button type="button" onclick="openCityModal('山形')" class="pref-chip">山形</button>
+              <button type="button" onclick="openCityModal('福島')" class="pref-chip">福島</button>
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+            <div class="flex items-center gap-1.5 px-3 py-2 bg-primary-50 border-b border-primary-100">
+              <span class="inline-block h-2 w-2 rounded-full bg-primary-400"></span>
+              <span class="text-xs font-bold text-primary-700">関東</span>
+            </div>
+            <div class="flex flex-wrap gap-1.5 p-3">
+              <button type="button" onclick="openCityModal('東京')" class="pref-chip pref-chip--hot">東京</button>
+              <button type="button" onclick="openCityModal('神奈川')" class="pref-chip">神奈川</button>
+              <button type="button" onclick="openCityModal('千葉')" class="pref-chip">千葉</button>
+              <button type="button" onclick="openCityModal('埼玉')" class="pref-chip">埼玉</button>
+              <button type="button" onclick="openCityModal('茨城')" class="pref-chip">茨城</button>
+              <button type="button" onclick="openCityModal('栃木')" class="pref-chip">栃木</button>
+              <button type="button" onclick="openCityModal('群馬')" class="pref-chip">群馬</button>
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+            <div class="flex items-center gap-1.5 px-3 py-2 bg-teal-50 border-b border-teal-100">
+              <span class="inline-block h-2 w-2 rounded-full bg-teal-400"></span>
+              <span class="text-xs font-bold text-teal-700">甲信越</span>
+            </div>
+            <div class="flex flex-wrap gap-1.5 p-3">
+              <button type="button" onclick="openCityModal('新潟')" class="pref-chip">新潟</button>
+              <button type="button" onclick="openCityModal('長野')" class="pref-chip">長野</button>
+              <button type="button" onclick="openCityModal('山梨')" class="pref-chip">山梨</button>
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+            <div class="flex items-center gap-1.5 px-3 py-2 bg-cyan-50 border-b border-cyan-100">
+              <span class="inline-block h-2 w-2 rounded-full bg-cyan-400"></span>
+              <span class="text-xs font-bold text-cyan-700">北陸</span>
+            </div>
+            <div class="flex flex-wrap gap-1.5 p-3">
+              <button type="button" onclick="openCityModal('富山')" class="pref-chip">富山</button>
+              <button type="button" onclick="openCityModal('石川')" class="pref-chip">石川</button>
+              <button type="button" onclick="openCityModal('福井')" class="pref-chip">福井</button>
+            </div>
+          </div>
+
         </div>
 
-        <!-- 都道府県リスト -->
-        <div class="flex-1 w-full">
-          <div class="mb-4">
-            <span class="text-sm font-semibold text-gray-700">都道府県を選択</span>
+        <!-- 中央：日本地図 -->
+        <div class="flex-1 flex justify-center items-start">
+          <img src="japan-map.png" alt="日本地図" class="w-full max-w-[600px] object-contain select-none" />
+        </div>
+
+        <!-- 右カラム：東海〜沖縄 -->
+        <div class="w-full lg:w-48 flex-shrink-0 space-y-3">
+
+          <div class="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+            <div class="flex items-center gap-1.5 px-3 py-2 bg-orange-50 border-b border-orange-100">
+              <span class="inline-block h-2 w-2 rounded-full bg-orange-400"></span>
+              <span class="text-xs font-bold text-orange-700">東海</span>
+            </div>
+            <div class="flex flex-wrap gap-1.5 p-3">
+              <button type="button" onclick="openCityModal('愛知')" class="pref-chip">愛知</button>
+              <button type="button" onclick="openCityModal('静岡')" class="pref-chip">静岡</button>
+              <button type="button" onclick="openCityModal('岐阜')" class="pref-chip">岐阜</button>
+              <button type="button" onclick="openCityModal('三重')" class="pref-chip">三重</button>
+            </div>
           </div>
 
-          <!-- 全地方グループ -->
-          <div id="pref-list" class="space-y-4">
-
-            <div class="region-group" data-region="hokkaido">
-              <p class="text-xs font-bold text-gray-500 mb-2 flex items-center gap-1">
-                <span class="inline-block h-2 w-2 rounded-full bg-blue-400"></span>北海道
-              </p>
-              <div class="flex flex-wrap gap-1.5">
-                <button type="button" onclick="openCityModal('北海道')" class="pref-chip">北海道</button>
-              </div>
+          <div class="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+            <div class="flex items-center gap-1.5 px-3 py-2 bg-purple-50 border-b border-purple-100">
+              <span class="inline-block h-2 w-2 rounded-full bg-purple-400"></span>
+              <span class="text-xs font-bold text-purple-700">近畿</span>
             </div>
-
-            <div class="region-group" data-region="tohoku">
-              <p class="text-xs font-bold text-gray-500 mb-2 flex items-center gap-1">
-                <span class="inline-block h-2 w-2 rounded-full bg-green-400"></span>東北
-              </p>
-              <div class="flex flex-wrap gap-1.5">
-                <button type="button" onclick="openCityModal('青森')" class="pref-chip">青森</button>
-                <button type="button" onclick="openCityModal('岩手')" class="pref-chip">岩手</button>
-                <button type="button" onclick="openCityModal('宮城')" class="pref-chip">宮城</button>
-                <button type="button" onclick="openCityModal('秋田')" class="pref-chip">秋田</button>
-                <button type="button" onclick="openCityModal('山形')" class="pref-chip">山形</button>
-                <button type="button" onclick="openCityModal('福島')" class="pref-chip">福島</button>
-              </div>
+            <div class="flex flex-wrap gap-1.5 p-3">
+              <button type="button" onclick="openCityModal('大阪')" class="pref-chip pref-chip--hot">大阪</button>
+              <button type="button" onclick="openCityModal('兵庫')" class="pref-chip">兵庫</button>
+              <button type="button" onclick="openCityModal('京都')" class="pref-chip">京都</button>
+              <button type="button" onclick="openCityModal('奈良')" class="pref-chip">奈良</button>
+              <button type="button" onclick="openCityModal('滋賀')" class="pref-chip">滋賀</button>
+              <button type="button" onclick="openCityModal('和歌山')" class="pref-chip">和歌山</button>
             </div>
-
-            <div class="region-group" data-region="kanto">
-              <p class="text-xs font-bold text-gray-500 mb-2 flex items-center gap-1">
-                <span class="inline-block h-2 w-2 rounded-full bg-primary-500"></span>関東
-              </p>
-              <div class="flex flex-wrap gap-1.5">
-                <button type="button" onclick="openCityModal('東京')" class="pref-chip pref-chip--hot">東京</button>
-                <button type="button" onclick="openCityModal('神奈川')" class="pref-chip">神奈川</button>
-                <button type="button" onclick="openCityModal('千葉')" class="pref-chip">千葉</button>
-                <button type="button" onclick="openCityModal('埼玉')" class="pref-chip">埼玉</button>
-                <button type="button" onclick="openCityModal('茨城')" class="pref-chip">茨城</button>
-                <button type="button" onclick="openCityModal('栃木')" class="pref-chip">栃木</button>
-                <button type="button" onclick="openCityModal('群馬')" class="pref-chip">群馬</button>
-              </div>
-            </div>
-
-            <div class="region-group" data-region="koshinetsu">
-              <p class="text-xs font-bold text-gray-500 mb-2 flex items-center gap-1">
-                <span class="inline-block h-2 w-2 rounded-full bg-teal-400"></span>甲信越
-              </p>
-              <div class="flex flex-wrap gap-1.5">
-                <button type="button" onclick="openCityModal('新潟')" class="pref-chip">新潟</button>
-                <button type="button" onclick="openCityModal('長野')" class="pref-chip">長野</button>
-                <button type="button" onclick="openCityModal('山梨')" class="pref-chip">山梨</button>
-              </div>
-            </div>
-
-            <div class="region-group" data-region="hokuriku">
-              <p class="text-xs font-bold text-gray-500 mb-2 flex items-center gap-1">
-                <span class="inline-block h-2 w-2 rounded-full bg-cyan-400"></span>北陸
-              </p>
-              <div class="flex flex-wrap gap-1.5">
-                <button type="button" onclick="openCityModal('富山')" class="pref-chip">富山</button>
-                <button type="button" onclick="openCityModal('石川')" class="pref-chip">石川</button>
-                <button type="button" onclick="openCityModal('福井')" class="pref-chip">福井</button>
-              </div>
-            </div>
-
-            <div class="region-group" data-region="tokai">
-              <p class="text-xs font-bold text-gray-500 mb-2 flex items-center gap-1">
-                <span class="inline-block h-2 w-2 rounded-full bg-orange-400"></span>東海
-              </p>
-              <div class="flex flex-wrap gap-1.5">
-                <button type="button" onclick="openCityModal('愛知')" class="pref-chip">愛知</button>
-                <button type="button" onclick="openCityModal('静岡')" class="pref-chip">静岡</button>
-                <button type="button" onclick="openCityModal('岐阜')" class="pref-chip">岐阜</button>
-                <button type="button" onclick="openCityModal('三重')" class="pref-chip">三重</button>
-              </div>
-            </div>
-
-            <div class="region-group" data-region="kinki">
-              <p class="text-xs font-bold text-gray-500 mb-2 flex items-center gap-1">
-                <span class="inline-block h-2 w-2 rounded-full bg-purple-400"></span>近畿
-              </p>
-              <div class="flex flex-wrap gap-1.5">
-                <button type="button" onclick="openCityModal('大阪')" class="pref-chip pref-chip--hot">大阪</button>
-                <button type="button" onclick="openCityModal('兵庫')" class="pref-chip">兵庫</button>
-                <button type="button" onclick="openCityModal('京都')" class="pref-chip">京都</button>
-                <button type="button" onclick="openCityModal('奈良')" class="pref-chip">奈良</button>
-                <button type="button" onclick="openCityModal('滋賀')" class="pref-chip">滋賀</button>
-                <button type="button" onclick="openCityModal('和歌山')" class="pref-chip">和歌山</button>
-              </div>
-            </div>
-
-            <div class="region-group" data-region="chugoku">
-              <p class="text-xs font-bold text-gray-500 mb-2 flex items-center gap-1">
-                <span class="inline-block h-2 w-2 rounded-full bg-pink-400"></span>中国
-              </p>
-              <div class="flex flex-wrap gap-1.5">
-                <button type="button" onclick="openCityModal('広島')" class="pref-chip">広島</button>
-                <button type="button" onclick="openCityModal('岡山')" class="pref-chip">岡山</button>
-                <button type="button" onclick="openCityModal('山口')" class="pref-chip">山口</button>
-                <button type="button" onclick="openCityModal('鳥取')" class="pref-chip">鳥取</button>
-                <button type="button" onclick="openCityModal('島根')" class="pref-chip">島根</button>
-              </div>
-            </div>
-
-            <div class="region-group" data-region="shikoku">
-              <p class="text-xs font-bold text-gray-500 mb-2 flex items-center gap-1">
-                <span class="inline-block h-2 w-2 rounded-full bg-yellow-400"></span>四国
-              </p>
-              <div class="flex flex-wrap gap-1.5">
-                <button type="button" onclick="openCityModal('高知')" class="pref-chip">高知</button>
-                <button type="button" onclick="openCityModal('愛媛')" class="pref-chip">愛媛</button>
-                <button type="button" onclick="openCityModal('香川')" class="pref-chip">香川</button>
-                <button type="button" onclick="openCityModal('徳島')" class="pref-chip">徳島</button>
-              </div>
-            </div>
-
-            <div class="region-group" data-region="kyushu">
-              <p class="text-xs font-bold text-gray-500 mb-2 flex items-center gap-1">
-                <span class="inline-block h-2 w-2 rounded-full bg-red-400"></span>九州
-              </p>
-              <div class="flex flex-wrap gap-1.5">
-                <button type="button" onclick="openCityModal('福岡')" class="pref-chip">福岡</button>
-                <button type="button" onclick="openCityModal('佐賀')" class="pref-chip">佐賀</button>
-                <button type="button" onclick="openCityModal('長崎')" class="pref-chip">長崎</button>
-                <button type="button" onclick="openCityModal('熊本')" class="pref-chip">熊本</button>
-                <button type="button" onclick="openCityModal('大分')" class="pref-chip">大分</button>
-                <button type="button" onclick="openCityModal('宮崎')" class="pref-chip">宮崎</button>
-                <button type="button" onclick="openCityModal('鹿児島')" class="pref-chip">鹿児島</button>
-              </div>
-            </div>
-
-            <div class="region-group" data-region="okinawa">
-              <p class="text-xs font-bold text-gray-500 mb-2 flex items-center gap-1">
-                <span class="inline-block h-2 w-2 rounded-full bg-indigo-400"></span>沖縄
-              </p>
-              <div class="flex flex-wrap gap-1.5">
-                <button type="button" onclick="openCityModal('沖縄')" class="pref-chip">沖縄</button>
-              </div>
-            </div>
-
           </div>
+
+          <div class="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+            <div class="flex items-center gap-1.5 px-3 py-2 bg-pink-50 border-b border-pink-100">
+              <span class="inline-block h-2 w-2 rounded-full bg-pink-400"></span>
+              <span class="text-xs font-bold text-pink-700">中国</span>
+            </div>
+            <div class="flex flex-wrap gap-1.5 p-3">
+              <button type="button" onclick="openCityModal('広島')" class="pref-chip">広島</button>
+              <button type="button" onclick="openCityModal('岡山')" class="pref-chip">岡山</button>
+              <button type="button" onclick="openCityModal('山口')" class="pref-chip">山口</button>
+              <button type="button" onclick="openCityModal('鳥取')" class="pref-chip">鳥取</button>
+              <button type="button" onclick="openCityModal('島根')" class="pref-chip">島根</button>
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+            <div class="flex items-center gap-1.5 px-3 py-2 bg-yellow-50 border-b border-yellow-100">
+              <span class="inline-block h-2 w-2 rounded-full bg-yellow-400"></span>
+              <span class="text-xs font-bold text-yellow-700">四国</span>
+            </div>
+            <div class="flex flex-wrap gap-1.5 p-3">
+              <button type="button" onclick="openCityModal('高知')" class="pref-chip">高知</button>
+              <button type="button" onclick="openCityModal('愛媛')" class="pref-chip">愛媛</button>
+              <button type="button" onclick="openCityModal('香川')" class="pref-chip">香川</button>
+              <button type="button" onclick="openCityModal('徳島')" class="pref-chip">徳島</button>
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+            <div class="flex items-center gap-1.5 px-3 py-2 bg-red-50 border-b border-red-100">
+              <span class="inline-block h-2 w-2 rounded-full bg-red-400"></span>
+              <span class="text-xs font-bold text-red-700">九州</span>
+            </div>
+            <div class="flex flex-wrap gap-1.5 p-3">
+              <button type="button" onclick="openCityModal('福岡')" class="pref-chip">福岡</button>
+              <button type="button" onclick="openCityModal('佐賀')" class="pref-chip">佐賀</button>
+              <button type="button" onclick="openCityModal('長崎')" class="pref-chip">長崎</button>
+              <button type="button" onclick="openCityModal('熊本')" class="pref-chip">熊本</button>
+              <button type="button" onclick="openCityModal('大分')" class="pref-chip">大分</button>
+              <button type="button" onclick="openCityModal('宮崎')" class="pref-chip">宮崎</button>
+              <button type="button" onclick="openCityModal('鹿児島')" class="pref-chip">鹿児島</button>
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-gray-200 bg-white shadow-sm overflow-hidden">
+            <div class="flex items-center gap-1.5 px-3 py-2 bg-indigo-50 border-b border-indigo-100">
+              <span class="inline-block h-2 w-2 rounded-full bg-indigo-400"></span>
+              <span class="text-xs font-bold text-indigo-700">沖縄</span>
+            </div>
+            <div class="flex flex-wrap gap-1.5 p-3">
+              <button type="button" onclick="openCityModal('沖縄')" class="pref-chip">沖縄</button>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -434,8 +444,6 @@
       }
       .pref-chip:hover { background: #d1f5ec; color: #127e5e; border-color: #6ed9bf; }
       .pref-chip--hot { background: #d1f5ec; color: #127e5e; border-color: #6ed9bf; font-weight: 700; }
-      .region-group.dimmed { opacity: .25; transition: opacity .2s; }
-      .region-group { transition: opacity .2s; }
     </style>
 
     <script>
