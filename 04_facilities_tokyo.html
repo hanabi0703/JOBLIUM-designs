@@ -311,15 +311,34 @@ a{color:var(--green);text-decoration:none}
   <div class="ac-section">
     <button class="ac-btn" onclick="toggleTkAc('tk-wage')">工賃・給料<span id="tk-wage-icon" class="ac-icon">−</span></button>
     <div id="tk-wage" class="ac-body">
-      <p style="font-size:11px;color:#9ca3af;margin-bottom:6px;">月額（円）</p>
-      <div style="display:flex;align-items:center;gap:6px;">
-        <input type="number" name="tkwage_min" placeholder="下限なし" min="0" step="10000"
-          style="flex:1;min-width:0;border:1px solid #d1d5db;border-radius:8px;padding:7px 8px;font-size:13px;outline:none;color:#374151;" />
-        <span style="font-size:13px;color:#9ca3af;flex-shrink:0;">〜</span>
-        <input type="number" name="tkwage_max" placeholder="上限なし" min="0" step="10000"
-          style="flex:1;min-width:0;border:1px solid #d1d5db;border-radius:8px;padding:7px 8px;font-size:13px;outline:none;color:#374151;" />
+      <!-- 現在値表示 -->
+      <div style="display:flex;align-items:center;justify-content:space-between;background:#f0faf7;border-radius:8px;padding:7px 12px;margin-bottom:14px;">
+        <span id="tk-wage-min-label" style="font-size:11px;font-weight:700;color:#127e5e;">下限なし</span>
+        <span style="font-size:11px;color:#9ca3af;margin:0 4px;">〜</span>
+        <span id="tk-wage-max-label" style="font-size:11px;font-weight:700;color:#127e5e;">上限なし</span>
       </div>
-      <p style="font-size:11px;color:#9ca3af;margin-top:6px;text-align:right;">単位：円 / 月</p>
+      <!-- 下限スライダー -->
+      <div style="margin-bottom:14px;">
+        <p style="font-size:11px;font-weight:600;color:#6b7280;margin-bottom:6px;">下限</p>
+        <input type="range" id="tk-wage-min-range" name="tkwage_min"
+          min="0" max="200000" step="10000" value="0"
+          style="width:100%;accent-color:#16A177;cursor:pointer;"
+          oninput="updateTkWageSliders()" />
+        <div style="display:flex;justify-content:space-between;font-size:10px;color:#d1d5db;margin-top:2px;">
+          <span>0円</span><span>20万円</span>
+        </div>
+      </div>
+      <!-- 上限スライダー -->
+      <div>
+        <p style="font-size:11px;font-weight:600;color:#6b7280;margin-bottom:6px;">上限</p>
+        <input type="range" id="tk-wage-max-range" name="tkwage_max"
+          min="0" max="200000" step="10000" value="200000"
+          style="width:100%;accent-color:#16A177;cursor:pointer;"
+          oninput="updateTkWageSliders()" />
+        <div style="display:flex;justify-content:space-between;font-size:10px;color:#d1d5db;margin-top:2px;">
+          <span>0円</span><span>上限なし</span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -940,6 +959,18 @@ a{color:var(--green);text-decoration:none}
 </footer>
 
 <script>
+function updateTkWageSliders() {
+  const minEl = document.getElementById('tk-wage-min-range')
+  const maxEl = document.getElementById('tk-wage-max-range')
+  let minVal = parseInt(minEl.value)
+  let maxVal = parseInt(maxEl.value)
+  if (minVal > maxVal) { minEl.value = maxVal; minVal = maxVal }
+  const fmt = v => v === 0 ? '下限なし' : '¥' + v.toLocaleString('ja-JP')
+  const fmtMax = v => v >= 200000 ? '上限なし' : '¥' + v.toLocaleString('ja-JP')
+  document.getElementById('tk-wage-min-label').textContent = fmt(minVal)
+  document.getElementById('tk-wage-max-label').textContent = fmtMax(maxVal)
+}
+
 function toggleTkAc(id) {
   const body = document.getElementById(id)
   const icon = document.getElementById(id + '-icon')

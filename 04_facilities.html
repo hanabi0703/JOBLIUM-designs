@@ -137,19 +137,34 @@
               <span id="wage-icon" class="ac-icon text-lg font-light text-gray-400 leading-none">−</span>
             </button>
             <div id="wage" class="ac-content px-4 pb-4">
-              <p class="text-xs text-gray-400 mb-2">月額（円）</p>
-              <div class="flex items-center gap-2">
-                <div class="relative flex-1">
-                  <input type="number" name="wage_min" placeholder="下限なし" min="0" step="10000"
-                    class="w-full rounded-lg border border-gray-300 px-2.5 py-2 text-sm outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-200 placeholder-gray-300" />
-                </div>
-                <span class="text-sm text-gray-400 flex-shrink-0">〜</span>
-                <div class="relative flex-1">
-                  <input type="number" name="wage_max" placeholder="上限なし" min="0" step="10000"
-                    class="w-full rounded-lg border border-gray-300 px-2.5 py-2 text-sm outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-200 placeholder-gray-300" />
+              <!-- 現在値表示 -->
+              <div class="flex items-center justify-between rounded-lg bg-primary-50 px-3 py-2 mb-4">
+                <span class="text-xs font-bold text-primary-700" id="wage-min-label">下限なし</span>
+                <span class="text-xs text-gray-400 mx-1">〜</span>
+                <span class="text-xs font-bold text-primary-700" id="wage-max-label">上限なし</span>
+              </div>
+              <!-- 下限スライダー -->
+              <div class="mb-4">
+                <p class="text-xs font-medium text-gray-500 mb-1.5">下限</p>
+                <input type="range" id="wage-min-range" name="wage_min"
+                  min="0" max="200000" step="10000" value="0"
+                  class="w-full cursor-pointer" style="accent-color:#16A177;"
+                  oninput="updateWageSliders()" />
+                <div class="flex justify-between text-xs text-gray-300 mt-0.5">
+                  <span>0円</span><span>20万円</span>
                 </div>
               </div>
-              <p class="text-xs text-gray-400 mt-1.5 text-right">単位：円 / 月</p>
+              <!-- 上限スライダー -->
+              <div>
+                <p class="text-xs font-medium text-gray-500 mb-1.5">上限</p>
+                <input type="range" id="wage-max-range" name="wage_max"
+                  min="0" max="200000" step="10000" value="200000"
+                  class="w-full cursor-pointer" style="accent-color:#16A177;"
+                  oninput="updateWageSliders()" />
+                <div class="flex justify-between text-xs text-gray-300 mt-0.5">
+                  <span>0円</span><span>上限なし</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -303,6 +318,18 @@
       </aside>
 
       <script>
+        function updateWageSliders() {
+          const minEl = document.getElementById('wage-min-range')
+          const maxEl = document.getElementById('wage-max-range')
+          let minVal = parseInt(minEl.value)
+          let maxVal = parseInt(maxEl.value)
+          if (minVal > maxVal) { minEl.value = maxVal; minVal = maxVal }
+          const fmt = v => v === 0 ? '下限なし' : '¥' + v.toLocaleString('ja-JP')
+          const fmtMax = v => v >= 200000 ? '上限なし' : '¥' + v.toLocaleString('ja-JP')
+          document.getElementById('wage-min-label').textContent = fmt(minVal)
+          document.getElementById('wage-max-label').textContent = fmtMax(maxVal)
+        }
+
         function toggleAc(id) {
           const content = document.getElementById(id)
           const icon = document.getElementById(id + '-icon')
