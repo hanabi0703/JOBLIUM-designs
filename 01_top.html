@@ -63,51 +63,75 @@
         口コミ・評価で自分に合った職場を見つけましょう。
       </p>
 
-      <!-- Search Bar（1行横並び） -->
+      <!-- Search Bar（2段構成） -->
       <div class="mt-10 mx-auto max-w-4xl">
-        <div class="flex items-center gap-2 rounded-2xl bg-white p-2 shadow-2xl">
-          <input
-            type="text"
-            placeholder="キーワード（事業所名・仕事内容など）"
-            class="flex-1 rounded-xl px-4 py-3 text-sm text-gray-900 outline-none placeholder-gray-400"
-          />
-          <select id="pref-select" class="rounded-xl border border-gray-200 px-3 py-3 text-sm text-gray-700 outline-none whitespace-nowrap">
-            <option value="">都道府県</option>
-            <option value="tokyo">東京都</option>
-            <option value="">神奈川県</option>
-            <option value="">大阪府</option>
-            <option value="">愛知県</option>
-            <option value="">福岡県</option>
-          </select>
-          <select class="rounded-xl border border-gray-200 px-3 py-3 text-sm text-gray-700 outline-none whitespace-nowrap">
-            <option value="">職種を選択</option>
-            <option>PC・IT作業</option>
-            <option>デザイン・制作</option>
-            <option>軽作業・梱包</option>
-            <option>農業・園芸</option>
-            <option>食品加工</option>
-            <option>清掃・環境整備</option>
-            <option>事務・データ入力</option>
-            <option>縫製・手工芸</option>
-            <option>教育・学習支援</option>
-            <option>アート・工芸</option>
-          </select>
-          <a id="search-btn" href="04_facilities.html" onclick="handleSearch(event)" class="rounded-xl bg-primary-600 px-6 py-3 text-sm font-semibold text-white hover:bg-primary-700 text-center whitespace-nowrap">
-            検索する
-          </a>
-          <script>
-            function handleSearch(e) {
-              e.preventDefault()
-              const pref = document.getElementById('pref-select').value
-              if (pref === 'tokyo') {
-                location.href = '04_facilities_tokyo.html'
-              } else {
-                location.href = '04_facilities.html'
-              }
-            }
-          </script>
+        <div class="rounded-2xl bg-white shadow-2xl overflow-hidden">
+
+          <!-- 1段目：キーワード・都道府県・職種 -->
+          <div class="flex items-center gap-2 p-2">
+            <input
+              type="text"
+              placeholder="キーワード（事業所名・仕事内容など）"
+              class="flex-1 rounded-xl px-4 py-3 text-sm text-gray-900 outline-none placeholder-gray-400"
+            />
+            <select id="pref-select" class="rounded-xl border border-gray-200 px-3 py-3 text-sm text-gray-700 outline-none whitespace-nowrap">
+              <option value="">都道府県</option>
+              <option value="tokyo">東京都</option>
+              <option value="">神奈川県</option>
+              <option value="">大阪府</option>
+              <option value="">愛知県</option>
+              <option value="">福岡県</option>
+            </select>
+            <select class="rounded-xl border border-gray-200 px-3 py-3 text-sm text-gray-700 outline-none whitespace-nowrap">
+              <option value="">職種を選択</option>
+              <option>PC・IT作業</option>
+              <option>デザイン・制作</option>
+              <option>軽作業・梱包</option>
+              <option>農業・園芸</option>
+              <option>食品加工</option>
+              <option>清掃・環境整備</option>
+              <option>事務・データ入力</option>
+              <option>縫製・手工芸</option>
+              <option>教育・学習支援</option>
+              <option>アート・工芸</option>
+            </select>
+            <a id="search-btn" href="04_facilities.html" onclick="handleSearch(event)" class="rounded-xl bg-primary-600 px-6 py-3 text-sm font-semibold text-white hover:bg-primary-700 text-center whitespace-nowrap">
+              検索する
+            </a>
+          </div>
+
+          <!-- 区切り線 -->
+          <div class="border-t border-gray-100 mx-3"></div>
+
+          <!-- 2段目：駅名検索 -->
+          <div class="flex items-center gap-2 px-3 py-2">
+            <svg class="h-4 w-4 flex-shrink-0 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M10 3v18M14 3v18M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z"/>
+            </svg>
+            <span class="text-xs font-semibold text-gray-500 whitespace-nowrap">駅名から探す</span>
+            <input
+              type="text"
+              placeholder="駅名を入力（例：新宿、渋谷、梅田）"
+              class="flex-1 rounded-lg bg-gray-50 border border-gray-200 px-3 py-2 text-sm text-gray-900 outline-none placeholder-gray-400 focus:border-primary-400 focus:bg-white transition-colors"
+            />
+            <a href="04_facilities.html" class="rounded-lg border border-primary-500 px-4 py-2 text-xs font-semibold text-primary-600 hover:bg-primary-50 whitespace-nowrap transition-colors">
+              この駅周辺で探す
+            </a>
+          </div>
+
         </div>
       </div>
+      <script>
+        function handleSearch(e) {
+          e.preventDefault()
+          const pref = document.getElementById('pref-select').value
+          if (pref === 'tokyo') {
+            location.href = '04_facilities_tokyo.html'
+          } else {
+            location.href = '04_facilities.html'
+          }
+        }
+      </script>
 
       <!-- Stats -->
       <div class="mt-10 flex flex-wrap justify-center gap-8">

@@ -119,17 +119,6 @@
             </div>
           </div>
 
-          <!-- 条件：閉じた状態 -->
-          <div class="border-b border-gray-100">
-            <button onclick="toggleAc('cond')" class="flex w-full items-center justify-between px-4 py-3 text-left hover:bg-gray-50 transition-colors">
-              <span class="text-sm font-semibold text-gray-800">条件</span>
-              <span id="cond-icon" class="ac-icon text-lg font-light text-gray-400 leading-none">＋</span>
-            </button>
-            <div id="cond" class="ac-content px-4 pb-4" style="display:none">
-              <label class="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked class="h-4 w-4 rounded text-primary-600" /><span class="text-sm font-semibold text-primary-700"><svg class="h-3 w-3 mr-0.5 inline flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h8M8 11h8m-4 4h.01M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z" /></svg>送迎あり</span></label>
-            </div>
-          </div>
-
           <!-- 工賃・給料：開いた状態 -->
           <div class="border-b border-gray-100">
             <button onclick="toggleAc('wage')" class="flex w-full items-center justify-between px-4 py-3 text-left hover:bg-gray-50 transition-colors">
@@ -261,13 +250,13 @@
             </button>
             <div id="feat" class="ac-content px-4 pb-3" style="display:none">
               <div class="flex flex-wrap gap-2">
+                <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">送迎あり</button>
                 <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">バリアフリー</button>
                 <button class="rounded-full border border-primary-600 bg-primary-600 text-white px-2.5 py-1 text-xs font-medium">駐車場あり</button>
                 <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">食堂あり</button>
                 <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">個室あり</button>
-                <button class="rounded-full border border-gray-200 bg-white text-gray-600 px-2.5 py-1 text-xs font-medium">昇給あり</button>
               </div>
-              <button onclick="openModal('feat')" class="mt-2 text-xs text-primary-600 hover:text-primary-800 font-medium flex items-center gap-1">その他の項目 <span class="text-gray-400">＋3</span></button>
+              <button onclick="openModal('feat')" class="mt-2 text-xs text-primary-600 hover:text-primary-800 font-medium flex items-center gap-1">その他の項目 <span class="text-gray-400">＋4</span></button>
             </div>
           </div>
 
@@ -448,6 +437,10 @@
                     定員 20名
                   </span>
                 </div>
+                <div class="mt-2.5 flex items-center gap-1.5 w-fit rounded-full bg-amber-50 border border-amber-200 px-3 py-1">
+                  <svg class="h-3.5 w-3.5 flex-shrink-0 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                  <span class="text-xs text-amber-700">最近 <span class="font-bold text-amber-800">23人</span> がこの事業所を閲覧しました</span>
+                </div>
                 <div class="mt-auto pt-3 border-t border-gray-100 flex items-center justify-between gap-3">
                   <div class="flex items-center gap-2">
                     <span class="text-yellow-400 text-sm">★★★★☆</span>
@@ -508,6 +501,10 @@
                     定員 15名
                   </span>
                 </div>
+                <div class="mt-2.5 flex items-center gap-1.5 w-fit rounded-full bg-amber-50 border border-amber-200 px-3 py-1">
+                  <svg class="h-3.5 w-3.5 flex-shrink-0 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                  <span class="text-xs text-amber-700">最近 <span class="font-bold text-amber-800">47人</span> がこの事業所を閲覧しました</span>
+                </div>
                 <div class="mt-auto pt-3 border-t border-gray-100 flex items-center justify-between gap-3">
                   <div class="flex items-center gap-2">
                     <span class="text-yellow-400 text-sm">★★★★★</span>
@@ -566,6 +563,10 @@
                     <svg class="h-3.5 w-3.5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                     定員 12名
                   </span>
+                </div>
+                <div class="mt-2.5 flex items-center gap-1.5 w-fit rounded-full bg-amber-50 border border-amber-200 px-3 py-1">
+                  <svg class="h-3.5 w-3.5 flex-shrink-0 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                  <span class="text-xs text-amber-700">最近 <span class="font-bold text-amber-800">12人</span> がこの事業所を閲覧しました</span>
                 </div>
                 <div class="mt-auto pt-3 border-t border-gray-100 flex items-center justify-between gap-3">
                   <div class="flex items-center gap-2">
