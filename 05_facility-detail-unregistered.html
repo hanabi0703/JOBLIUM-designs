@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOBLIUM - ひまわり就労支援センター</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#f0faf7',100:'#d1f5ec',200:'#a3ead8',300:'#6ed9bf',400:'#3ec4a3',500:'#1eb38a',600:'#16A177',700:'#127e5e',800:'#0e5f47',900:'#094030' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-primary-600 shadow-sm">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <a href="01_top.html" class="flex items-center gap-2">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-white">
+          <span class="text-sm font-bold text-gray-900">J</span>
+        </div>
+        <span class="text-xl font-bold text-white">JOBLIUM</span>
+      </a>
+      <nav class="flex items-center gap-4">
+        <a href="04_facilities.html" class="text-sm font-medium text-white/80 hover:text-white">事業所を探す</a>
+        <a href="08_mypage.html" class="text-sm font-medium text-white/80 hover:text-white">マイページ</a>
+        <button class="rounded-lg bg-white/20 px-3 py-1.5 text-sm font-medium text-white hover:bg-white/30">ログアウト</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 未登録バナー -->
+  <div class="bg-amber-50 border-b border-amber-200">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center gap-3">
+      <svg class="h-5 w-5 flex-shrink-0 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <p class="text-sm text-amber-800">この事業所はJOBLIUMに未登録のため、表示できる情報が限られています。詳細な情報は事業所へ直接お問い合わせください。</p>
+      <a href="#claim" class="ml-auto flex-shrink-0 rounded-lg bg-amber-500 px-3 py-1.5 text-xs font-bold text-white hover:bg-amber-600 transition-colors">
+        事業所の方はこちら
+      </a>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-6xl px-4 py-8">
+
+    <!-- Breadcrumb -->
+    <nav class="mb-5 flex items-center gap-1.5 text-xs text-gray-500">
+      <a href="01_top.html" class="hover:text-primary-600">トップ</a>
+      <span class="text-gray-300">›</span>
+      <a href="04_facilities.html" class="hover:text-primary-600">事業所一覧</a>
+      <span class="text-gray-300">›</span>
+      <span class="text-gray-700">ひまわり就労支援センター</span>
+    </nav>
+
+    <div class="flex gap-6 items-start">
+
+      <!-- ── メインカード ── -->
+      <div class="flex-1 min-w-0">
+        <div class="rounded-3xl bg-white shadow-sm overflow-hidden">
+
+          <!-- 事業所名・種別 -->
+          <div class="px-8 pt-8 pb-4">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="rounded bg-purple-100 px-3 py-1 text-xs font-semibold text-purple-700">就労継続支援B型</span>
+                  <span class="rounded bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-500">未登録事業所</span>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-900 leading-tight">ひまわり就労支援センター</h1>
+                <p class="mt-1 text-sm text-gray-500">社会福祉法人 ひまわり福祉会</p>
+              </div>
+              <button class="flex-shrink-0 flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-400 hover:text-red-500 shadow-sm transition-colors">
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- メインビジュアル（プレースホルダー） -->
+          <div class="px-8 pb-6">
+            <div class="relative rounded-2xl overflow-hidden bg-gray-100 flex items-center justify-center" style="height:240px">
+              <div class="text-center">
+                <svg class="h-12 w-12 text-gray-300 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <p class="text-sm text-gray-400">写真は登録されていません</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-8 pb-8">
+
+            <!-- アドレス・地図リンク -->
+            <div class="flex items-center gap-4 mb-6 p-4 rounded-xl bg-gray-50 border border-gray-100">
+              <div class="flex items-start gap-2 flex-1 min-w-0">
+                <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                <div>
+                  <p class="text-sm font-medium text-gray-900">東京都世田谷区三軒茶屋2丁目11-3 ひまわりビル3F</p>
+                  <p class="text-xs text-gray-500 mt-0.5">東急田園都市線 三軒茶屋駅 徒歩7分</p>
+                </div>
+              </div>
+              <a href="https://maps.google.com/?q=東京都世田谷区三軒茶屋2丁目11-3" target="_blank" rel="noopener" class="flex-shrink-0 flex items-center gap-1.5 rounded-lg border border-gray-200 bg-white px-3 py-2 text-xs font-medium text-gray-700 hover:bg-gray-50 transition-colors shadow-sm">
+                <svg class="h-3.5 w-3.5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+                地図を見る
+              </a>
+            </div>
+
+            <!-- 地図埋め込み -->
+            <div class="rounded-2xl overflow-hidden border border-gray-200 mb-6" style="height:280px">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.317!2d139.670!3d35.644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f4be0fa49b37%3A0x7d9e62f5ab22c2e3!2z5LiJ6Lu95Ym15a2Q5Yq_5Yy65LiJ6Lu95Yy65ZCN!5e0!3m2!1sja!2sjp!4v1"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+
+            <!-- 基本情報 -->
+            <div class="mb-6">
+              <h2 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <span class="h-1 w-4 bg-primary-600 rounded-full inline-block"></span>
+                基本情報
+              </h2>
+              <div class="rounded-2xl bg-gray-50 border border-gray-100 overflow-hidden">
+                <dl class="divide-y divide-gray-100">
+                  <div class="flex items-center px-5 py-3.5">
+                    <dt class="w-36 text-xs font-medium text-gray-500 flex-shrink-0">サービス種別</dt>
+                    <dd class="text-sm text-gray-900">就労継続支援B型</dd>
+                  </div>
+                  <div class="flex items-center px-5 py-3.5">
+                    <dt class="w-36 text-xs font-medium text-gray-500 flex-shrink-0">所在地</dt>
+                    <dd class="text-sm text-gray-900">東京都世田谷区三軒茶屋2丁目11-3 ひまわりビル3F</dd>
+                  </div>
+                  <div class="flex items-center px-5 py-3.5">
+                    <dt class="w-36 text-xs font-medium text-gray-500 flex-shrink-0">最寄り駅</dt>
+                    <dd class="text-sm text-gray-900">東急田園都市線 三軒茶屋駅 徒歩7分</dd>
+                  </div>
+                  <div class="flex items-center px-5 py-3.5">
+                    <dt class="w-36 text-xs font-medium text-gray-500 flex-shrink-0">電話番号</dt>
+                    <dd>
+                      <a href="tel:03-0000-0000" class="text-sm text-gray-900 hover:underline">03-0000-0000</a>
+                    </dd>
+                  </div>
+                  <div class="flex items-center px-5 py-3.5">
+                    <dt class="w-36 text-xs font-medium text-gray-500 flex-shrink-0">定員</dt>
+                    <dd class="text-sm text-gray-900">20名</dd>
+                  </div>
+                  <div class="flex items-start px-5 py-3.5">
+                    <dt class="w-36 text-xs font-medium text-gray-500 flex-shrink-0 pt-0.5">サービス利用時間</dt>
+                    <dd class="flex-1">
+                      <div class="overflow-x-auto">
+                        <table class="w-full text-xs border-collapse rounded-lg overflow-hidden">
+                          <thead>
+                            <tr class="bg-gray-100">
+                              <th class="border border-gray-200 px-2 py-1.5 text-center font-bold text-gray-900">月</th>
+                              <th class="border border-gray-200 px-2 py-1.5 text-center font-bold text-gray-900">火</th>
+                              <th class="border border-gray-200 px-2 py-1.5 text-center font-bold text-gray-900">水</th>
+                              <th class="border border-gray-200 px-2 py-1.5 text-center font-bold text-gray-900">木</th>
+                              <th class="border border-gray-200 px-2 py-1.5 text-center font-bold text-gray-900">金</th>
+                              <th class="border border-gray-200 px-2 py-1.5 text-center font-bold text-gray-900">土</th>
+                              <th class="border border-gray-200 px-2 py-1.5 text-center font-bold text-gray-900">日</th>
+                              <th class="border border-gray-200 px-2 py-1.5 text-center font-bold text-gray-900">祝</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="bg-white">
+                              <td class="border border-gray-200 px-2 py-1.5 text-center text-gray-900">9:00〜15:00</td>
+                              <td class="border border-gray-200 px-2 py-1.5 text-center text-gray-900">9:00〜15:00</td>
+                              <td class="border border-gray-200 px-2 py-1.5 text-center text-gray-900">9:00〜15:00</td>
+                              <td class="border border-gray-200 px-2 py-1.5 text-center text-gray-900">9:00〜15:00</td>
+                              <td class="border border-gray-200 px-2 py-1.5 text-center text-gray-900">9:00〜15:00</td>
+                              <td class="border border-gray-200 px-2 py-1.5 text-center text-gray-900">休</td>
+                              <td class="border border-gray-200 px-2 py-1.5 text-center text-gray-900">休</td>
+                              <td class="border border-gray-200 px-2 py-1.5 text-center text-gray-900">休</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </dd>
+                  </div>
+                  <div class="flex items-center px-5 py-3.5">
+                    <dt class="w-36 text-xs font-medium text-gray-500 flex-shrink-0">運営法人</dt>
+                    <dd class="text-sm text-gray-900">社会福祉法人 ひまわり福祉会</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+
+            <!-- 未登録情報ブロック -->
+            <div class="rounded-2xl border-2 border-dashed border-gray-200 bg-gray-50 p-6 mb-6 text-center">
+              <svg class="h-10 w-10 text-gray-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+              <p class="text-sm font-semibold text-gray-600 mb-1">仕事内容・口コミ・就職実績などの詳細情報は未登録です</p>
+              <p class="text-xs text-gray-400">詳しい情報は事業所へ直接お問い合わせいただくか、事業所の方はJOBLIUMへの登録をご検討ください。</p>
+            </div>
+
+            <!-- お問い合わせCTA -->
+            <div class="rounded-2xl bg-primary-50 border border-primary-200 p-6 text-center">
+              <p class="text-sm font-semibold text-gray-900 mb-1">この事業所に興味がありますか？</p>
+              <p class="text-xs text-gray-500 mb-4">電話または直接訪問でお問い合わせください</p>
+              <div class="flex flex-wrap justify-center gap-3">
+                <a href="tel:03-0000-0000" class="inline-flex items-center gap-2 rounded-xl bg-primary-600 px-6 py-3 text-sm font-bold text-white hover:bg-primary-700 transition-colors shadow-sm">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                  電話で問い合わせる
+                </a>
+                <a href="https://maps.google.com/?q=東京都世田谷区三軒茶屋2丁目11-3" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl border-2 border-primary-600 px-6 py-3 text-sm font-bold text-gray-900 hover:bg-primary-50 transition-colors">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                  地図で場所を確認
+                </a>
+              </div>
+            </div>
+
+          </div><!-- /p-8 -->
+        </div><!-- /main card -->
+
+        <!-- 事業所への登録促進 -->
+        <div id="claim" class="mt-6 rounded-2xl bg-gradient-to-br from-primary-600 to-primary-700 p-6 text-white shadow-lg">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 flex h-12 w-12 items-center justify-center rounded-xl bg-white/20">
+              <svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-base font-bold mb-1">この事業所の担当者の方へ</p>
+              <p class="text-sm text-white/80 mb-4">JOBLIUMに登録すると、仕事内容・写真・口コミ・就職実績などの詳細情報を掲載でき、利用者からの問い合わせを受け付けられます。登録は無料です。</p>
+              <div class="flex flex-wrap gap-3">
+                <a href="#" class="inline-flex items-center gap-2 rounded-xl bg-white px-5 py-2.5 text-sm font-bold text-primary-700 hover:bg-primary-50 transition-colors shadow-sm">
+                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                  無料で情報を登録する
+                </a>
+                <a href="#" class="inline-flex items-center gap-2 rounded-xl border border-white/40 px-5 py-2.5 text-sm font-medium text-white hover:bg-white/10 transition-colors">
+                  詳しく見る
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /flex-1 -->
+    </div><!-- /flex -->
+  </div><!-- /container -->
+
+</body>
+</html>
