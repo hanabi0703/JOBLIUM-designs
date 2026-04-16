@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOBLIUM - メッセージを送る</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#f0faf7',100:'#d1f5ec',200:'#a3ead8',300:'#6ed9bf',400:'#3ec4a3',500:'#1eb38a',600:'#16A177',700:'#127e5e',800:'#0e5f47',900:'#094030' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-primary-600 shadow-sm">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <a href="05_facility-detail.html" class="flex items-center gap-1.5 text-sm font-medium text-white/80 hover:text-white transition-colors">
+        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        事業所詳細に戻る
+      </a>
+      <div class="flex items-center gap-2">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-white">
+          <span class="text-sm font-bold text-gray-900">J</span>
+        </div>
+        <span class="text-lg font-bold text-white">JOBLIUM</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="mx-auto max-w-2xl px-4 py-8">
+
+    <!-- Breadcrumb -->
+    <nav class="mb-6 flex items-center gap-1.5 text-xs text-gray-500">
+      <a href="01_top.html" class="hover:text-primary-600">トップ</a>
+      <span class="text-gray-300">›</span>
+      <a href="04_facilities.html" class="hover:text-primary-600">事業所一覧</a>
+      <span class="text-gray-300">›</span>
+      <a href="05_facility-detail.html" class="hover:text-primary-600">サンシャイン就労A型センター</a>
+      <span class="text-gray-300">›</span>
+      <span class="text-gray-700">メッセージを送る</span>
+    </nav>
+
+    <!-- ページタイトル -->
+    <div class="mb-6">
+      <h1 class="text-xl font-bold text-gray-900 mb-1">事業所へメッセージを送る</h1>
+      <p class="text-sm text-gray-500">初回のメッセージはこちらのフォームから送信します。返信はJOBLIUM内のメッセージ画面で確認できます。</p>
+    </div>
+
+    <!-- 宛先事業所カード -->
+    <div class="rounded-2xl bg-white border border-gray-200 shadow-sm p-5 mb-6 flex items-center gap-4">
+      <div class="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-primary-100">
+        <svg class="h-7 w-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+      </div>
+      <div class="flex-1 min-w-0">
+        <p class="text-xs text-gray-500 mb-0.5">送信先</p>
+        <h2 class="font-bold text-gray-900 text-base leading-snug">サンシャイン就労A型センター</h2>
+        <p class="text-xs text-gray-500 mt-0.5">東京都 新宿区 ／ 就労継続支援A型</p>
+      </div>
+      <a href="05_facility-detail.html" class="flex-shrink-0 text-xs text-gray-500 hover:text-primary-600 hover:underline">詳細を見る</a>
+    </div>
+
+    <!-- フォーム -->
+    <form id="messageForm" onsubmit="handleSubmit(event)" class="space-y-5">
+
+      <!-- テンプレート選択 -->
+      <div class="rounded-2xl bg-white border border-gray-200 shadow-sm p-5">
+        <p class="text-sm font-bold text-gray-900 mb-3">お問い合わせの内容を選んでください</p>
+        <div id="topicList" class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+          <label class="topic-label flex items-start gap-3 cursor-pointer rounded-xl border-2 border-gray-200 bg-gray-50 p-3.5 hover:border-primary-300 hover:bg-primary-50 transition-colors has-[:checked]:border-primary-500 has-[:checked]:bg-primary-50">
+            <input type="radio" name="topic" value="general" class="mt-0.5 h-4 w-4 flex-shrink-0 text-primary-600" />
+            <div>
+              <p class="text-sm font-semibold text-gray-900">見学・体験利用について</p>
+              <p class="text-xs text-gray-500 mt-0.5">実際に訪問して雰囲気を確認したい</p>
+            </div>
+          </label>
+          <label class="topic-label flex items-start gap-3 cursor-pointer rounded-xl border-2 border-gray-200 bg-gray-50 p-3.5 hover:border-primary-300 hover:bg-primary-50 transition-colors has-[:checked]:border-primary-500 has-[:checked]:bg-primary-50">
+            <input type="radio" name="topic" value="work" class="mt-0.5 h-4 w-4 flex-shrink-0 text-primary-600" />
+            <div>
+              <p class="text-sm font-semibold text-gray-900">仕事内容について</p>
+              <p class="text-xs text-gray-500 mt-0.5">どんな作業をするか詳しく聞きたい</p>
+            </div>
+          </label>
+          <label class="topic-label flex items-start gap-3 cursor-pointer rounded-xl border-2 border-gray-200 bg-gray-50 p-3.5 hover:border-primary-300 hover:bg-primary-50 transition-colors has-[:checked]:border-primary-500 has-[:checked]:bg-primary-50">
+            <input type="radio" name="topic" value="wage" class="mt-0.5 h-4 w-4 flex-shrink-0 text-primary-600" />
+            <div>
+              <p class="text-sm font-semibold text-gray-900">賃金・工賃について</p>
+              <p class="text-xs text-gray-500 mt-0.5">工賃の金額や支払い方法を知りたい</p>
+            </div>
+          </label>
+          <label class="topic-label flex items-start gap-3 cursor-pointer rounded-xl border-2 border-gray-200 bg-gray-50 p-3.5 hover:border-primary-300 hover:bg-primary-50 transition-colors has-[:checked]:border-primary-500 has-[:checked]:bg-primary-50">
+            <input type="radio" name="topic" value="flow" class="mt-0.5 h-4 w-4 flex-shrink-0 text-primary-600" />
+            <div>
+              <p class="text-sm font-semibold text-gray-900">利用の流れについて</p>
+              <p class="text-xs text-gray-500 mt-0.5">利用開始までの手続きを確認したい</p>
+            </div>
+          </label>
+          <label class="topic-label flex items-start gap-3 cursor-pointer rounded-xl border-2 border-gray-200 bg-gray-50 p-3.5 hover:border-primary-300 hover:bg-primary-50 transition-colors has-[:checked]:border-primary-500 has-[:checked]:bg-primary-50">
+            <input type="radio" name="topic" value="support" class="mt-0.5 h-4 w-4 flex-shrink-0 text-primary-600" />
+            <div>
+              <p class="text-sm font-semibold text-gray-900">サポート内容について</p>
+              <p class="text-xs text-gray-500 mt-0.5">どんな支援が受けられるか知りたい</p>
+            </div>
+          </label>
+          <label class="topic-label flex items-start gap-3 cursor-pointer rounded-xl border-2 border-gray-200 bg-gray-50 p-3.5 hover:border-primary-300 hover:bg-primary-50 transition-colors has-[:checked]:border-primary-500 has-[:checked]:bg-primary-50">
+            <input type="radio" name="topic" value="other" class="mt-0.5 h-4 w-4 flex-shrink-0 text-primary-600" />
+            <div>
+              <p class="text-sm font-semibold text-gray-900">その他</p>
+              <p class="text-xs text-gray-500 mt-0.5">上記以外のことを聞きたい</p>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- メッセージ本文 -->
+      <div class="rounded-2xl bg-white border border-gray-200 shadow-sm p-5">
+        <label class="block text-sm font-bold text-gray-900 mb-3" for="messageBody">
+          メッセージ本文
+          <span class="ml-1 text-xs font-normal text-gray-500">（必須）</span>
+        </label>
+
+        <!-- テンプレート挿入ボタン -->
+        <div class="mb-2 flex items-center gap-2">
+          <span class="text-xs text-gray-500">テンプレートを挿入：</span>
+          <button type="button" onclick="insertTemplate()" class="rounded-lg border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-700 hover:bg-gray-100 transition-colors">
+            ひな形を使う
+          </button>
+          <button type="button" onclick="clearMessage()" class="rounded-lg border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-700 hover:bg-gray-100 transition-colors">
+            クリア
+          </button>
+        </div>
+
+        <textarea
+          id="messageBody"
+          name="message"
+          rows="8"
+          required
+          placeholder="事業所へのメッセージを入力してください..."
+          class="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-gray-900 placeholder-gray-400 outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-colors resize-none leading-relaxed"
+        ></textarea>
+        <p class="mt-1.5 text-right text-xs text-gray-400"><span id="charCount">0</span> 文字</p>
+      </div>
+
+      <!-- 送信者情報 -->
+      <div class="rounded-2xl bg-white border border-gray-200 shadow-sm p-5 space-y-4">
+        <p class="text-sm font-bold text-gray-900">送信者情報</p>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-medium text-gray-700 mb-1.5" for="lastName">姓 <span class="text-red-500">*</span></label>
+            <input id="lastName" type="text" required placeholder="山田" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-colors" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-700 mb-1.5" for="firstName">名 <span class="text-red-500">*</span></label>
+            <input id="firstName" type="text" required placeholder="太郎" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-colors" />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-medium text-gray-700 mb-1.5" for="lastNameKana">姓（フリガナ）</label>
+            <input id="lastNameKana" type="text" placeholder="ヤマダ" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-colors" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-700 mb-1.5" for="firstNameKana">名（フリガナ）</label>
+            <input id="firstNameKana" type="text" placeholder="タロウ" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-colors" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-medium text-gray-700 mb-1.5" for="email">メールアドレス <span class="text-red-500">*</span></label>
+          <input id="email" type="email" required placeholder="example@email.com" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-colors" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-medium text-gray-700 mb-1.5" for="phone">電話番号</label>
+          <input id="phone" type="tel" placeholder="090-0000-0000" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-colors" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-medium text-gray-700 mb-1.5" for="contactTime">希望連絡時間帯</label>
+          <select id="contactTime" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-colors bg-white">
+            <option value="">指定なし</option>
+            <option>午前中（9:00〜12:00）</option>
+            <option>昼（12:00〜14:00）</option>
+            <option>午後（14:00〜17:00）</option>
+            <option>夕方（17:00〜19:00）</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 注意事項 -->
+      <div class="rounded-xl bg-amber-50 border border-amber-100 px-5 py-4 text-xs text-amber-800 space-y-1">
+        <p class="font-semibold">送信前にご確認ください</p>
+        <ul class="list-disc list-inside space-y-0.5 text-amber-700">
+          <li>返信はJOBLIUM内のメッセージ画面に届きます</li>
+          <li>事業所からの返信までに数日かかる場合があります</li>
+          <li>個人情報は事業所との連絡のみに使用されます</li>
+        </ul>
+      </div>
+
+      <!-- 送信ボタン -->
+      <button type="submit" class="w-full rounded-2xl bg-primary-600 py-4 text-base font-bold text-white hover:bg-primary-700 transition-colors shadow-sm hover:shadow-md flex items-center justify-center gap-2">
+        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        この内容で送信する
+      </button>
+
+      <p class="text-center text-xs text-gray-400">送信後、マイページのメッセージ欄で返信を確認できます</p>
+
+    </form>
+  </div>
+
+  <!-- 送信完了モーダル -->
+  <div id="successModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 px-4">
+    <div class="w-full max-w-sm rounded-3xl bg-white p-8 text-center shadow-2xl">
+      <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary-100">
+        <svg class="h-8 w-8 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+      </div>
+      <h2 class="text-lg font-bold text-gray-900 mb-2">メッセージを送信しました</h2>
+      <p class="text-sm text-gray-500 mb-6">事業所からの返信をお待ちください。返信が届くとマイページのメッセージ欄に通知されます。</p>
+      <div class="flex flex-col gap-2">
+        <a href="11_messages.html" class="rounded-xl bg-primary-600 py-3 text-sm font-bold text-white hover:bg-primary-700 transition-colors">
+          メッセージ一覧を見る
+        </a>
+        <a href="04_facilities.html" class="rounded-xl border border-gray-200 py-3 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+          他の事業所を探す
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // トピック別テンプレートメッセージ
+    const templates = {
+      general:    'はじめまして。\n\n事業所の見学・体験利用について伺いたいと思いメッセージしました。\n\n見学できる日程や、当日の流れについて教えていただけますでしょうか。\n\nよろしくお願いいたします。',
+      work:       'はじめまして。\n\n仕事内容について詳しく教えていただきたいと思いメッセージしました。\n\nどのような作業があるか、またPC作業の経験が少なくても取り組めるかどうか確認できますでしょうか。\n\nよろしくお願いいたします。',
+      wage:       'はじめまして。\n\n賃金・工賃について詳しく教えていただきたいと思いメッセージしました。\n\n月々の工賃の目安や、支払い方法・支払いタイミングについて確認できますでしょうか。\n\nよろしくお願いいたします。',
+      flow:       'はじめまして。\n\n利用開始までの流れについて伺いたいと思いメッセージしました。\n\n受給者証をまだ取得していないのですが、申請のサポートはしていただけますでしょうか。また、利用開始まで通常どのくらいの期間がかかるか教えていただけますでしょうか。\n\nよろしくお願いいたします。',
+      support:    'はじめまして。\n\nサポート内容について詳しく教えていただきたいと思いメッセージしました。\n\n障がいの特性に合わせた個別サポートの内容や、スタッフの体制について確認できますでしょうか。\n\nよろしくお願いいたします。',
+      staff:      'はじめまして。\n\nスタッフの方について伺いたいと思いメッセージしました。\n\nどのような資格を持ったスタッフの方がいらっしゃるか、また担当者はどのように決まるかを教えていただけますでしょうか。\n\nよろしくお願いいたします。',
+      achievement:'はじめまして。\n\n就職実績について詳しく教えていただきたいと思いメッセージしました。\n\n一般就労を目指しているのですが、実際にどのような職種・企業への就職実績があるか伺えますでしょうか。\n\nよろしくお願いいたします。',
+      atmosphere: 'はじめまして。\n\n事業所の雰囲気について伺いたいと思いメッセージしました。\n\n利用者の年齢層や、日頃の雰囲気について教えていただけますでしょうか。また、見学させていただくことは可能でしょうか。\n\nよろしくお願いいたします。',
+      visit:      'はじめまして。\n\n活動の見学・体験利用について伺いたいと思いメッセージしました。\n\n実際の作業の様子を見学させていただくことは可能でしょうか。ご都合の良い日程を教えていただければ幸いです。\n\nよろしくお願いいたします。',
+      other:      'はじめまして。\n\nいくつか確認したいことがあり、メッセージしました。\n\n（ご質問内容をここに入力してください）\n\nよろしくお願いいたします。',
+    };
+
+    // URLパラメータからトピックを取得して初期選択
+    const params = new URLSearchParams(window.location.search);
+    const topicParam = params.get('topic') || 'general';
+    const radios = document.querySelectorAll('input[name="topic"]');
+    let matched = false;
+    radios.forEach(r => {
+      if (r.value === topicParam) { r.checked = true; matched = true; }
+    });
+    if (!matched) radios[0].checked = true;
+
+    // トピック変更時にテンプレートを自動挿入
+    radios.forEach(r => {
+      r.addEventListener('change', () => {
+        const body = document.getElementById('messageBody');
+        if (!body.value || body.dataset.auto === 'true') {
+          body.value = templates[r.value] || templates.general;
+          body.dataset.auto = 'true';
+          updateCount();
+        }
+      });
+    });
+
+    // 初期テンプレートをセット
+    const initTopic = document.querySelector('input[name="topic"]:checked');
+    if (initTopic) {
+      const body = document.getElementById('messageBody');
+      body.value = templates[initTopic.value] || templates.general;
+      body.dataset.auto = 'true';
+      updateCount();
+    }
+
+    // テキスト入力で「手動編集済み」フラグ
+    document.getElementById('messageBody').addEventListener('input', function() {
+      this.dataset.auto = 'false';
+      updateCount();
+    });
+
+    function updateCount() {
+      document.getElementById('charCount').textContent = document.getElementById('messageBody').value.length;
+    }
+
+    function insertTemplate() {
+      const checked = document.querySelector('input[name="topic"]:checked');
+      const body = document.getElementById('messageBody');
+      body.value = templates[checked ? checked.value : 'general'];
+      body.dataset.auto = 'true';
+      updateCount();
+    }
+
+    function clearMessage() {
+      const body = document.getElementById('messageBody');
+      body.value = '';
+      body.dataset.auto = 'false';
+      updateCount();
+      body.focus();
+    }
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const modal = document.getElementById('successModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    // モーダル背景クリックで閉じる
+    document.getElementById('successModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.classList.add('hidden');
+        this.classList.remove('flex');
+      }
+    });
+  </script>
+
+</body>
+</html>
