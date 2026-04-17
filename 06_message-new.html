@@ -148,61 +148,26 @@
         <p class="mt-1.5 text-right text-xs text-gray-400"><span id="charCount">0</span> 文字</p>
       </div>
 
-      <!-- 送信者情報 -->
-      <div class="rounded-2xl bg-white border border-gray-200 shadow-sm p-5 space-y-4">
-        <p class="text-sm font-bold text-gray-900">送信者情報</p>
-
-        <div class="grid grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-medium text-gray-700 mb-1.5" for="lastName">姓 <span class="text-red-500">*</span></label>
-            <input id="lastName" type="text" required placeholder="山田" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-colors" />
-          </div>
-          <div>
-            <label class="block text-xs font-medium text-gray-700 mb-1.5" for="firstName">名 <span class="text-red-500">*</span></label>
-            <input id="firstName" type="text" required placeholder="太郎" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-colors" />
-          </div>
+      <!-- 送信者情報（プロフィールから自動転記） -->
+      <div class="rounded-2xl bg-white border border-gray-200 shadow-sm p-5 flex items-center gap-4">
+        <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary-100">
+          <svg class="h-6 w-6 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
         </div>
-
-        <div class="grid grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-medium text-gray-700 mb-1.5" for="lastNameKana">姓（フリガナ）</label>
-            <input id="lastNameKana" type="text" placeholder="ヤマダ" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-colors" />
-          </div>
-          <div>
-            <label class="block text-xs font-medium text-gray-700 mb-1.5" for="firstNameKana">名（フリガナ）</label>
-            <input id="firstNameKana" type="text" placeholder="タロウ" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-colors" />
-          </div>
+        <div class="flex-1 min-w-0">
+          <p class="text-xs text-gray-500 mb-0.5">送信者</p>
+          <p class="font-semibold text-gray-900 text-sm">テスト求職者</p>
+          <p class="text-xs text-gray-400 mt-0.5">プロフィールの表示名を使用します</p>
         </div>
-
-        <div>
-          <label class="block text-xs font-medium text-gray-700 mb-1.5" for="email">メールアドレス <span class="text-red-500">*</span></label>
-          <input id="email" type="email" required placeholder="example@email.com" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-colors" />
-        </div>
-
-        <div>
-          <label class="block text-xs font-medium text-gray-700 mb-1.5" for="phone">電話番号</label>
-          <input id="phone" type="tel" placeholder="090-0000-0000" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-colors" />
-        </div>
-
-        <div>
-          <label class="block text-xs font-medium text-gray-700 mb-1.5" for="contactTime">希望連絡時間帯</label>
-          <select id="contactTime" class="w-full rounded-xl border border-gray-200 px-4 py-2.5 text-sm outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100 transition-colors bg-white">
-            <option value="">指定なし</option>
-            <option>午前中（9:00〜12:00）</option>
-            <option>昼（12:00〜14:00）</option>
-            <option>午後（14:00〜17:00）</option>
-            <option>夕方（17:00〜19:00）</option>
-          </select>
-        </div>
+        <a href="#" class="flex-shrink-0 text-xs text-primary-600 hover:underline">変更</a>
       </div>
 
       <!-- 注意事項 -->
       <div class="rounded-xl bg-amber-50 border border-amber-100 px-5 py-4 text-xs text-amber-800 space-y-1">
         <p class="font-semibold">送信前にご確認ください</p>
         <ul class="list-disc list-inside space-y-0.5 text-amber-700">
-          <li>返信はJOBLIUM内のメッセージ画面に届きます</li>
+          <li>返信はJOBLIUM内のメッセージ画面で確認できます</li>
           <li>事業所からの返信までに数日かかる場合があります</li>
-          <li>個人情報は事業所との連絡のみに使用されます</li>
+          <li>送信後のメッセージはマイページから確認できます</li>
         </ul>
       </div>
 
