@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>よくある質問 | JOBLIUM</title>
+  <meta name="description" content="JOBLIUMに関するよくある質問をまとめています。サービスの使い方・事業所の探し方・費用・登録方法など。" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#f0faf7',100:'#d1f5ec',200:'#a3ead8',300:'#6ed9bf',400:'#3ec4a3',500:'#1eb38a',600:'#16A177',700:'#127e5e',800:'#0e5f47',900:'#094030' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-primary-600 shadow-sm">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <a href="01_top.html" class="flex items-center gap-2">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-white">
+          <span class="text-sm font-bold text-primary-600">J</span>
+        </div>
+        <span class="text-xl font-bold text-white">JOBLIUM</span>
+      </a>
+      <nav class="flex items-center gap-4">
+        <a href="04_facilities.html" class="text-sm font-medium text-white/80 hover:text-white">事業所を探す</a>
+        <a href="08_mypage.html" class="text-sm font-medium text-white/80 hover:text-white">マイページ</a>
+        <button class="rounded-lg bg-white/20 px-3 py-1.5 text-sm font-medium text-white hover:bg-white/30">ログアウト</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <div class="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16">
+    <div class="mx-auto max-w-4xl px-4 text-center">
+      <p class="text-sm font-semibold text-primary-200 mb-2 uppercase tracking-widest">FAQ</p>
+      <h1 class="text-3xl font-bold mb-4">よくある質問</h1>
+      <p class="text-base text-primary-100 max-w-xl mx-auto leading-relaxed">JOBLIUMの使い方や就労支援サービスについて、よくいただく質問をまとめました。</p>
+    </div>
+  </div>
+
+  <!-- Breadcrumb -->
+  <div class="bg-white border-b border-gray-200">
+    <div class="mx-auto max-w-4xl px-4 py-2.5">
+      <nav class="flex items-center gap-1.5 text-xs text-gray-400">
+        <a href="01_top.html" class="hover:text-primary-600">トップ</a>
+        <span>›</span>
+        <span class="text-gray-600">よくある質問</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="mx-auto max-w-4xl px-4 py-12">
+
+    <!-- カテゴリナビ -->
+    <div class="flex flex-wrap gap-2 mb-10 justify-center">
+      <a href="#about-service" class="rounded-full border border-primary-200 bg-primary-50 px-4 py-1.5 text-sm font-medium text-primary-700 hover:bg-primary-100 transition-colors">サービスについて</a>
+      <a href="#about-search" class="rounded-full border border-gray-200 bg-white px-4 py-1.5 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors">事業所の探し方</a>
+      <a href="#about-register" class="rounded-full border border-gray-200 bg-white px-4 py-1.5 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors">会員登録・アカウント</a>
+      <a href="#about-message" class="rounded-full border border-gray-200 bg-white px-4 py-1.5 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors">問い合わせ・メッセージ</a>
+      <a href="#about-welfare" class="rounded-full border border-gray-200 bg-white px-4 py-1.5 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors">就労支援サービスについて</a>
+      <a href="#about-operator" class="rounded-full border border-gray-200 bg-white px-4 py-1.5 text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors">事業所の方へ</a>
+    </div>
+
+    <!-- サービスについて -->
+    <section id="about-service" class="mb-12 scroll-mt-20">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-xl bg-primary-100">
+          <svg class="h-4 w-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        </div>
+        <h2 class="text-lg font-bold text-gray-900">サービスについて</h2>
+      </div>
+      <div class="space-y-2">
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">JOBLIUMは無料で使えますか？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">はい、求職者の方は完全無料でご利用いただけます。事業所の検索・閲覧・お気に入り登録・メッセージ送信など、すべての機能が無料です。</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">JOBLIUMに掲載されている情報は最新ですか？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">登録事業所の情報は事業所が随時更新しています。空き状況・定員・工賃などはページ内の更新日をご確認ください。最新情報は直接事業所へお問い合わせいただくことをおすすめします。</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">スマートフォンからも使えますか？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">はい、スマートフォン・タブレット・PCのいずれからもご利用いただけます。専用アプリのインストールは不要で、ブラウザからそのままアクセスできます。</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">口コミはどのように投稿できますか？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">会員登録後、各事業所のページ内にある「口コミを書く」ボタンから投稿できます。投稿はニックネームで表示され、実名は公開されません。実際に利用した経験のある方の投稿をお願いしています。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 事業所の探し方 -->
+    <section id="about-search" class="mb-12 scroll-mt-20">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-xl bg-blue-100">
+          <svg class="h-4 w-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+        </div>
+        <h2 class="text-lg font-bold text-gray-900">事業所の探し方</h2>
+      </div>
+      <div class="space-y-2">
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">就労移行支援・就労継続支援A型・B型の違いは何ですか？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <div class="text-sm text-gray-600 leading-relaxed space-y-2">
+              <p><span class="font-semibold text-gray-800">就労移行支援：</span>一般企業への就職を目指す訓練を行うサービスです。利用期間は原則2年間で、工賃は発生しません（訓練給付金制度あり）。</p>
+              <p><span class="font-semibold text-gray-800">就労継続支援A型：</span>雇用契約を結んで働くサービスです。最低賃金以上の給料が支払われます。</p>
+              <p><span class="font-semibold text-gray-800">就労継続支援B型：</span>雇用契約を結ばずに働くサービスです。工賃（平均月額約1.5〜3万円程度）が支払われます。マイペースに働きたい方に向いています。</p>
+            </div>
+          </div>
+        </details>
+
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">自分の障害に対応した事業所を探すには？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">検索画面の「サポート内容」フィルターから、精神障害・発達障害・身体障害・知的障害などの対応種別を選択して絞り込めます。また、各事業所ページには対応している障害の種別が記載されています。</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">近くに事業所が見つからない場合はどうすればいいですか？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">検索条件の「駅からの徒歩距離」を広げてみてください。また、在宅・リモートワークに対応した事業所や、送迎サービスのある事業所で絞り込むことも有効です。JOBLIUMに未登録の事業所も「未登録事業所」として基本情報のみ掲載しています。</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">「空きあり」の意味はなんですか？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">定員に空きがあり、新規の利用申し込みを受け付けている事業所です。事業所が随時更新しており、最新の空き状況は直接事業所へ確認することをおすすめします。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 会員登録・アカウント -->
+    <section id="about-register" class="mb-12 scroll-mt-20">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-xl bg-purple-100">
+          <svg class="h-4 w-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+        </div>
+        <h2 class="text-lg font-bold text-gray-900">会員登録・アカウント</h2>
+      </div>
+      <div class="space-y-2">
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">会員登録に必要なものは何ですか？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">メールアドレスとパスワードのみで登録できます。障害者手帳の番号や個人情報の提出は不要です。登録後にプロフィールを設定することで、より精度の高い事業所検索ができます。</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">プロフィールに登録した個人情報はどう扱われますか？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">プロフィール情報はサービス改善・事業所とのマッチング向上のためにのみ使用します。第三者への販売・提供は行いません。詳細はプライバシーポリシーをご確認ください。</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">退会・アカウント削除はできますか？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">マイページの「アカウント設定」から退会手続きが可能です。退会するとメッセージ履歴・お気に入りなどすべてのデータが削除されます。削除後の復元はできませんのでご注意ください。</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">パスワードを忘れてしまいました。</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">ログイン画面の「パスワードを忘れた方はこちら」から、登録メールアドレスにパスワード再設定メールを送信できます。メールが届かない場合は迷惑メールフォルダもご確認ください。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 問い合わせ・メッセージ -->
+    <section id="about-message" class="mb-12 scroll-mt-20">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-xl bg-amber-100">
+          <svg class="h-4 w-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M21 3H3a2 2 0 00-2 2v14a2 2 0 002 2h18a2 2 0 002-2V5a2 2 0 00-2-2z" /></svg>
+        </div>
+        <h2 class="text-lg font-bold text-gray-900">問い合わせ・メッセージ</h2>
+      </div>
+      <div class="space-y-2">
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">事業所への問い合わせはどこから送りますか？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">各事業所の詳細ページ内にある「メッセージを送る」ボタンから初回メッセージを送ることができます。問い合わせ内容（見学・仕事内容・賃金など）を選択するとテンプレートが自動挿入されるので、内容を調整して送信してください。</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">返信はどこで確認できますか？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">マイページの「メッセージ」または画面上部の通知アイコンから確認できます。事業所から返信が届くとメッセージ欄に通知が表示されます。</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">返信が来ない場合はどうすればいいですか？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">事業所によっては返信まで数日かかる場合があります。1週間以上経過しても返信がない場合は、事業所ページに記載されている電話番号へ直接お問い合わせいただくことをおすすめします。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 就労支援サービスについて -->
+    <section id="about-welfare" class="mb-12 scroll-mt-20">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-xl bg-green-100">
+          <svg class="h-4 w-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+        </div>
+        <h2 class="text-lg font-bold text-gray-900">就労支援サービスについて</h2>
+      </div>
+      <div class="space-y-2">
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">利用するのに費用はかかりますか？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">就労支援サービスは原則として費用の9割を国・自治体が負担します。自己負担は世帯収入に応じた月額上限（0〜9,300円）が設定されており、生活保護受給者や住民税非課税世帯の方は0円です。詳しくはお住まいの市区町村窓口にご確認ください。</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">障害者手帳がなくても就労支援サービスを利用できますか？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">障害者手帳がなくても、医師の診断書や意見書があれば「障害福祉サービス受給者証」を取得して利用できる場合があります。発達障害・精神疾患・難病など、手帳の交付対象外でも利用できるケースがあります。まずはお住まいの市区町村の障害福祉窓口にご相談ください。</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">受給者証の取得にはどれくらいかかりますか？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">申請から受給者証の発行まで、一般的に1〜2か月程度かかります。お住まいの市区町村によって異なります。多くの事業所では受給者証の取得サポートも行っています。まずは気になる事業所に相談するのもおすすめです。</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">仕事をしながら就労支援サービスを利用できますか？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">就労移行支援・就労継続支援は原則として就労支援サービス専用のため、他の仕事と並行しての利用は難しい場合があります。ただし、一部の事業所では週1〜2日からの利用や土曜開所など柔軟な対応をしています。個別に事業所へご相談ください。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 事業所の方へ -->
+    <section id="about-operator" class="mb-12 scroll-mt-20">
+      <div class="flex items-center gap-3 mb-4">
+        <div class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-xl bg-gray-200">
+          <svg class="h-4 w-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+        </div>
+        <h2 class="text-lg font-bold text-gray-900">事業所の方へ</h2>
+      </div>
+      <div class="space-y-2">
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">事業所の掲載は無料ですか？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">基本情報の掲載は無料でご利用いただけます。写真・就職実績・スタッフ紹介など充実した情報を掲載できる有料プランもございます。詳しくは掲載お申し込みページをご覧ください。</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">掲載情報はどのように更新できますか？</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">事業所アカウントでログイン後、管理画面から空き状況・定員・写真・就職実績などを自由に更新できます。更新はリアルタイムで反映されます。</p>
+          </div>
+        </details>
+
+        <details class="rounded-2xl bg-white border border-gray-200 shadow-sm group">
+          <summary class="flex cursor-pointer items-start justify-between gap-3 px-5 py-4 select-none">
+            <div class="flex items-start gap-3">
+              <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-xs font-bold text-primary-700">Q</span>
+              <span class="text-sm font-semibold text-gray-900">JOBLIUM上に表示されている事業所情報が古い・誤りがあります。</span>
+            </div>
+            <svg class="h-4 w-4 flex-shrink-0 text-gray-400 mt-0.5 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </summary>
+          <div class="border-t border-gray-100 px-5 pt-3 pb-4 flex gap-3">
+            <span class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-xs font-bold text-green-700">A</span>
+            <p class="text-sm text-gray-600 leading-relaxed">未登録事業所として掲載されている情報は公的データベースをもとに表示しています。情報の訂正・削除・登録をご希望の場合は、お問い合わせフォームよりご連絡ください。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- お問い合わせ導線 -->
+    <div class="rounded-2xl bg-white border border-gray-200 shadow-sm p-6 text-center">
+      <p class="text-sm font-bold text-gray-900 mb-1">解決しない場合はお気軽にお問い合わせください</p>
+      <p class="text-xs text-gray-500 mb-4">平日 10:00〜17:00 に順次対応しています。</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="#" class="inline-flex items-center justify-center gap-2 rounded-xl bg-primary-600 px-6 py-2.5 text-sm font-bold text-white hover:bg-primary-700 transition-colors">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+          お問い合わせフォーム
+        </a>
+        <a href="25_how-to-use.html" class="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-300 px-6 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+          使い方ガイドを見る
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12 mt-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <div class="flex h-7 w-7 items-center justify-center rounded-md bg-primary-600">
+              <span class="text-xs font-bold text-white">J</span>
+            </div>
+            <span class="font-bold text-white">JOBLIUM</span>
+          </div>
+          <p class="text-xs leading-relaxed">障害者就労支援事業所検索サービス。あなたに合った働き方をサポートします。</p>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-3">サービス</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="04_facilities.html" class="hover:text-white">事業所を探す</a></li>
+            <li><a href="03_register.html" class="hover:text-white">会員登録（求職者）</a></li>
+            <li><a href="03_register.html" class="hover:text-white">事業所掲載（事業者）</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-3">サポート</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="25_how-to-use.html" class="hover:text-white">使い方ガイド</a></li>
+            <li><a href="26_faq.html" class="hover:text-white text-white">よくある質問</a></li>
+            <li><a href="#" class="hover:text-white">お問い合わせ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-white mb-3">会社情報</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-white">運営会社</a></li>
+            <li><a href="#" class="hover:text-white">プライバシーポリシー</a></li>
+            <li><a href="#" class="hover:text-white">利用規約</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-10 border-t border-gray-800 pt-6 text-center text-xs">
+        &copy; 2026 JOBLIUM All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
