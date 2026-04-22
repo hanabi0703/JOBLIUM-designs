@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JOBLIUM - 事業所応募管理</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 50:'#f0faf7',100:'#d1f5ec',200:'#a3ead8',300:'#6ed9bf',400:'#3ec4a3',500:'#1eb38a',600:'#16A177',700:'#127e5e',800:'#0e5f47',900:'#094030' }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-primary-600 shadow-sm">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+      <a href="01_top.html" class="flex items-center gap-2">
+        <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-white">
+          <span class="text-sm font-bold text-gray-900">J</span>
+        </div>
+        <span class="text-xl font-bold text-white">JOBLIUM</span>
+      </a>
+      <nav class="flex items-center gap-4">
+        <a href="13_manage-dashboard.html" class="text-sm font-medium text-white/80 hover:text-white">ダッシュボード</a>
+        <a href="08_mypage.html" class="text-sm font-medium text-white/80 hover:text-white">マイページ</a>
+        <button class="rounded-lg bg-white/20 px-3 py-1.5 text-sm font-medium text-white hover:bg-white/30">ログアウト</button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mx-auto max-w-6xl px-4 py-8">
+
+    <!-- ページタイトル -->
+    <div class="flex items-center gap-3 mb-6">
+      <a href="13_manage-dashboard.html" class="flex items-center gap-1 text-xs text-gray-400 hover:text-primary-600">
+        <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        ダッシュボードに戻る
+      </a>
+      <span class="text-gray-200">|</span>
+      <h1 class="text-xl font-bold text-gray-900">事業所応募管理</h1>
+    </div>
+
+    <!-- 集計サマリ -->
+    <div class="grid grid-cols-4 gap-4 mb-6">
+      <div class="rounded-2xl bg-white border border-gray-100 shadow-sm p-5 text-center">
+        <p class="text-2xl font-extrabold text-gray-900">12</p>
+        <p class="text-xs text-gray-500 mt-1">総応募数</p>
+      </div>
+      <div class="rounded-2xl bg-white border border-gray-100 shadow-sm p-5 text-center">
+        <p class="text-2xl font-extrabold text-amber-500">5</p>
+        <p class="text-xs text-gray-500 mt-1">未対応</p>
+      </div>
+      <div class="rounded-2xl bg-white border border-gray-100 shadow-sm p-5 text-center">
+        <p class="text-2xl font-extrabold text-blue-500">4</p>
+        <p class="text-xs text-gray-500 mt-1">対応中</p>
+      </div>
+      <div class="rounded-2xl bg-white border border-gray-100 shadow-sm p-5 text-center">
+        <p class="text-2xl font-extrabold text-primary-600">3</p>
+        <p class="text-xs text-gray-500 mt-1">完了</p>
+      </div>
+    </div>
+
+    <!-- フィルター・検索 -->
+    <div class="rounded-2xl bg-white border border-gray-100 shadow-sm p-4 mb-5">
+      <div class="flex flex-wrap items-end gap-3">
+        <div class="flex-1 min-w-48">
+          <label class="block text-xs font-semibold text-gray-500 mb-1.5">氏名で検索</label>
+          <input type="text" placeholder="例：山田 太郎" class="w-full rounded-xl border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-primary-400">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-500 mb-1.5">事業所</label>
+          <select class="rounded-xl border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-primary-400">
+            <option value="">すべて</option>
+            <option>サンシャイン就労A型センター</option>
+            <option>グリーンファーム就労支援</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-gray-500 mb-1.5">ステータス</label>
+          <select class="rounded-xl border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-primary-400">
+            <option value="">すべて</option>
+            <option>未対応</option>
+            <option>対応中</option>
+            <option>見学調整中</option>
+            <option>完了</option>
+            <option>見送り</option>
+          </select>
+        </div>
+        <button class="rounded-xl bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700 transition-colors">検索</button>
+        <button class="rounded-xl border border-gray-200 px-3 py-2 text-sm text-gray-500 hover:bg-gray-50 transition-colors">クリア</button>
+      </div>
+    </div>
+
+    <!-- 応募一覧 -->
+    <div class="rounded-2xl bg-white border border-gray-100 shadow-sm overflow-hidden">
+      <div class="px-5 py-3.5 border-b border-gray-100 bg-gray-50 flex items-center justify-between">
+        <p class="text-sm font-bold text-gray-700">応募一覧 <span class="text-gray-400 font-normal text-xs ml-1">全12件</span></p>
+        <select class="rounded-lg border border-gray-200 px-2 py-1 text-xs text-gray-600 focus:outline-none">
+          <option>新着順</option>
+          <option>古い順</option>
+          <option>未対応優先</option>
+        </select>
+      </div>
+
+      <div class="divide-y divide-gray-50">
+
+        <!-- 応募 1（未対応） -->
+        <div class="flex items-start gap-4 px-5 py-4 hover:bg-gray-50 transition-colors">
+          <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-bold text-blue-600">山</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-0.5">
+              <p class="text-sm font-bold text-gray-900">山田 太郎</p>
+              <span class="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">未対応</span>
+              <span class="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500">見学希望</span>
+            </div>
+            <p class="text-xs text-gray-500 mb-1">サンシャイン就労A型センター　・　2026年4月22日</p>
+            <p class="text-xs text-gray-600 truncate">はじめまして。見学のご相談をしたいのですが、お時間いただけますでしょうか。</p>
+          </div>
+          <div class="flex gap-2 flex-shrink-0 mt-1">
+            <select onchange="updateStatus(this)" class="rounded-lg border border-gray-200 px-2 py-1 text-xs text-gray-600 focus:outline-none focus:border-primary-400">
+              <option selected>未対応</option>
+              <option>対応中</option>
+              <option>見学調整中</option>
+              <option>完了</option>
+              <option>見送り</option>
+            </select>
+            <a href="12_message-detail.html" class="inline-flex items-center gap-1 rounded-lg bg-primary-600 px-3 py-1 text-xs font-semibold text-white hover:bg-primary-700 transition-colors">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+              返信
+            </a>
+          </div>
+        </div>
+
+        <!-- 応募 2（未対応） -->
+        <div class="flex items-start gap-4 px-5 py-4 hover:bg-gray-50 transition-colors">
+          <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-purple-100 text-sm font-bold text-purple-600">鈴</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-0.5">
+              <p class="text-sm font-bold text-gray-900">鈴木 花子</p>
+              <span class="rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">未対応</span>
+              <span class="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500">利用相談</span>
+            </div>
+            <p class="text-xs text-gray-500 mb-1">サンシャイン就労A型センター　・　2026年4月21日</p>
+            <p class="text-xs text-gray-600 truncate">工賃と仕事内容について詳しく教えていただけますか？</p>
+          </div>
+          <div class="flex gap-2 flex-shrink-0 mt-1">
+            <select onchange="updateStatus(this)" class="rounded-lg border border-gray-200 px-2 py-1 text-xs text-gray-600 focus:outline-none focus:border-primary-400">
+              <option selected>未対応</option>
+              <option>対応中</option>
+              <option>見学調整中</option>
+              <option>完了</option>
+              <option>見送り</option>
+            </select>
+            <a href="12_message-detail.html" class="inline-flex items-center gap-1 rounded-lg bg-primary-600 px-3 py-1 text-xs font-semibold text-white hover:bg-primary-700 transition-colors">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+              返信
+            </a>
+          </div>
+        </div>
+
+        <!-- 応募 3（対応中） -->
+        <div class="flex items-start gap-4 px-5 py-4 hover:bg-gray-50 transition-colors">
+          <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-green-100 text-sm font-bold text-green-600">佐</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-0.5">
+              <p class="text-sm font-bold text-gray-900">佐藤 次郎</p>
+              <span class="rounded-full bg-blue-100 px-2 py-0.5 text-xs font-semibold text-blue-700">見学調整中</span>
+              <span class="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500">見学希望</span>
+            </div>
+            <p class="text-xs text-gray-500 mb-1">サンシャイン就労A型センター　・　2026年4月18日</p>
+            <p class="text-xs text-gray-600 truncate">4月25日（土）の見学をご希望です。確認よろしくお願いします。</p>
+          </div>
+          <div class="flex gap-2 flex-shrink-0 mt-1">
+            <select onchange="updateStatus(this)" class="rounded-lg border border-gray-200 px-2 py-1 text-xs text-gray-600 focus:outline-none focus:border-primary-400">
+              <option>未対応</option>
+              <option>対応中</option>
+              <option selected>見学調整中</option>
+              <option>完了</option>
+              <option>見送り</option>
+            </select>
+            <a href="12_message-detail.html" class="inline-flex items-center gap-1 rounded-lg border border-gray-200 px-3 py-1 text-xs font-medium text-gray-600 hover:bg-gray-50 transition-colors">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+              確認
+            </a>
+          </div>
+        </div>
+
+        <!-- 応募 4（対応中） -->
+        <div class="flex items-start gap-4 px-5 py-4 hover:bg-gray-50 transition-colors">
+          <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-orange-100 text-sm font-bold text-orange-600">田</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-0.5">
+              <p class="text-sm font-bold text-gray-900">田中 美咲</p>
+              <span class="rounded-full bg-blue-100 px-2 py-0.5 text-xs font-semibold text-blue-700">対応中</span>
+              <span class="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500">利用相談</span>
+            </div>
+            <p class="text-xs text-gray-500 mb-1">グリーンファーム就労支援　・　2026年4月17日</p>
+            <p class="text-xs text-gray-600 truncate">精神障がいがありますが、農業体験はできますか？</p>
+          </div>
+          <div class="flex gap-2 flex-shrink-0 mt-1">
+            <select onchange="updateStatus(this)" class="rounded-lg border border-gray-200 px-2 py-1 text-xs text-gray-600 focus:outline-none focus:border-primary-400">
+              <option>未対応</option>
+              <option selected>対応中</option>
+              <option>見学調整中</option>
+              <option>完了</option>
+              <option>見送り</option>
+            </select>
+            <a href="12_message-detail.html" class="inline-flex items-center gap-1 rounded-lg border border-gray-200 px-3 py-1 text-xs font-medium text-gray-600 hover:bg-gray-50 transition-colors">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+              確認
+            </a>
+          </div>
+        </div>
+
+        <!-- 応募 5（完了） -->
+        <div class="flex items-start gap-4 px-5 py-4 hover:bg-gray-50 transition-colors opacity-60">
+          <div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-teal-100 text-sm font-bold text-teal-600">中</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 mb-0.5">
+              <p class="text-sm font-bold text-gray-900">中村 健太</p>
+              <span class="rounded-full bg-primary-100 px-2 py-0.5 text-xs font-semibold text-primary-700">完了</span>
+              <span class="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500">見学希望</span>
+            </div>
+            <p class="text-xs text-gray-500 mb-1">グリーンファーム就労支援　・　2026年4月10日</p>
+            <p class="text-xs text-gray-600 truncate">見学日程の確認ありがとうございました。4月15日にお伺いします。</p>
+          </div>
+          <div class="flex gap-2 flex-shrink-0 mt-1">
+            <select onchange="updateStatus(this)" class="rounded-lg border border-gray-200 px-2 py-1 text-xs text-gray-600 focus:outline-none focus:border-primary-400">
+              <option>未対応</option>
+              <option>対応中</option>
+              <option>見学調整中</option>
+              <option selected>完了</option>
+              <option>見送り</option>
+            </select>
+            <a href="12_message-detail.html" class="inline-flex items-center gap-1 rounded-lg border border-gray-200 px-3 py-1 text-xs font-medium text-gray-600 hover:bg-gray-50 transition-colors">
+              <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+              確認
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ページネーション -->
+      <div class="px-5 py-4 border-t border-gray-100 flex items-center justify-between">
+        <p class="text-xs text-gray-400">5件表示 / 全12件</p>
+        <div class="flex gap-1">
+          <button class="rounded-lg border border-gray-200 px-3 py-1.5 text-xs text-gray-400 hover:bg-gray-50">前へ</button>
+          <button class="rounded-lg bg-primary-600 px-3 py-1.5 text-xs font-semibold text-white">1</button>
+          <button class="rounded-lg border border-gray-200 px-3 py-1.5 text-xs text-gray-600 hover:bg-gray-50">2</button>
+          <button class="rounded-lg border border-gray-200 px-3 py-1.5 text-xs text-gray-600 hover:bg-gray-50">3</button>
+          <button class="rounded-lg border border-gray-200 px-3 py-1.5 text-xs text-gray-600 hover:bg-gray-50">次へ</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12 mt-12">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
+        <div>
+          <div class="flex items-center gap-2 mb-3">
+            <div class="flex h-7 w-7 items-center justify-center rounded-lg bg-primary-600">
+              <span class="text-xs font-bold text-white">J</span>
+            </div>
+            <span class="text-base font-bold text-white">JOBLIUM</span>
+          </div>
+          <p class="text-xs leading-relaxed">障害のある方の「働く」をもっと自由に。就労支援事業所の検索・比較プラットフォーム。</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-white mb-3">サービス</p>
+          <ul class="space-y-2 text-xs">
+            <li><a href="04_facilities.html" class="hover:text-white">事業所を探す</a></li>
+            <li><a href="03_register.html" class="hover:text-white">会員登録</a></li>
+            <li><a href="28_office-listing.html" class="hover:text-white">事業所掲載</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-white mb-3">サポート</p>
+          <ul class="space-y-2 text-xs">
+            <li><a href="25_how-to-use.html" class="hover:text-white">使い方ガイド</a></li>
+            <li><a href="26_faq.html" class="hover:text-white">よくある質問</a></li>
+            <li><a href="27_contact.html" class="hover:text-white">お問い合わせ</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs font-semibold text-white mb-3">会社情報</p>
+          <ul class="space-y-2 text-xs">
+            <li><a href="32_company.html" class="hover:text-white">運営会社</a></li>
+            <li><a href="30_privacy-policy.html" class="hover:text-white">プライバシーポリシー</a></li>
+            <li><a href="31_terms-of-service.html" class="hover:text-white">利用規約</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-10 border-t border-gray-800 pt-6 text-center text-xs">
+        &copy; 2026 JOBLIUM All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function updateStatus(sel) {
+      const row = sel.closest('.flex.items-start')
+      const badge = row.querySelector('.rounded-full.text-xs.font-semibold')
+      const map = {
+        '未対応':   ['bg-amber-100',   'text-amber-700'],
+        '対応中':   ['bg-blue-100',    'text-blue-700'],
+        '見学調整中':['bg-blue-100',   'text-blue-700'],
+        '完了':     ['bg-primary-100', 'text-primary-700'],
+        '見送り':   ['bg-gray-100',    'text-gray-500'],
+      }
+      badge.className = `rounded-full px-2 py-0.5 text-xs font-semibold ${map[sel.value].join(' ')}`
+      badge.textContent = sel.value
+    }
+  </script>
+
+</body>
+</html>
